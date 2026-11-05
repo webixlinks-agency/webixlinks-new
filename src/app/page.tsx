@@ -10,6 +10,7 @@ import ProcessSection from '@/components/ProcessSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import InteractiveAdvisor from '@/components/InteractiveAdvisor';
+import MarqueeTicker from '@/components/MarqueeTicker';
 import { ArrowRight, Sparkles, Layers, Cpu, Award, Compass, Calculator } from 'lucide-react';
 
 export default function Home() {
@@ -17,10 +18,10 @@ export default function Home() {
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
 
-      {/* Main Hero with GSAP 3D Interactive Console */}
+      {/* Main Hero with Spatial 3D Interactive Console & Top Marquee */}
       <HeroSection />
 
-      {/* Services Section + Subpage Link */}
+      {/* Services Bento Grid with 3D Tilt Cards */}
       <ServicesSection />
       <div style={{ textAlign: 'center', marginTop: '-30px', marginBottom: '70px' }}>
         <Link
@@ -34,7 +35,7 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Tech Stack Matrix + Subpage Link */}
+      {/* Tech Stack Matrix & System Blueprint */}
       <TechStackSection />
       <div style={{ textAlign: 'center', marginTop: '-30px', marginBottom: '70px' }}>
         <Link
@@ -48,7 +49,7 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Interactive Project Cost Estimator + Subpage Link */}
+      {/* Interactive Project Cost Estimator with 3D Output */}
       <ProjectEstimator />
       <div style={{ textAlign: 'center', marginTop: '-30px', marginBottom: '70px' }}>
         <Link
@@ -62,7 +63,10 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Case Studies + Subpage Link */}
+      {/* Reverse 3D Marquee Divider */}
+      <MarqueeTicker speed={32} reverse={true} />
+
+      {/* Case Studies & Audited Results */}
       <CaseStudiesSection />
       <div style={{ textAlign: 'center', marginTop: '-30px', marginBottom: '70px' }}>
         <Link
@@ -76,7 +80,7 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Process Section + Subpage Link */}
+      {/* 4-Phase Agile Process Section */}
       <ProcessSection />
       <div style={{ textAlign: 'center', marginTop: '-30px', marginBottom: '70px' }}>
         <Link

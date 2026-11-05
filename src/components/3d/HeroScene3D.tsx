@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
 import gsap from 'gsap';
 import {
   Globe,
@@ -15,11 +16,8 @@ import {
   Activity,
   Terminal,
   RefreshCw,
-  ExternalLink,
   Lock,
   Play,
-  Share2,
-  Check,
   TrendingUp,
   Server,
   Code2,
@@ -28,6 +26,8 @@ import {
 export default function HeroScene3D() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardStageRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
   const floatPill1Ref = useRef<HTMLDivElement>(null);
   const floatPill2Ref = useRef<HTMLDivElement>(null);
   const floatPill3Ref = useRef<HTMLDivElement>(null);
@@ -52,7 +52,7 @@ export default function HeroScene3D() {
       setWpSyncing(false);
       setWpSyncSuccess(true);
       setTimeout(() => setWpSyncSuccess(false), 3500);
-    }, 900);
+    }, 850);
   };
 
   // Trigger CRM Flow Simulation
@@ -60,12 +60,10 @@ export default function HeroScene3D() {
     if (crmRunning) return;
     setCrmRunning(true);
     setCrmStep(0);
-    const intervals = [
-      setTimeout(() => setCrmStep(1), 500),
-      setTimeout(() => setCrmStep(2), 1100),
-      setTimeout(() => setCrmStep(3), 1700),
-      setTimeout(() => setCrmRunning(false), 2200),
-    ];
+    setTimeout(() => setCrmStep(1), 500);
+    setTimeout(() => setCrmStep(2), 1100);
+    setTimeout(() => setCrmStep(3), 1700);
+    setTimeout(() => setCrmRunning(false), 2200);
   };
 
   // Trigger Backend Benchmark Simulation
@@ -83,7 +81,106 @@ export default function HeroScene3D() {
     }, 120);
   };
 
-  // GSAP 3D Interactive Perspective Tilt & Organic Float
+  // Three.js Ambient 3D Spatial Wireframe Sphere in Background (Inspired by Orisa & Obliq)
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+    camera.position.z = 5.2;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance',
+    });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Outer Spatial Icosahedron Wireframe
+    const geometry = new THREE.IcosahedronGeometry(2.3, 2);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x10b981,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.18,
+    });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    // Inner Glowing Core Node
+    const innerGeo = new THREE.OctahedronGeometry(1.2, 1);
+    const innerMat = new THREE.MeshBasicMaterial({
+      color: 0x06b6d4,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.25,
+    });
+    const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+    scene.add(innerMesh);
+
+    // Floating Points Cloud
+    const particlesCount = 75;
+    const posArray = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 6;
+    }
+    const particlesGeo = new THREE.BufferGeometry();
+    particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMat = new THREE.PointsMaterial({
+      size: 0.045,
+      color: 0x10b981,
+      transparent: true,
+      opacity: 0.45,
+    });
+    const particleMesh = new THREE.Points(particlesGeo, particlesMat);
+    scene.add(particleMesh);
+
+    let animationFrameId: number;
+    let lastTime = performance.now();
+
+    const animate = () => {
+      const now = performance.now();
+      const delta = (now - lastTime) * 0.001;
+      lastTime = now;
+
+      sphere.rotation.x += delta * 0.15;
+      sphere.rotation.y += delta * 0.22;
+      innerMesh.rotation.x -= delta * 0.2;
+      innerMesh.rotation.y -= delta * 0.25;
+      particleMesh.rotation.y += delta * 0.08;
+
+      renderer.render(scene, camera);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      if (!canvas) return;
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', handleResize);
+      geometry.dispose();
+      material.dispose();
+      innerGeo.dispose();
+      innerMat.dispose();
+      particlesGeo.dispose();
+      particlesMat.dispose();
+      renderer.dispose();
+    };
+  }, []);
+
+  // GSAP 3D Interactive Perspective Tilt & Harmonic Floating Physics
   useEffect(() => {
     const container = containerRef.current;
     const cardStage = cardStageRef.current;
@@ -91,7 +188,7 @@ export default function HeroScene3D() {
 
     // Harmonic floating tweens for auxiliary cards
     const float1 = gsap.to(floatPill1Ref.current, {
-      y: -10,
+      y: -12,
       duration: 3.2,
       repeat: -1,
       yoyo: true,
@@ -99,7 +196,7 @@ export default function HeroScene3D() {
     });
 
     const float2 = gsap.to(floatPill2Ref.current, {
-      y: 12,
+      y: 14,
       duration: 3.8,
       repeat: -1,
       yoyo: true,
@@ -108,7 +205,7 @@ export default function HeroScene3D() {
     });
 
     const float3 = gsap.to(floatPill3Ref.current, {
-      y: -8,
+      y: -10,
       duration: 4.2,
       repeat: -1,
       yoyo: true,
@@ -123,30 +220,30 @@ export default function HeroScene3D() {
       const y = (e.clientY - rect.top) / rect.height - 0.5;
 
       gsap.to(cardStage, {
-        rotationY: x * 16,
-        rotationX: -y * 14,
+        rotationY: x * 18,
+        rotationX: -y * 16,
         transformPerspective: 1200,
         ease: 'power2.out',
         duration: 0.6,
       });
 
       gsap.to(floatPill1Ref.current, {
-        x: x * 26,
-        y: y * 22,
+        x: x * 28,
+        y: y * 24,
         duration: 0.7,
         ease: 'power2.out',
       });
 
       gsap.to(floatPill2Ref.current, {
-        x: -x * 24,
-        y: -y * 20,
+        x: -x * 26,
+        y: -y * 22,
         duration: 0.7,
         ease: 'power2.out',
       });
 
       gsap.to(floatPill3Ref.current, {
-        x: x * 18,
-        y: -y * 18,
+        x: x * 20,
+        y: -y * 20,
         duration: 0.7,
         ease: 'power2.out',
       });
@@ -186,9 +283,23 @@ export default function HeroScene3D() {
         position: 'relative',
         width: '100%',
         perspective: '1200px',
-        padding: '16px 0',
+        padding: '20px 0',
       }}
     >
+      {/* Three.js Ambient 3D Spatial Canvas Layer */}
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: 'absolute',
+          top: '-20px',
+          left: '-20px',
+          width: 'calc(100% + 40px)',
+          height: 'calc(100% + 40px)',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+
       {/* 3D Interactive Stage */}
       <div
         ref={cardStageRef}
@@ -197,17 +308,18 @@ export default function HeroScene3D() {
           transition: 'transform 0.1s ease-out',
           position: 'relative',
           width: '100%',
+          zIndex: 2,
         }}
       >
         {/* Main Workstation Browser Glass Console */}
         <div
           style={{
-            background: 'rgba(255, 255, 255, 0.92)',
+            background: 'rgba(255, 255, 255, 0.94)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
             borderRadius: '24px',
             border: '1px solid rgba(15, 23, 42, 0.09)',
-            boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 35px rgba(16, 185, 129, 0.1)',
+            boxShadow: '0 30px 70px -15px rgba(15, 23, 42, 0.14), 0 0 40px rgba(16, 185, 129, 0.12)',
             overflow: 'hidden',
           }}
         >
@@ -500,10 +612,10 @@ export default function HeroScene3D() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                   <div>
                     <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
-                      Enterprise CRM & Automated Revenue Flow
+                      Enterprise CRM &amp; Automated Revenue Flow
                     </h3>
                     <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                      Bidirectional data sync across Salesforce, HubSpot, Zoho CRM & Custom Webhook Events.
+                      Bidirectional data sync across Salesforce, HubSpot, Zoho CRM &amp; Custom Webhook Events.
                     </p>
                   </div>
                   <button
@@ -535,7 +647,6 @@ export default function HeroScene3D() {
                     border: '1px solid rgba(15, 23, 42, 0.06)',
                   }}
                 >
-                  {/* Step 1 */}
                   <div
                     style={{
                       background: crmStep >= 0 ? '#ffffff' : 'rgba(255,255,255,0.5)',
@@ -556,7 +667,6 @@ export default function HeroScene3D() {
                     </div>
                   </div>
 
-                  {/* Step 2 */}
                   <div
                     style={{
                       background: crmStep >= 1 ? '#ffffff' : 'rgba(255,255,255,0.5)',
@@ -577,7 +687,6 @@ export default function HeroScene3D() {
                     </div>
                   </div>
 
-                  {/* Step 3 */}
                   <div
                     style={{
                       background: crmStep >= 2 ? '#ffffff' : 'rgba(255,255,255,0.5)',
@@ -598,7 +707,6 @@ export default function HeroScene3D() {
                     </div>
                   </div>
 
-                  {/* Step 4 */}
                   <div
                     style={{
                       background: crmStep >= 3 ? '#ffffff' : 'rgba(255,255,255,0.5)',
@@ -833,11 +941,11 @@ export default function HeroScene3D() {
                 {/* Audit Checkpoints */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '0.72rem', color: '#334155' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <Check size={13} color="#10b981" />
+                    <CheckCircle2 size={13} color="#10b981" />
                     <span>Schema.org Organization, FAQ &amp; Product graphs</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <Check size={13} color="#10b981" />
+                    <CheckCircle2 size={13} color="#10b981" />
                     <span>Cumulative Layout Shift (CLS): 0.00</span>
                   </div>
                 </div>
@@ -846,7 +954,7 @@ export default function HeroScene3D() {
           </div>
         </div>
 
-        {/* Floating Auxiliary Card 1: Social Proof & Client Reviews (Inspired by Image 4 Optibiz) */}
+        {/* Floating Auxiliary Card 1: Social Proof & Client Reviews */}
         <div
           ref={floatPill1Ref}
           style={{
@@ -865,7 +973,6 @@ export default function HeroScene3D() {
             zIndex: 10,
           }}
         >
-          {/* Overlapping Avatars */}
           <div style={{ display: 'flex' }}>
             <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#10b981', color: '#fff', fontSize: '0.7rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff' }}>
               W
@@ -887,7 +994,7 @@ export default function HeroScene3D() {
           </div>
         </div>
 
-        {/* Floating Auxiliary Card 2: Live Speed Dial (Inspired by Image 1 SalesSync) */}
+        {/* Floating Auxiliary Card 2: Live Speed Dial */}
         <div
           ref={floatPill2Ref}
           style={{

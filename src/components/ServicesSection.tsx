@@ -17,6 +17,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import Link from 'next/link';
+import TiltCard from '@/components/3d/TiltCard';
 
 interface ServiceItem {
   id: string;
@@ -230,7 +231,7 @@ export default function ServicesSection() {
           })}
         </div>
 
-        {/* Services Bento Grid (Inspired by Image 3 "Design Futures" & Image 2 "Code Craft") */}
+        {/* Services Bento Grid with 3D Tilt Cards */}
         <div
           style={{
             display: 'grid',
@@ -242,133 +243,143 @@ export default function ServicesSection() {
           {filteredServices.map((service) => {
             const IconComponent = service.icon;
             return (
-              <div
+              <TiltCard
                 key={service.id}
-                className="glass-panel"
+                maxTilt={10}
+                perspective={1200}
                 style={{
-                  padding: '32px',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  borderRadius: '24px',
-                  background: 'rgba(255, 255, 255, 0.92)',
-                  border: '1px solid rgba(15, 23, 42, 0.08)',
                 }}
               >
-                <div>
-                  {/* Top Header: Number Pill & Metric Badge */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '20px',
-                    }}
-                  >
-                    <span className="pill-number">{service.number}</span>
-                    <span
-                      style={{
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        color: '#059669',
-                        background: 'rgba(16, 185, 129, 0.1)',
-                        padding: '3px 10px',
-                        borderRadius: '9999px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '4px',
-                      }}
-                    >
-                      <Zap size={11} color="#10b981" />
-                      <span>{service.metricBadge}</span>
-                    </span>
-                  </div>
-
-                  {/* Icon & Title */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
+                <div
+                  className="glass-panel"
+                  style={{
+                    padding: '32px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    borderRadius: '24px',
+                    background: 'rgba(255, 255, 255, 0.94)',
+                    border: '1px solid rgba(15, 23, 42, 0.08)',
+                  }}
+                >
+                  <div>
+                    {/* Top Header: Number Pill & Metric Badge */}
                     <div
                       style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '12px',
-                        background: 'rgba(16, 185, 129, 0.1)',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#059669',
-                        flexShrink: 0,
+                        justifyContent: 'space-between',
+                        marginBottom: '20px',
                       }}
                     >
-                      <IconComponent size={24} />
+                      <span className="pill-number">{service.number}</span>
+                      <span
+                        style={{
+                          fontSize: '0.72rem',
+                          fontWeight: 700,
+                          color: '#059669',
+                          background: 'rgba(16, 185, 129, 0.1)',
+                          padding: '3px 10px',
+                          borderRadius: '9999px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                        }}
+                      >
+                        <Zap size={11} color="#10b981" />
+                        <span>{service.metricBadge}</span>
+                      </span>
                     </div>
-                    <div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', lineHeight: 1.25 }}>
-                        {service.title}
-                      </h3>
-                      <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 700 }}>
-                        {service.subtitle}
+
+                    {/* Icon & Title */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
+                      <div
+                        style={{
+                          width: '46px',
+                          height: '46px',
+                          borderRadius: '12px',
+                          background: 'rgba(16, 185, 129, 0.1)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#059669',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <IconComponent size={24} />
+                      </div>
+                      <div>
+                        <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', lineHeight: 1.25 }}>
+                          {service.title}
+                        </h3>
+                        <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 700 }}>
+                          {service.subtitle}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
+                      {service.description}
+                    </p>
+
+                    {/* Deliverables Checklist */}
+                    <div style={{ marginBottom: '24px' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
+                        Key Deliverables
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        {service.deliverables.map((item, idx) => (
+                          <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
+                            <CheckCircle2 size={15} color="#10b981" style={{ flexShrink: 0, marginTop: '3px' }} />
+                            <span>{item}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
 
-                  {/* Description */}
-                  <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
-                    {service.description}
-                  </p>
-
-                  {/* Deliverables Checklist */}
-                  <div style={{ marginBottom: '24px' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
-                      Key Deliverables
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                      {service.deliverables.map((item, idx) => (
-                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
-                          <CheckCircle2 size={15} color="#10b981" style={{ flexShrink: 0, marginTop: '3px' }} />
-                          <span>{item}</span>
-                        </div>
+                  {/* Footer: Tech Stack Pills & Action Link */}
+                  <div style={{ paddingTop: '20px', borderTop: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
+                      {service.techTags.map((tag) => (
+                        <span
+                          key={tag}
+                          style={{
+                            fontSize: '0.72rem',
+                            fontFamily: 'var(--font-mono)',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            background: '#f1f5f9',
+                            color: '#334155',
+                            fontWeight: 600,
+                          }}
+                        >
+                          {tag}
+                        </span>
                       ))}
                     </div>
+
+                    <Link
+                      href="/estimator"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        fontSize: '0.84rem',
+                        fontWeight: 700,
+                        color: '#059669',
+                      }}
+                    >
+                      <span>Request Engineering Scope</span>
+                      <ArrowRight size={14} />
+                    </Link>
                   </div>
                 </div>
-
-                {/* Footer: Tech Stack Pills & Action Link */}
-                <div style={{ paddingTop: '20px', borderTop: '1px solid rgba(15, 23, 42, 0.06)' }}>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
-                    {service.techTags.map((tag) => (
-                      <span
-                        key={tag}
-                        style={{
-                          fontSize: '0.72rem',
-                          fontFamily: 'var(--font-mono)',
-                          padding: '3px 9px',
-                          borderRadius: '6px',
-                          background: '#f1f5f9',
-                          color: '#334155',
-                          fontWeight: 600,
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <Link
-                    href="/estimator"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      fontSize: '0.84rem',
-                      fontWeight: 700,
-                      color: '#059669',
-                    }}
-                  >
-                    <span>Request Engineering Scope</span>
-                    <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
+              </TiltCard>
             );
           })}
         </div>

@@ -11,6 +11,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import Link from 'next/link';
+import TiltCard from '@/components/3d/TiltCard';
 
 interface CaseStudy {
   id: string;
@@ -115,161 +116,163 @@ export default function CaseStudiesSection() {
           </p>
         </div>
 
-        {/* Selected Work Browser Showcase (Inspired by Image 3 "Design Futures") */}
-        <div
-          className="glass-panel"
-          style={{
-            borderRadius: '24px',
-            overflow: 'hidden',
-            background: 'rgba(255, 255, 255, 0.94)',
-            border: '1px solid rgba(15, 23, 42, 0.08)',
-            marginBottom: '40px',
-          }}
-        >
-          {/* Top Browser Bar */}
+        {/* Selected Work 3D Browser Showcase (Inspired by Orisa & Obliq) */}
+        <TiltCard maxTilt={6} perspective={1400} style={{ marginBottom: '40px' }}>
           <div
+            className="glass-panel"
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '14px 20px',
-              borderBottom: '1px solid rgba(15, 23, 42, 0.07)',
-              background: '#f8fafc',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              background: 'rgba(255, 255, 255, 0.94)',
+              border: '1px solid rgba(15, 23, 42, 0.08)',
+              boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.1)',
             }}
           >
-            {/* Dots & Case Title */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ display: 'flex', gap: '6px' }}>
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }} />
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }} />
-              </div>
-              <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#64748b' }}>
-                case-study://{active.id}
-              </span>
-            </div>
-
-            {/* Selector Pills */}
-            <div style={{ display: 'flex', gap: '6px' }}>
-              {caseStudies.map((study, idx) => (
-                <button
-                  key={study.id}
-                  onClick={() => setSelectedCase(idx)}
-                  style={{
-                    padding: '4px 12px',
-                    borderRadius: '9999px',
-                    fontSize: '0.74rem',
-                    fontWeight: selectedCase === idx ? 700 : 500,
-                    color: selectedCase === idx ? '#059669' : '#64748b',
-                    background: selectedCase === idx ? 'rgba(16, 185, 129, 0.12)' : 'transparent',
-                    border: selectedCase === idx ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid transparent',
-                  }}
-                >
-                  {study.number} {study.client.split(' ')[0]}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Body Content */}
-          <div style={{ padding: '36px' }}>
+            {/* Top Browser Bar */}
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: '1.2fr 1fr',
-                gap: '36px',
+                display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '14px 20px',
+                borderBottom: '1px solid rgba(15, 23, 42, 0.07)',
+                background: '#f8fafc',
               }}
-              className="case-study-grid"
             >
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                  <span className="pill-number">{active.number}</span>
-                  <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#059669' }}>
-                    {active.industry}
-                  </span>
+              {/* Dots & Case Title */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444' }} />
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b' }} />
+                  <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981' }} />
                 </div>
-
-                <h3 style={{ fontSize: 'clamp(1.4rem, 2.4vw, 1.9rem)', fontWeight: 800, color: '#090d16', lineHeight: 1.25, marginBottom: '16px' }}>
-                  {active.title}
-                </h3>
-
-                <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.65, marginBottom: '24px' }}>
-                  {active.summary}
-                </p>
-
-                {/* Tech Pills */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '24px' }}>
-                  {active.stack.map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        fontSize: '0.74rem',
-                        fontFamily: 'var(--font-mono)',
-                        padding: '4px 10px',
-                        borderRadius: '6px',
-                        background: '#f1f5f9',
-                        color: '#334155',
-                        fontWeight: 600,
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <Link href="/estimator" className="btn-primary" style={{ padding: '10px 22px', fontSize: '0.86rem' }}>
-                  <span>Request Similar Architecture</span>
-                  <ArrowRight size={15} />
-                </Link>
+                <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#64748b' }}>
+                  case-study://{active.id}
+                </span>
               </div>
 
-              {/* Verified Metrics Cards */}
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '14px',
-                  background: '#f8fafc',
-                  padding: '24px',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(15, 23, 42, 0.06)',
-                }}
-              >
-                <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>
-                  Audited Project Performance
-                </div>
-
-                {active.metrics.map((m, i) => (
-                  <div
-                    key={i}
+              {/* Selector Pills */}
+              <div style={{ display: 'flex', gap: '6px' }}>
+                {caseStudies.map((study, idx) => (
+                  <button
+                    key={study.id}
+                    onClick={() => setSelectedCase(idx)}
                     style={{
-                      background: '#ffffff',
-                      padding: '16px 20px',
-                      borderRadius: '14px',
-                      border: '1px solid rgba(15, 23, 42, 0.06)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
+                      padding: '4px 12px',
+                      borderRadius: '9999px',
+                      fontSize: '0.74rem',
+                      fontWeight: selectedCase === idx ? 700 : 500,
+                      color: selectedCase === idx ? '#059669' : '#64748b',
+                      background: selectedCase === idx ? 'rgba(16, 185, 129, 0.12)' : 'transparent',
+                      border: selectedCase === idx ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid transparent',
                     }}
                   >
-                    <div>
-                      <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
-                        {m.value}
-                      </div>
-                      <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '4px' }}>
-                        {m.label}
-                      </div>
-                    </div>
-                    <CheckCircle2 size={20} color="#10b981" />
-                  </div>
+                    {study.number} {study.client.split(' ')[0]}
+                  </button>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Client Testimonial Card (Inspired by Image 3 & Image 4) */}
+            {/* Body Content */}
+            <div style={{ padding: '36px' }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1.2fr 1fr',
+                  gap: '36px',
+                  alignItems: 'center',
+                }}
+                className="case-study-grid"
+              >
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                    <span className="pill-number">{active.number}</span>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#059669' }}>
+                      {active.industry}
+                    </span>
+                  </div>
+
+                  <h3 style={{ fontSize: 'clamp(1.4rem, 2.4vw, 1.9rem)', fontWeight: 800, color: '#090d16', lineHeight: 1.25, marginBottom: '16px' }}>
+                    {active.title}
+                  </h3>
+
+                  <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.65, marginBottom: '24px' }}>
+                    {active.summary}
+                  </p>
+
+                  {/* Tech Pills */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '24px' }}>
+                    {active.stack.map((t) => (
+                      <span
+                        key={t}
+                        style={{
+                          fontSize: '0.74rem',
+                          fontFamily: 'var(--font-mono)',
+                          padding: '4px 10px',
+                          borderRadius: '6px',
+                          background: '#f1f5f9',
+                          color: '#334155',
+                          fontWeight: 600,
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link href="/estimator" className="btn-primary" style={{ padding: '10px 22px', fontSize: '0.86rem' }}>
+                    <span>Request Similar Architecture</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
+
+                {/* Verified Metrics Cards */}
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '14px',
+                    background: '#f8fafc',
+                    padding: '24px',
+                    borderRadius: '20px',
+                    border: '1px solid rgba(15, 23, 42, 0.06)',
+                  }}
+                >
+                  <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>
+                    Audited Project Performance
+                  </div>
+
+                  {active.metrics.map((m, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        background: '#ffffff',
+                        padding: '16px 20px',
+                        borderRadius: '14px',
+                        border: '1px solid rgba(15, 23, 42, 0.06)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <div>
+                        <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
+                          {m.value}
+                        </div>
+                        <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '4px' }}>
+                          {m.label}
+                        </div>
+                      </div>
+                      <CheckCircle2 size={20} color="#10b981" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </TiltCard>
+
+        {/* Client Testimonial Card */}
         <div
           className="glass-panel"
           style={{

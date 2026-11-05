@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Zap,
 } from 'lucide-react';
+import TiltCard from '@/components/3d/TiltCard';
 
 export default function ProjectEstimator() {
   const [service, setService] = useState('fullstack');
@@ -326,106 +327,106 @@ export default function ProjectEstimator() {
             </div>
           </div>
 
-          {/* Right Column: Live Calibrated Output Card */}
-          <div
-            className="glass-panel"
-            style={{
-              padding: '36px',
-              borderRadius: '24px',
-              background: '#ffffff',
-              border: '2px solid rgba(16, 185, 129, 0.35)',
-              boxShadow: '0 20px 45px -10px rgba(16, 185, 129, 0.15)',
-              position: 'sticky',
-              top: '110px',
-            }}
-          >
+          {/* Right Column: Live Calibrated Output Card with 3D Tilt */}
+          <TiltCard maxTilt={8} perspective={1200} style={{ position: 'sticky', top: '110px' }}>
             <div
+              className="glass-panel"
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontSize: '0.76rem',
-                fontWeight: 700,
-                color: '#059669',
-                background: 'rgba(16, 185, 129, 0.12)',
-                padding: '4px 12px',
-                borderRadius: '9999px',
-                marginBottom: '16px',
+                padding: '36px',
+                borderRadius: '24px',
+                background: '#ffffff',
+                border: '2px solid rgba(16, 185, 129, 0.35)',
+                boxShadow: '0 25px 50px -10px rgba(16, 185, 129, 0.18)',
               }}
             >
-              <Sparkles size={14} />
-              <span>Calibrated Engineering Estimate</span>
-            </div>
-
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', marginBottom: '8px' }}>
-              Project Investment
-            </h3>
-
-            {/* Price Range */}
-            <div
-              style={{
-                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-                fontWeight: 800,
-                color: '#090d16',
-                lineHeight: 1.1,
-                marginBottom: '8px',
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: '6px',
-              }}
-            >
-              <span className="text-gradient-emerald">
-                ${estimate.min.toLocaleString()} – ${estimate.max.toLocaleString()}
-              </span>
-              <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600 }}>USD</span>
-            </div>
-
-            {/* Duration */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontSize: '0.92rem',
-                fontWeight: 700,
-                color: '#334155',
-                marginBottom: '20px',
-              }}
-            >
-              <Clock size={16} color="#059669" />
-              <span>Estimated Delivery: {estimate.duration} Weeks</span>
-            </div>
-
-            {/* What is included */}
-            <div style={{ marginBottom: '24px', paddingTop: '16px', borderTop: '1px solid rgba(15, 23, 42, 0.08)' }}>
-              <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', marginBottom: '10px' }}>
-                Included with every delivery
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '0.76rem',
+                  fontWeight: 700,
+                  color: '#059669',
+                  background: 'rgba(16, 185, 129, 0.12)',
+                  padding: '4px 12px',
+                  borderRadius: '9999px',
+                  marginBottom: '16px',
+                }}
+              >
+                <Sparkles size={14} />
+                <span>Calibrated Engineering Estimate</span>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.82rem', color: '#475569' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Check size={14} color="#10b981" />
-                  <span>100/100 Core Web Vitals audit &amp; guarantee</span>
+
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', marginBottom: '8px' }}>
+                Project Investment
+              </h3>
+
+              {/* Price Range */}
+              <div
+                style={{
+                  fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
+                  fontWeight: 800,
+                  color: '#090d16',
+                  lineHeight: 1.1,
+                  marginBottom: '8px',
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '6px',
+                }}
+              >
+                <span className="text-gradient-emerald">
+                  ${estimate.min.toLocaleString()} – ${estimate.max.toLocaleString()}
+                </span>
+                <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600 }}>USD</span>
+              </div>
+
+              {/* Duration */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '0.92rem',
+                  fontWeight: 700,
+                  color: '#334155',
+                  marginBottom: '20px',
+                }}
+              >
+                <Clock size={16} color="#059669" />
+                <span>Estimated Delivery: {estimate.duration} Weeks</span>
+              </div>
+
+              {/* What is included */}
+              <div style={{ marginBottom: '24px', paddingTop: '16px', borderTop: '1px solid rgba(15, 23, 42, 0.08)' }}>
+                <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', marginBottom: '10px' }}>
+                  Included with every delivery
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Check size={14} color="#10b981" />
-                  <span>Full source code ownership &amp; Git repository</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Check size={14} color="#10b981" />
-                  <span>30-day post-launch warranty &amp; direct Slack channel</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.82rem', color: '#475569' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Check size={14} color="#10b981" />
+                    <span>100/100 Core Web Vitals audit &amp; guarantee</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Check size={14} color="#10b981" />
+                    <span>Full source code ownership &amp; Git repository</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Check size={14} color="#10b981" />
+                    <span>30-day post-launch warranty &amp; direct Slack channel</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <button
-              onClick={handleApplyToForm}
-              className="btn-primary"
-              style={{ width: '100%', justifyContent: 'center', padding: '14px' }}
-            >
-              <span>Lock in This Scope &amp; Book RFP</span>
-              <ArrowRight size={16} />
-            </button>
-          </div>
+              <button
+                onClick={handleApplyToForm}
+                className="btn-primary"
+                style={{ width: '100%', justifyContent: 'center', padding: '14px' }}
+              >
+                <span>Lock in This Scope &amp; Book RFP</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </TiltCard>
         </div>
       </div>
 
