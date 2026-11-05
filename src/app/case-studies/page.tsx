@@ -65,7 +65,7 @@ export default function CaseStudiesPage() {
       <section style={{ padding: '60px 0 90px', background: '#ffffff' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 550, color: '#0f172a' }}>
               What Our Engineering Partners Say
             </h3>
             <p style={{ fontSize: '0.95rem', color: '#64748b' }}>
@@ -126,7 +126,7 @@ export default function CaseStudiesPage() {
                 </div>
 
                 <div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#0f172a' }}>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0f172a' }}>
                     {t.author}
                   </div>
                   <div style={{ fontSize: '0.8rem', color: '#64748b' }}>

@@ -65,7 +65,7 @@ export default function TechStackPage() {
       <section style={{ padding: '60px 0 90px', background: '#ffffff' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 550, color: '#0f172a' }}>
               How We Choose Your Ideal Architecture
             </h3>
             <p style={{ fontSize: '0.95rem', color: '#64748b', maxWidth: '640px', margin: '8px auto 0' }}>
@@ -89,7 +89,7 @@ export default function TechStackPage() {
                 borderTop: '4px solid #2563eb',
               }}
             >
-              <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#0f172a', marginBottom: '8px' }}>
                 Next.js vs Angular v17+
               </h4>
               <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6, marginBottom: '16px' }}>
@@ -109,7 +109,7 @@ export default function TechStackPage() {
                 borderTop: '4px solid #06b6d4',
               }}
             >
-              <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#0f172a', marginBottom: '8px' }}>
                 Headless WP vs Monolithic WP
               </h4>
               <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6, marginBottom: '16px' }}>
@@ -129,7 +129,7 @@ export default function TechStackPage() {
                 borderTop: '4px solid #ef4444',
               }}
             >
-              <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
+              <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#0f172a', marginBottom: '8px' }}>
                 Laravel vs Node.js vs Python
               </h4>
               <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.6, marginBottom: '16px' }}>

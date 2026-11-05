@@ -47,7 +47,7 @@ export default function EstimatorPage() {
       <section style={{ padding: '60px 0 90px', background: '#ffffff' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 550, color: '#0f172a' }}>
               Frequently Asked Questions About Our Pricing
             </h3>
             <p style={{ fontSize: '0.95rem', color: '#64748b' }}>
@@ -90,7 +90,7 @@ export default function EstimatorPage() {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                   <HelpCircle size={18} color="#2563eb" />
-                  <h4 style={{ fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a' }}>
                     {faq.q}
                   </h4>
                 </div>

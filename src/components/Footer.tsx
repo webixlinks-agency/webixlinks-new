@@ -33,7 +33,7 @@ export default function Footer() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
-                fontWeight: 800,
+                fontWeight: 600,
                 fontSize: '1.25rem',
                 color: '#090d16',
                 marginBottom: '14px',
@@ -55,7 +55,7 @@ export default function Footer() {
                 <Sparkles size={18} />
               </div>
               <span>
-                Aura<strong style={{ color: '#059669' }}>Stack</strong>
+                Aura<strong style={{ color: '#059669', fontWeight: 600 }}>Stack</strong>
               </span>
             </Link>
 
@@ -74,7 +74,7 @@ export default function Footer() {
                 borderRadius: '9999px',
                 border: '1px solid rgba(16, 185, 129, 0.25)',
                 fontSize: '0.74rem',
-                fontWeight: 700,
+                fontWeight: 500,
                 color: '#059669',
               }}
             >
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Column 1: Services */}
           <div>
-            <h4 style={{ fontSize: '0.84rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
+            <h4 style={{ fontSize: '0.84rem', fontWeight: 600, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
               Engineering
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem', color: '#475569' }}>
@@ -124,7 +124,7 @@ export default function Footer() {
 
           {/* Column 2: Architecture & Stacks */}
           <div>
-            <h4 style={{ fontSize: '0.84rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
+            <h4 style={{ fontSize: '0.84rem', fontWeight: 600, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
               Technologies
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem', color: '#475569' }}>
@@ -151,7 +151,7 @@ export default function Footer() {
 
           {/* Column 3: Platform & Trust */}
           <div>
-            <h4 style={{ fontSize: '0.84rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
+            <h4 style={{ fontSize: '0.84rem', fontWeight: 600, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
               Platform
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem', color: '#475569' }}>

@@ -367,7 +367,7 @@ export default function HeroScene3D() {
                 alignItems: 'center',
                 gap: '6px',
                 fontSize: '0.74rem',
-                fontWeight: 700,
+                fontWeight: 500,
                 color: '#059669',
                 background: 'rgba(16, 185, 129, 0.1)',
                 padding: '3px 10px',
@@ -400,7 +400,7 @@ export default function HeroScene3D() {
                 padding: '8px 10px',
                 borderRadius: '10px',
                 fontSize: '0.8rem',
-                fontWeight: activeTab === 'headless-wp' ? 700 : 500,
+                fontWeight: activeTab === 'headless-wp' ? 600 : 450,
                 color: activeTab === 'headless-wp' ? '#090d16' : '#64748b',
                 background: activeTab === 'headless-wp' ? '#ffffff' : 'transparent',
                 boxShadow: activeTab === 'headless-wp' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
@@ -421,7 +421,7 @@ export default function HeroScene3D() {
                 padding: '8px 10px',
                 borderRadius: '10px',
                 fontSize: '0.8rem',
-                fontWeight: activeTab === 'crm-flow' ? 700 : 500,
+                fontWeight: activeTab === 'crm-flow' ? 600 : 450,
                 color: activeTab === 'crm-flow' ? '#090d16' : '#64748b',
                 background: activeTab === 'crm-flow' ? '#ffffff' : 'transparent',
                 boxShadow: activeTab === 'crm-flow' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
@@ -442,7 +442,7 @@ export default function HeroScene3D() {
                 padding: '8px 10px',
                 borderRadius: '10px',
                 fontSize: '0.8rem',
-                fontWeight: activeTab === 'fullstack-api' ? 700 : 500,
+                fontWeight: activeTab === 'fullstack-api' ? 600 : 450,
                 color: activeTab === 'fullstack-api' ? '#090d16' : '#64748b',
                 background: activeTab === 'fullstack-api' ? '#ffffff' : 'transparent',
                 boxShadow: activeTab === 'fullstack-api' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
@@ -463,7 +463,7 @@ export default function HeroScene3D() {
                 padding: '8px 10px',
                 borderRadius: '10px',
                 fontSize: '0.8rem',
-                fontWeight: activeTab === 'seo-radar' ? 700 : 500,
+                fontWeight: activeTab === 'seo-radar' ? 600 : 450,
                 color: activeTab === 'seo-radar' ? '#090d16' : '#64748b',
                 background: activeTab === 'seo-radar' ? '#ffffff' : 'transparent',
                 boxShadow: activeTab === 'seo-radar' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
@@ -482,7 +482,7 @@ export default function HeroScene3D() {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                   <div>
-                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 550, color: '#090d16' }}>
                       Headless WordPress ↔ Next.js 16 Edge Sync
                     </h3>
                     <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
@@ -528,7 +528,7 @@ export default function HeroScene3D() {
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 500, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                         WordPress Admin / WPGraphQL
                       </span>
                       <span style={{ fontSize: '0.7rem', color: '#10b981', background: 'rgba(16,185,129,0.1)', padding: '2px 6px', borderRadius: '4px' }}>
@@ -536,13 +536,13 @@ export default function HeroScene3D() {
                       </span>
                     </div>
                     <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: '#334155', lineHeight: 1.5 }}>
-                      <div style={{ color: '#059669', fontWeight: 600 }}>mutation PublishPost &#123;</div>
+                      <div style={{ color: '#059669', fontWeight: 500 }}>mutation PublishPost &#123;</div>
                       <div style={{ paddingLeft: '12px' }}>post(id: &quot;enterprise-rev&quot;) &#123;</div>
                       <div style={{ paddingLeft: '24px', color: '#64748b' }}>status: &quot;publish&quot;</div>
                       <div style={{ paddingLeft: '24px', color: '#64748b' }}>blocks: GutenbergTree</div>
                       <div style={{ paddingLeft: '24px', color: '#64748b' }}>isrSecret: &quot;v16_ok&quot;</div>
                       <div style={{ paddingLeft: '12px' }}>&#125;</div>
-                      <div style={{ color: '#059669', fontWeight: 600 }}>&#125;</div>
+                      <div style={{ color: '#059669', fontWeight: 500 }}>&#125;</div>
                     </div>
                   </div>
 
@@ -557,7 +557,7 @@ export default function HeroScene3D() {
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 500, color: '#2563eb', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                         Next.js 16 Edge Render
                       </span>
                       <span
@@ -567,24 +567,24 @@ export default function HeroScene3D() {
                           background: wpSyncSuccess ? 'rgba(16,185,129,0.15)' : 'rgba(37,99,235,0.1)',
                           padding: '2px 6px',
                           borderRadius: '4px',
-                          fontWeight: 700,
+                          fontWeight: 500,
                         }}
                       >
                         {wpSyncSuccess ? '✓ ISR Updated: 142ms' : 'Static Cache: Fresh'}
                       </span>
                     </div>
                     <div style={{ fontSize: '0.78rem', color: '#1e293b' }}>
-                      <div style={{ fontWeight: 700, marginBottom: '4px', color: '#090d16' }}>
+                      <div style={{ fontWeight: 550, marginBottom: '4px', color: '#090d16' }}>
                         AuraStack Studios Launches Scalable Engine
                       </div>
                       <p style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '8px' }}>
                         Server Components hydrated. TTFB 18ms. Zero client hydration delays.
                       </p>
                       <div style={{ display: 'flex', gap: '6px' }}>
-                        <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '4px', background: '#f1f5f9', color: '#475569', fontWeight: 600 }}>
+                        <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '4px', background: '#f1f5f9', color: '#475569', fontWeight: 500 }}>
                           Lighthouse 100
                         </span>
-                        <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '4px', background: '#ecfdf5', color: '#059669', fontWeight: 600 }}>
+                        <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '4px', background: '#ecfdf5', color: '#059669', fontWeight: 500 }}>
                           CDN Cached
                         </span>
                       </div>
@@ -599,7 +599,7 @@ export default function HeroScene3D() {
                     <span>📦 Page Weight: <strong style={{ color: '#090d16' }}>32 kB</strong></span>
                     <span>🛡️ Security: <strong style={{ color: '#10b981' }}>Cloudflare WAF</strong></span>
                   </div>
-                  <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 500 }}>
                     ● 100% Core Web Vitals Pass
                   </span>
                 </div>
@@ -611,7 +611,7 @@ export default function HeroScene3D() {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                   <div>
-                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 550, color: '#090d16' }}>
                       Enterprise CRM &amp; Automated Revenue Flow
                     </h3>
                     <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
@@ -656,10 +656,10 @@ export default function HeroScene3D() {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 600, color: '#10b981', textTransform: 'uppercase', marginBottom: '4px' }}>
                       01 Inbound RFP
                     </div>
-                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 500, color: '#090d16', marginBottom: '4px' }}>
                       Form Capture
                     </div>
                     <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
@@ -676,10 +676,10 @@ export default function HeroScene3D() {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 600, color: '#f59e0b', textTransform: 'uppercase', marginBottom: '4px' }}>
                       02 Enrichment
                     </div>
-                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 500, color: '#090d16', marginBottom: '4px' }}>
                       Lead Scoring
                     </div>
                     <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
@@ -696,10 +696,10 @@ export default function HeroScene3D() {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#0ea5e9', textTransform: 'uppercase', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 600, color: '#0ea5e9', textTransform: 'uppercase', marginBottom: '4px' }}>
                       03 CRM Ingestion
                     </div>
-                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 500, color: '#090d16', marginBottom: '4px' }}>
                       Salesforce &amp; HubSpot
                     </div>
                     <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
@@ -716,10 +716,10 @@ export default function HeroScene3D() {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.68rem', fontWeight: 600, color: '#10b981', textTransform: 'uppercase', marginBottom: '4px' }}>
                       04 Action Fired
                     </div>
-                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 500, color: '#090d16', marginBottom: '4px' }}>
                       Slack + Calendar
                     </div>
                     <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
@@ -731,17 +731,17 @@ export default function HeroScene3D() {
                 {/* Integration Badges */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '14px', alignItems: 'center' }}>
                   <div style={{ display: 'flex', gap: '8px' }}>
-                    <span style={{ fontSize: '0.72rem', background: '#eff6ff', color: '#1d4ed8', padding: '3px 8px', borderRadius: '6px', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.72rem', background: '#eff6ff', color: '#1d4ed8', padding: '3px 8px', borderRadius: '6px', fontWeight: 500 }}>
                       Salesforce Lightning
                     </span>
-                    <span style={{ fontSize: '0.72rem', background: '#fff7ed', color: '#c2410c', padding: '3px 8px', borderRadius: '6px', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.72rem', background: '#fff7ed', color: '#c2410c', padding: '3px 8px', borderRadius: '6px', fontWeight: 500 }}>
                       HubSpot API v3
                     </span>
-                    <span style={{ fontSize: '0.72rem', background: '#ecfdf5', color: '#047857', padding: '3px 8px', borderRadius: '6px', fontWeight: 600 }}>
+                    <span style={{ fontSize: '0.72rem', background: '#ecfdf5', color: '#047857', padding: '3px 8px', borderRadius: '6px', fontWeight: 500 }}>
                       Zoho Deluge Scripts
                     </span>
                   </div>
-                  <span style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 500 }}>
                     ✓ 0.00% Lead Drop-off Rate
                   </span>
                 </div>
@@ -753,7 +753,7 @@ export default function HeroScene3D() {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                   <div>
-                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 550, color: '#090d16' }}>
                       Full-Stack &amp; Enterprise Backend Benchmark
                     </h3>
                     <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
@@ -785,7 +785,7 @@ export default function HeroScene3D() {
                       padding: '5px 12px',
                       borderRadius: '8px',
                       fontSize: '0.75rem',
-                      fontWeight: selectedBackend === 'node' ? 700 : 500,
+                      fontWeight: selectedBackend === 'node' ? 600 : 450,
                       background: selectedBackend === 'node' ? '#090d16' : '#ffffff',
                       color: selectedBackend === 'node' ? '#ffffff' : '#475569',
                       border: '1px solid rgba(15,23,42,0.08)',
@@ -799,7 +799,7 @@ export default function HeroScene3D() {
                       padding: '5px 12px',
                       borderRadius: '8px',
                       fontSize: '0.75rem',
-                      fontWeight: selectedBackend === 'laravel' ? 700 : 500,
+                      fontWeight: selectedBackend === 'laravel' ? 600 : 450,
                       background: selectedBackend === 'laravel' ? '#090d16' : '#ffffff',
                       color: selectedBackend === 'laravel' ? '#ffffff' : '#475569',
                       border: '1px solid rgba(15,23,42,0.08)',
@@ -813,7 +813,7 @@ export default function HeroScene3D() {
                       padding: '5px 12px',
                       borderRadius: '8px',
                       fontSize: '0.75rem',
-                      fontWeight: selectedBackend === 'python' ? 700 : 500,
+                      fontWeight: selectedBackend === 'python' ? 600 : 450,
                       background: selectedBackend === 'python' ? '#090d16' : '#ffffff',
                       color: selectedBackend === 'python' ? '#ffffff' : '#475569',
                       border: '1px solid rgba(15,23,42,0.08)',
@@ -836,27 +836,27 @@ export default function HeroScene3D() {
                   }}
                 >
                   <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600 }}>Throughput</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#090d16' }}>
-                      {benchmarkScore.toLocaleString()} <span style={{ fontSize: '0.75rem', fontWeight: 500, color: '#64748b' }}>req/s</span>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 500 }}>Throughput</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 600, color: '#090d16' }}>
+                      {benchmarkScore.toLocaleString()} <span style={{ fontSize: '0.75rem', fontWeight: 400, color: '#64748b' }}>req/s</span>
                     </div>
-                    <div style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>↑ 4.2x Industry Avg</div>
+                    <div style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 500 }}>↑ 4.2x Industry Avg</div>
                   </div>
 
                   <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600 }}>p99 Latency</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#059669' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 500 }}>p99 Latency</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 600, color: '#059669' }}>
                       {selectedBackend === 'node' ? '11ms' : selectedBackend === 'laravel' ? '15ms' : '13ms'}
                     </div>
-                    <div style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>Sub-second guarantees</div>
+                    <div style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 500 }}>Sub-second guarantees</div>
                   </div>
 
                   <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600 }}>Database I/O</div>
-                    <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#090d16' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 500 }}>Database I/O</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 600, color: '#090d16' }}>
                       PostgreSQL + Redis
                     </div>
-                    <div style={{ fontSize: '0.68rem', color: '#0284c7', fontWeight: 600 }}>Pool: 120 concurrent</div>
+                    <div style={{ fontSize: '0.68rem', color: '#0284c7', fontWeight: 500 }}>Pool: 120 concurrent</div>
                   </div>
                 </div>
               </div>
@@ -867,7 +867,7 @@ export default function HeroScene3D() {
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                   <div>
-                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 550, color: '#090d16' }}>
                       Google Lighthouse 100/100 &amp; Technical SEO Radar
                     </h3>
                     <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
@@ -884,7 +884,7 @@ export default function HeroScene3D() {
                       borderRadius: '9999px',
                       color: '#059669',
                       fontSize: '0.76rem',
-                      fontWeight: 700,
+                      fontWeight: 500,
                     }}
                   >
                     <CheckCircle2 size={13} color="#10b981" />
@@ -906,34 +906,34 @@ export default function HeroScene3D() {
                   }}
                 >
                   <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, color: '#059669', fontSize: '1rem' }}>
                       100
                     </div>
-                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>Performance</div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 500, color: '#090d16' }}>Performance</div>
                     <div style={{ fontSize: '0.65rem', color: '#64748b' }}>LCP: 0.28s</div>
                   </div>
 
                   <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, color: '#059669', fontSize: '1rem' }}>
                       100
                     </div>
-                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>Accessibility</div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 500, color: '#090d16' }}>Accessibility</div>
                     <div style={{ fontSize: '0.65rem', color: '#64748b' }}>WCAG 2.1 AA</div>
                   </div>
 
                   <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, color: '#059669', fontSize: '1rem' }}>
                       100
                     </div>
-                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>Best Practices</div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 500, color: '#090d16' }}>Best Practices</div>
                     <div style={{ fontSize: '0.65rem', color: '#64748b' }}>HTTPS &amp; CSP</div>
                   </div>
 
                   <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, color: '#059669', fontSize: '1rem' }}>
                       100
                     </div>
-                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>SEO Audit</div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 500, color: '#090d16' }}>SEO Audit</div>
                     <div style={{ fontSize: '0.65rem', color: '#64748b' }}>JSON-LD Schema</div>
                   </div>
                 </div>
@@ -974,21 +974,21 @@ export default function HeroScene3D() {
           }}
         >
           <div style={{ display: 'flex' }}>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#10b981', color: '#fff', fontSize: '0.7rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#10b981', color: '#fff', fontSize: '0.7rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff' }}>
               W
             </div>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#0284c7', color: '#fff', fontSize: '0.7rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-8px' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#0284c7', color: '#fff', fontSize: '0.7rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-8px' }}>
               A
             </div>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#8b5cf6', color: '#fff', fontSize: '0.7rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-8px' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#8b5cf6', color: '#fff', fontSize: '0.7rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-8px' }}>
               S
             </div>
           </div>
 
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <span style={{ color: '#f59e0b', fontSize: '0.8rem', fontWeight: 800 }}>★ 4.9/5</span>
-              <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#090d16' }}>(120+ Reviews)</span>
+              <span style={{ color: '#f59e0b', fontSize: '0.8rem', fontWeight: 600 }}>★ 4.9/5</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 500, color: '#090d16' }}>(120+ Reviews)</span>
             </div>
             <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Clutch &amp; Enterprise Verified</div>
           </div>
@@ -1028,10 +1028,10 @@ export default function HeroScene3D() {
             <TrendingUp size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#090d16' }}>
+            <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#090d16' }}>
               +340% Pipeline Speed
             </div>
-            <div style={{ fontSize: '0.68rem', color: '#059669', fontWeight: 600 }}>
+            <div style={{ fontSize: '0.68rem', color: '#059669', fontWeight: 500 }}>
               Average client conversion gain
             </div>
           </div>
@@ -1054,7 +1054,7 @@ export default function HeroScene3D() {
             alignItems: 'center',
             gap: '8px',
             fontSize: '0.74rem',
-            fontWeight: 700,
+            fontWeight: 500,
             color: '#334155',
             zIndex: 10,
           }}

@@ -157,7 +157,7 @@ export default function InteractiveAdvisor() {
               <Sparkles size={14} />
             </div>
             <div style={{ textAlign: 'left' }}>
-              <div style={{ fontSize: '0.82rem', fontWeight: 800, lineHeight: 1.1 }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 600, lineHeight: 1.1 }}>
                 Interactive Scope Advisor
               </div>
               <div style={{ fontSize: '0.68rem', color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -216,7 +216,7 @@ export default function InteractiveAdvisor() {
                 <Sparkles size={16} />
               </div>
               <div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 800 }}>AuraStack Scope Advisor</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>AuraStack Scope Advisor</div>
                 <div style={{ fontSize: '0.7rem', color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <span className="pulse-dot" style={{ width: '5px', height: '5px' }} />
                   <span>Real-Time Architecture Engine</span>
@@ -250,7 +250,7 @@ export default function InteractiveAdvisor() {
               borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
             }}
           >
-            <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '8px' }}>
+            <div style={{ fontSize: '0.7rem', fontWeight: 500, color: '#64748b', textTransform: 'uppercase', marginBottom: '8px' }}>
               1-Click Architecture Prompts
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -267,7 +267,7 @@ export default function InteractiveAdvisor() {
                       padding: '5px 10px',
                       borderRadius: '9999px',
                       fontSize: '0.74rem',
-                      fontWeight: 600,
+                      fontWeight: 500,
                       background: '#ffffff',
                       color: '#334155',
                       border: '1px solid rgba(15, 23, 42, 0.08)',
@@ -327,7 +327,7 @@ export default function InteractiveAdvisor() {
                         border: '1px solid rgba(16, 185, 129, 0.3)',
                       }}
                     >
-                      <div style={{ fontWeight: 800, color: '#090d16', fontSize: '0.88rem', marginBottom: '4px' }}>
+                      <div style={{ fontWeight: 600, color: '#090d16', fontSize: '0.88rem', marginBottom: '4px' }}>
                         {msg.data.title}
                       </div>
 
@@ -346,7 +346,7 @@ export default function InteractiveAdvisor() {
                               color: '#059669',
                               padding: '2px 6px',
                               borderRadius: '4px',
-                              fontWeight: 600,
+                              fontWeight: 500,
                             }}
                           >
                             {item}
@@ -354,7 +354,7 @@ export default function InteractiveAdvisor() {
                         ))}
                       </div>
 
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#334155', fontWeight: 700, paddingTop: '6px', borderTop: '1px solid #f1f5f9' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#334155', fontWeight: 500, paddingTop: '6px', borderTop: '1px solid #f1f5f9' }}>
                         <span>⏱ Timeline: {msg.data.timeline}</span>
                         <span style={{ color: '#059669' }}>✓ Verified Architecture</span>
                       </div>

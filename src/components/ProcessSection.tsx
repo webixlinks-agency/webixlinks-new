@@ -110,7 +110,7 @@ export default function ProcessSection() {
                     </div>
                   </div>
 
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#090d16', marginBottom: '12px', lineHeight: 1.3 }}>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 550, color: '#090d16', marginBottom: '12px', lineHeight: 1.3 }}>
                     {item.title}
                   </h3>
 
@@ -120,10 +120,10 @@ export default function ProcessSection() {
                 </div>
 
                 <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(15, 23, 42, 0.06)' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 600, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
                     Milestone Deliverable
                   </div>
-                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#090d16' }}>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#090d16' }}>
                     {item.deliverable}
                   </div>
                 </div>

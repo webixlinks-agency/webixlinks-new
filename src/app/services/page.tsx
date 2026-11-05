@@ -74,7 +74,7 @@ export default function ServicesPage() {
             }}
           >
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a' }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 550, color: '#0f172a' }}>
                 Every Service Engagement Includes:
               </h3>
             </div>
@@ -107,7 +107,7 @@ export default function ServicesPage() {
                 <div key={idx} style={{ display: 'flex', gap: '12px' }}>
                   <CheckCircle2 size={20} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <h4 style={{ fontSize: '1rem', fontWeight: 800, color: '#0f172a', marginBottom: '4px' }}>
+                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', marginBottom: '4px' }}>
                       {item.title}
                     </h4>
                     <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.55 }}>

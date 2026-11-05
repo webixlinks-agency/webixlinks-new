@@ -187,12 +187,12 @@ export default function CaseStudiesSection() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                     <span className="pill-number">{active.number}</span>
-                    <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#059669' }}>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 500, color: '#059669' }}>
                       {active.industry}
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: 'clamp(1.4rem, 2.4vw, 1.9rem)', fontWeight: 800, color: '#090d16', lineHeight: 1.25, marginBottom: '16px' }}>
+                  <h3 style={{ fontSize: 'clamp(1.4rem, 2.4vw, 1.9rem)', fontWeight: 550, color: '#090d16', lineHeight: 1.25, marginBottom: '16px' }}>
                     {active.title}
                   </h3>
 
@@ -212,7 +212,7 @@ export default function CaseStudiesSection() {
                           borderRadius: '6px',
                           background: '#f1f5f9',
                           color: '#334155',
-                          fontWeight: 600,
+                          fontWeight: 500,
                         }}
                       >
                         {t}
@@ -238,7 +238,7 @@ export default function CaseStudiesSection() {
                     border: '1px solid rgba(15, 23, 42, 0.06)',
                   }}
                 >
-                  <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>
+                  <div style={{ fontSize: '0.74rem', fontWeight: 600, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>
                     Audited Project Performance
                   </div>
 
@@ -256,7 +256,7 @@ export default function CaseStudiesSection() {
                       }}
                     >
                       <div>
-                        <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
+                        <div style={{ fontSize: '1.6rem', fontWeight: 600, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
                           {m.value}
                         </div>
                         <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '4px' }}>
@@ -288,24 +288,24 @@ export default function CaseStudiesSection() {
           }}
         >
           <div style={{ maxWidth: '780px' }}>
-            <div style={{ color: '#10b981', fontSize: '1.5rem', fontWeight: 800, marginBottom: '6px' }}>“</div>
+            <div style={{ color: '#10b981', fontSize: '1.5rem', fontWeight: 600, marginBottom: '6px' }}>“</div>
             <p style={{ fontSize: '1.02rem', fontStyle: 'italic', color: '#1e293b', lineHeight: 1.6, marginBottom: '14px' }}>
               AuraStack Studios migrated our entire enterprise WordPress infrastructure to Headless Next.js in 6 weeks without losing a single ranking. Our Core Web Vitals score hit 100/100, and checkout conversion improved by 74%.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#059669', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#059669', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.85rem' }}>
                 JP
               </div>
               <div>
-                <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#090d16' }}>James Parker</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#090d16' }}>James Parker</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>VP of Engineering, Velox Luxury Retail</div>
               </div>
             </div>
           </div>
 
           <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#f59e0b', fontSize: '1rem', fontWeight: 800, marginBottom: '4px' }}>★★★★★ (5.0/5.0)</div>
-            <div style={{ fontSize: '0.76rem', color: '#059669', fontWeight: 700 }}>✓ Verified Clutch Enterprise Review</div>
+            <div style={{ color: '#f59e0b', fontSize: '1rem', fontWeight: 600, marginBottom: '4px' }}>★★★★★ (5.0/5.0)</div>
+            <div style={{ fontSize: '0.76rem', color: '#059669', fontWeight: 500 }}>✓ Verified Clutch Enterprise Review</div>
           </div>
         </div>
       </div>

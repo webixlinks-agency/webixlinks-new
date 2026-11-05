@@ -71,8 +71,8 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
-              fontWeight: 800,
-              fontSize: '1.25rem',
+              fontWeight: 600,
+              fontSize: '1.22rem',
               letterSpacing: '-0.025em',
               color: '#090d16',
             }}
@@ -93,7 +93,7 @@ export default function Navbar() {
               <Sparkles size={18} />
             </div>
             <span>
-              Aura<strong style={{ color: '#059669' }}>Stack</strong>
+              Aura<strong style={{ color: '#059669', fontWeight: 600 }}>Stack</strong>
             </span>
           </Link>
 
@@ -115,7 +115,7 @@ export default function Navbar() {
                   style={{
                     padding: '8px 14px',
                     fontSize: '0.88rem',
-                    fontWeight: isActive ? 700 : 500,
+                    fontWeight: isActive ? 600 : 500,
                     color: isActive ? '#059669' : '#334155',
                     borderRadius: '9999px',
                     background: isActive ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
@@ -191,7 +191,7 @@ export default function Navbar() {
                   style={{
                     padding: '10px 16px',
                     fontSize: '0.92rem',
-                    fontWeight: isActive ? 700 : 500,
+                    fontWeight: isActive ? 600 : 500,
                     color: isActive ? '#059669' : '#090d16',
                     borderRadius: '12px',
                     background: isActive ? 'rgba(16, 185, 129, 0.08)' : 'transparent',

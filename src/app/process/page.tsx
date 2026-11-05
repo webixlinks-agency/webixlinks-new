@@ -65,7 +65,7 @@ export default function ProcessPage() {
       <section style={{ padding: '60px 0 90px', background: '#ffffff' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 550, color: '#0f172a' }}>
               How We Maintain Engineering Excellence
             </h3>
             <p style={{ fontSize: '0.95rem', color: '#64748b' }}>
@@ -131,7 +131,7 @@ export default function ProcessPage() {
                   >
                     <Icon size={22} />
                   </div>
-                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
+                  <h4 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#0f172a', marginBottom: '8px' }}>
                     {item.title}
                   </h4>
                   <p style={{ fontSize: '0.86rem', color: '#64748b', lineHeight: 1.6 }}>

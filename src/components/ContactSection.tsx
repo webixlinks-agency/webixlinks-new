@@ -112,7 +112,7 @@ export default function ContactSection() {
                   alignItems: 'center',
                   gap: '8px',
                   fontSize: '0.82rem',
-                  fontWeight: 700,
+                  fontWeight: 500,
                   color: '#10b981',
                   marginBottom: '16px',
                 }}
@@ -132,7 +132,7 @@ export default function ContactSection() {
               <h3
                 style={{
                   fontSize: '1.45rem',
-                  fontWeight: 800,
+                  fontWeight: 550,
                   color: '#0f172a',
                   marginBottom: '12px',
                 }}
@@ -152,7 +152,7 @@ export default function ContactSection() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontWeight: 700,
+                      fontWeight: 600,
                       fontSize: '0.85rem',
                       flexShrink: 0,
                     }}
@@ -160,7 +160,7 @@ export default function ContactSection() {
                     1
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0f172a' }}>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 500, color: '#0f172a' }}>
                       Prompt NDA & Architecture Review
                     </div>
                     <div style={{ fontSize: '0.84rem', color: '#64748b' }}>
@@ -180,7 +180,7 @@ export default function ContactSection() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontWeight: 700,
+                      fontWeight: 600,
                       fontSize: '0.85rem',
                       flexShrink: 0,
                     }}
@@ -188,7 +188,7 @@ export default function ContactSection() {
                     2
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0f172a' }}>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 500, color: '#0f172a' }}>
                       30-Minute Video Discovery Call
                     </div>
                     <div style={{ fontSize: '0.84rem', color: '#64748b' }}>
@@ -208,7 +208,7 @@ export default function ContactSection() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontWeight: 700,
+                      fontWeight: 600,
                       fontSize: '0.85rem',
                       flexShrink: 0,
                     }}
@@ -216,7 +216,7 @@ export default function ContactSection() {
                     3
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0f172a' }}>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 500, color: '#0f172a' }}>
                       Firm Fixed Scope & Sprint Roadmap
                     </div>
                     <div style={{ fontSize: '0.84rem', color: '#64748b' }}>
@@ -285,7 +285,7 @@ export default function ContactSection() {
                 <h3
                   style={{
                     fontSize: '1.6rem',
-                    fontWeight: 800,
+                    fontWeight: 550,
                     color: '#0f172a',
                     marginBottom: '10px',
                   }}
@@ -316,7 +316,7 @@ export default function ContactSection() {
                 <h3
                   style={{
                     fontSize: '1.35rem',
-                    fontWeight: 800,
+                    fontWeight: 550,
                     color: '#0f172a',
                     marginBottom: '6px',
                   }}
@@ -347,7 +347,7 @@ export default function ContactSection() {
                       style={{
                         display: 'block',
                         fontSize: '0.82rem',
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: '#334155',
                         marginBottom: '6px',
                       }}
@@ -379,7 +379,7 @@ export default function ContactSection() {
                       style={{
                         display: 'block',
                         fontSize: '0.82rem',
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: '#334155',
                         marginBottom: '6px',
                       }}
@@ -421,7 +421,7 @@ export default function ContactSection() {
                       style={{
                         display: 'block',
                         fontSize: '0.82rem',
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: '#334155',
                         marginBottom: '6px',
                       }}
@@ -452,7 +452,7 @@ export default function ContactSection() {
                       style={{
                         display: 'block',
                         fontSize: '0.82rem',
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: '#334155',
                         marginBottom: '6px',
                       }}
@@ -488,7 +488,7 @@ export default function ContactSection() {
                     style={{
                       display: 'block',
                       fontSize: '0.82rem',
-                      fontWeight: 700,
+                      fontWeight: 500,
                       color: '#334155',
                       marginBottom: '8px',
                     }}
@@ -513,7 +513,7 @@ export default function ContactSection() {
                             borderRadius: '10px',
                             cursor: 'pointer',
                             fontSize: '0.78rem',
-                            fontWeight: 600,
+                            fontWeight: 500,
                             display: 'flex',
                             alignItems: 'center',
                             gap: '8px',
@@ -544,7 +544,7 @@ export default function ContactSection() {
                     style={{
                       display: 'block',
                       fontSize: '0.82rem',
-                      fontWeight: 700,
+                      fontWeight: 500,
                       color: '#334155',
                       marginBottom: '6px',
                     }}

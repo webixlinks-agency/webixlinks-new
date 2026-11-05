@@ -279,7 +279,7 @@ export default function ServicesSection() {
                       <span
                         style={{
                           fontSize: '0.72rem',
-                          fontWeight: 700,
+                          fontWeight: 500,
                           color: '#059669',
                           background: 'rgba(16, 185, 129, 0.1)',
                           padding: '3px 10px',
@@ -312,10 +312,10 @@ export default function ServicesSection() {
                         <IconComponent size={24} />
                       </div>
                       <div>
-                        <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', lineHeight: 1.25 }}>
+                        <h3 style={{ fontSize: '1.25rem', fontWeight: 550, color: '#090d16', lineHeight: 1.25 }}>
                           {service.title}
                         </h3>
-                        <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 700 }}>
+                        <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 500 }}>
                           {service.subtitle}
                         </div>
                       </div>
@@ -328,7 +328,7 @@ export default function ServicesSection() {
 
                     {/* Deliverables Checklist */}
                     <div style={{ marginBottom: '24px' }}>
-                      <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
                         Key Deliverables
                       </div>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -355,7 +355,7 @@ export default function ServicesSection() {
                             borderRadius: '6px',
                             background: '#f1f5f9',
                             color: '#334155',
-                            fontWeight: 600,
+                            fontWeight: 500,
                           }}
                         >
                           {tag}
@@ -370,7 +370,7 @@ export default function ServicesSection() {
                         alignItems: 'center',
                         gap: '6px',
                         fontSize: '0.84rem',
-                        fontWeight: 700,
+                        fontWeight: 500,
                         color: '#059669',
                       }}
                     >

@@ -46,7 +46,7 @@ export default function ContactPage() {
       <section style={{ padding: '60px 0 90px', background: '#ffffff' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#0f172a' }}>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 550, color: '#0f172a' }}>
               Global Engineering Presence
             </h3>
             <p style={{ fontSize: '0.95rem', color: '#64748b' }}>
@@ -97,11 +97,11 @@ export default function ContactPage() {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
                   <MapPin size={18} color="#2563eb" />
-                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>
+                  <h4 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#0f172a' }}>
                     {hub.city}
                   </h4>
                 </div>
-                <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#2563eb', marginBottom: '8px', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 500, color: '#2563eb', marginBottom: '8px', textTransform: 'uppercase' }}>
                   {hub.region}
                 </div>
                 <p style={{ fontSize: '0.86rem', color: '#64748b', marginBottom: '12px' }}>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={`mailto:${hub.email}`}
-                  style={{ fontSize: '0.84rem', color: '#0f172a', fontWeight: 600, textDecoration: 'underline' }}
+                  style={{ fontSize: '0.84rem', color: '#0f172a', fontWeight: 500, textDecoration: 'underline' }}
                 >
                   {hub.email}
                 </a>

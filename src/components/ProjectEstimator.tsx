@@ -128,7 +128,7 @@ export default function ProjectEstimator() {
                 style={{
                   display: 'block',
                   fontSize: '0.84rem',
-                  fontWeight: 800,
+                  fontWeight: 600,
                   color: '#090d16',
                   marginBottom: '12px',
                   textTransform: 'uppercase',
@@ -186,7 +186,7 @@ export default function ProjectEstimator() {
                 style={{
                   display: 'block',
                   fontSize: '0.84rem',
-                  fontWeight: 800,
+                  fontWeight: 600,
                   color: '#090d16',
                   marginBottom: '12px',
                   textTransform: 'uppercase',
@@ -209,7 +209,7 @@ export default function ProjectEstimator() {
                       padding: '10px 14px',
                       borderRadius: '10px',
                       fontSize: '0.82rem',
-                      fontWeight: 600,
+                      fontWeight: 500,
                       background: frontend === item.id ? '#090d16' : '#ffffff',
                       color: frontend === item.id ? '#ffffff' : '#475569',
                       border: '1px solid rgba(15, 23, 42, 0.08)',
@@ -227,7 +227,7 @@ export default function ProjectEstimator() {
                 style={{
                   display: 'block',
                   fontSize: '0.84rem',
-                  fontWeight: 800,
+                  fontWeight: 600,
                   color: '#090d16',
                   marginBottom: '12px',
                   textTransform: 'uppercase',
@@ -250,7 +250,7 @@ export default function ProjectEstimator() {
                       padding: '10px 14px',
                       borderRadius: '10px',
                       fontSize: '0.82rem',
-                      fontWeight: 600,
+                      fontWeight: 500,
                       background: backend === item.id ? '#090d16' : '#ffffff',
                       color: backend === item.id ? '#ffffff' : '#475569',
                       border: '1px solid rgba(15, 23, 42, 0.08)',
@@ -265,7 +265,7 @@ export default function ProjectEstimator() {
             {/* Step 4: Scale & Cadence */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 800, color: '#090d16', marginBottom: '8px', textTransform: 'uppercase' }}>
+                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, color: '#090d16', marginBottom: '8px', textTransform: 'uppercase' }}>
                   Project Scale
                 </label>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -283,7 +283,7 @@ export default function ProjectEstimator() {
                         borderRadius: '8px',
                         textAlign: 'left',
                         fontSize: '0.8rem',
-                        fontWeight: 600,
+                        fontWeight: 500,
                         background: scale === item.id ? '#059669' : '#ffffff',
                         color: scale === item.id ? '#ffffff' : '#475569',
                         border: '1px solid rgba(15, 23, 42, 0.08)',
@@ -296,7 +296,7 @@ export default function ProjectEstimator() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 800, color: '#090d16', marginBottom: '8px', textTransform: 'uppercase' }}>
+                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, color: '#090d16', marginBottom: '8px', textTransform: 'uppercase' }}>
                   Sprint Speed
                 </label>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -313,7 +313,7 @@ export default function ProjectEstimator() {
                         borderRadius: '8px',
                         textAlign: 'left',
                         fontSize: '0.8rem',
-                        fontWeight: 600,
+                        fontWeight: 500,
                         background: timeline === item.id ? '#059669' : '#ffffff',
                         color: timeline === item.id ? '#ffffff' : '#475569',
                         border: '1px solid rgba(15, 23, 42, 0.08)',
@@ -345,7 +345,7 @@ export default function ProjectEstimator() {
                   alignItems: 'center',
                   gap: '8px',
                   fontSize: '0.76rem',
-                  fontWeight: 700,
+                  fontWeight: 500,
                   color: '#059669',
                   background: 'rgba(16, 185, 129, 0.12)',
                   padding: '4px 12px',
@@ -357,7 +357,7 @@ export default function ProjectEstimator() {
                 <span>Calibrated Engineering Estimate</span>
               </div>
 
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 550, color: '#090d16', marginBottom: '8px' }}>
                 Project Investment
               </h3>
 
@@ -365,7 +365,7 @@ export default function ProjectEstimator() {
               <div
                 style={{
                   fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
-                  fontWeight: 800,
+                  fontWeight: 600,
                   color: '#090d16',
                   lineHeight: 1.1,
                   marginBottom: '8px',
@@ -377,7 +377,7 @@ export default function ProjectEstimator() {
                 <span className="text-gradient-emerald">
                   ${estimate.min.toLocaleString()} – ${estimate.max.toLocaleString()}
                 </span>
-                <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600 }}>USD</span>
+                <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 500 }}>USD</span>
               </div>
 
               {/* Duration */}
@@ -387,7 +387,7 @@ export default function ProjectEstimator() {
                   alignItems: 'center',
                   gap: '8px',
                   fontSize: '0.92rem',
-                  fontWeight: 700,
+                  fontWeight: 500,
                   color: '#334155',
                   marginBottom: '20px',
                 }}
@@ -398,7 +398,7 @@ export default function ProjectEstimator() {
 
               {/* What is included */}
               <div style={{ marginBottom: '24px', paddingTop: '16px', borderTop: '1px solid rgba(15, 23, 42, 0.08)' }}>
-                <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', marginBottom: '10px' }}>
+                <div style={{ fontSize: '0.74rem', fontWeight: 600, color: '#090d16', textTransform: 'uppercase', marginBottom: '10px' }}>
                   Included with every delivery
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.82rem', color: '#475569' }}>
