@@ -1,6 +1,6 @@
 /* Modern High-End Light-Theme Design System
    Inspired by Averi.ai, ChatSpark.io & Contemporary Awwwards Digital Engineering Studios */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   /* Pristine Light Canvas */
@@ -47,8 +47,9 @@
   --shadow-glow: 0 0 35px rgba(16, 185, 129, 0.22);
   --shadow-glow-cyan: 0 0 35px rgba(6, 182, 212, 0.2);
 
-  /* Typography */
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Prestigious Typography Stack (Outfit for Display / Inter for Precision Body) */
+  --font-display: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 
   /* Sizing & Layout */
@@ -86,10 +87,19 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.62;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
   position: relative;
+}
+
+h1, h2, h3, h4, h5, h6, .section-title, .brand-logo {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
 /* Ambient Radial Light Matrix Background */

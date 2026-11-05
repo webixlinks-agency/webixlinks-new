@@ -102,3 +102,4 @@ export default function MarqueeTicker({ speed = 25, reverse = false }: MarqueeTi
     </div>
   );
 }
+
