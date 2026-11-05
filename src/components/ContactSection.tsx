@@ -61,7 +61,7 @@ export default function ContactSection() {
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#2563eb', '#7c3aed', '#06b6d4', '#10b981'],
+          colors: ['#059669', '#10b981', '#06b6d4', '#4f46e5'],
         });
       } catch (err) {
         // Fallback gracefully

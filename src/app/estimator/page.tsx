@@ -27,12 +27,12 @@ export default function EstimatorPage() {
         }}
       >
         <div className="container" style={{ textAlign: 'center' }}>
-          <div className="section-tag">
+          <div className="section-tag section-tag-emerald">
             <Sparkles size={14} />
             <span>100% Transparent Pricing</span>
           </div>
           <h1 className="section-title">
-            Interactive <span className="text-gradient">Project Cost & Scope</span> Calculator
+            Interactive <span className="text-gradient-emerald">Project Cost &amp; Scope</span> Calculator
           </h1>
           <p className="section-subtitle">
             Configure your primary discipline, frontend, backend, scale, and delivery urgency to generate an instant calibrated investment range and sprint roadmap.

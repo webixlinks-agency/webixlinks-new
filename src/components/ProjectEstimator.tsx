@@ -7,6 +7,8 @@ import {
   ArrowRight,
   Clock,
   Check,
+  ShieldCheck,
+  Zap,
 } from 'lucide-react';
 
 export default function ProjectEstimator() {
@@ -84,31 +86,31 @@ export default function ProjectEstimator() {
   };
 
   return (
-    <section id="estimator" style={{ padding: '90px 0', position: 'relative' }}>
+    <section id="estimator" style={{ paddingTop: '80px', paddingBottom: '90px', position: 'relative' }}>
       <div className="container">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <div className="section-tag">
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="section-tag section-tag-emerald">
             <Calculator size={14} />
-            <span>Interactive Scope & Cost Calculator</span>
+            <span>Real-Time Scope Calculator</span>
           </div>
           <h2 className="section-title">
-            Calculate Your <span className="text-gradient">Project Investment</span> In Real-Time
+            Transparent pricing &amp; <span className="text-gradient-emerald">timeline estimation</span>.
           </h2>
           <p className="section-subtitle">
-            No waiting days for an opaque quote. Customize your desired services, technology stack, and scale below to receive an instant, transparent engineering scope and timeline estimate.
+            Configure your technical scope, frameworks, and deployment tier to generate an instant calibrated engineering estimate.
           </p>
         </div>
 
-        {/* Estimator Container */}
+        {/* 2-Column Estimator Grid */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '36px',
+            gridTemplateColumns: '1.2fr 0.8fr',
+            gap: '32px',
             alignItems: 'start',
           }}
-          className="estimator-grid"
+          className="estimator-layout"
         >
           {/* Left Column: Interactive Selectors */}
           <div
@@ -116,58 +118,59 @@ export default function ProjectEstimator() {
             style={{
               padding: '36px',
               borderRadius: '24px',
+              background: 'rgba(255, 255, 255, 0.94)',
             }}
           >
             {/* Step 1: Core Service */}
-            <div style={{ marginBottom: '32px' }}>
+            <div style={{ marginBottom: '28px' }}>
               <label
                 style={{
                   display: 'block',
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
-                  color: '#0f172a',
-                  marginBottom: '14px',
+                  fontSize: '0.84rem',
+                  fontWeight: 800,
+                  color: '#090d16',
+                  marginBottom: '12px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
                 }}
               >
-                1. Select Primary Service Discipline
+                1. Select Primary Discipline
               </label>
               <div
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                  gap: '10px',
+                  gap: '8px',
                 }}
               >
                 {[
                   { id: 'wp-cms', label: 'WordPress & Headless CMS' },
                   { id: 'crm', label: 'CRM Automation (Salesforce/HubSpot)' },
                   { id: 'fullstack', label: 'Full-Stack (MERN / MEAN)' },
-                  { id: 'backend', label: 'Backend APIs (Laravel / Node / Python)' },
-                  { id: 'seo', label: 'Technical SEO & PageSpeed 95+' },
+                  { id: 'backend', label: 'Backend APIs (Laravel/Node/Python)' },
+                  { id: 'seo', label: 'Technical SEO & Lighthouse 100' },
                 ].map((item) => (
                   <button
                     key={item.id}
                     type="button"
                     onClick={() => setService(item.id)}
                     style={{
-                      padding: '12px 16px',
+                      padding: '12px 14px',
                       borderRadius: '12px',
                       textAlign: 'left',
-                      fontSize: '0.88rem',
+                      fontSize: '0.84rem',
                       fontWeight: 600,
-                      transition: 'all 0.2s ease',
+                      transition: 'all 0.15s ease',
                       background:
                         service === item.id
-                          ? 'rgba(37, 99, 235, 0.08)'
-                          : 'rgba(255, 255, 255, 0.7)',
-                      color: service === item.id ? '#2563eb' : '#334155',
+                          ? 'rgba(16, 185, 129, 0.12)'
+                          : '#ffffff',
+                      color: service === item.id ? '#059669' : '#334155',
                       border:
                         service === item.id
-                          ? '2px solid #2563eb'
-                          : '1px solid rgba(226, 232, 240, 0.9)',
-                      boxShadow: service === item.id ? '0 4px 12px rgba(37, 99, 235, 0.12)' : 'none',
+                          ? '2px solid #10b981'
+                          : '1px solid rgba(15, 23, 42, 0.08)',
+                      boxShadow: service === item.id ? '0 4px 14px rgba(16, 185, 129, 0.15)' : 'none',
                     }}
                   >
                     {item.label}
@@ -176,33 +179,26 @@ export default function ProjectEstimator() {
               </div>
             </div>
 
-            {/* Step 2: Frontend & Stacks */}
-            <div style={{ marginBottom: '32px' }}>
+            {/* Step 2: Frontend & Frameworks */}
+            <div style={{ marginBottom: '28px' }}>
               <label
                 style={{
                   display: 'block',
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
-                  color: '#0f172a',
-                  marginBottom: '14px',
+                  fontSize: '0.84rem',
+                  fontWeight: 800,
+                  color: '#090d16',
+                  marginBottom: '12px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
                 }}
               >
-                2. Preferred Frontend / Application Framework
+                2. Frontend Client Stack
               </label>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                  gap: '10px',
-                }}
-              >
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '8px' }}>
                 {[
-                  { id: 'nextjs', label: 'Next.js 15 (App Router)' },
-                  { id: 'react', label: 'React.js SPA' },
-                  { id: 'angular', label: 'Angular v17+ (MEAN)' },
-                  { id: 'wordpress-theme', label: 'Custom WP / Elementor' },
+                  { id: 'nextjs', label: 'Next.js 16 (App Router)' },
+                  { id: 'react', label: 'React.js 19 SPA' },
+                  { id: 'angular', label: 'Angular v18+ (Signals)' },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -211,17 +207,11 @@ export default function ProjectEstimator() {
                     style={{
                       padding: '10px 14px',
                       borderRadius: '10px',
-                      fontSize: '0.84rem',
+                      fontSize: '0.82rem',
                       fontWeight: 600,
-                      background:
-                        frontend === item.id
-                          ? 'rgba(37, 99, 235, 0.08)'
-                          : 'rgba(255, 255, 255, 0.7)',
-                      color: frontend === item.id ? '#2563eb' : '#475569',
-                      border:
-                        frontend === item.id
-                          ? '2px solid #2563eb'
-                          : '1px solid rgba(226, 232, 240, 0.9)',
+                      background: frontend === item.id ? '#090d16' : '#ffffff',
+                      color: frontend === item.id ? '#ffffff' : '#475569',
+                      border: '1px solid rgba(15, 23, 42, 0.08)',
                     }}
                   >
                     {item.label}
@@ -231,32 +221,25 @@ export default function ProjectEstimator() {
             </div>
 
             {/* Step 3: Backend Stack */}
-            <div style={{ marginBottom: '32px' }}>
+            <div style={{ marginBottom: '28px' }}>
               <label
                 style={{
                   display: 'block',
-                  fontSize: '0.9rem',
-                  fontWeight: 700,
-                  color: '#0f172a',
-                  marginBottom: '14px',
+                  fontSize: '0.84rem',
+                  fontWeight: 800,
+                  color: '#090d16',
+                  marginBottom: '12px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
                 }}
               >
-                3. Backend & API Infrastructure
+                3. Backend Architecture
               </label>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-                  gap: '10px',
-                }}
-              >
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '8px' }}>
                 {[
-                  { id: 'node', label: 'Node.js / Express' },
-                  { id: 'laravel', label: 'Laravel (PHP 8.3)' },
-                  { id: 'python', label: 'Python (FastAPI/Django)' },
-                  { id: 'serverless', label: 'Serverless / Cloud' },
+                  { id: 'node', label: 'Node.js (Fastify / Express)' },
+                  { id: 'laravel', label: 'Laravel (Octane / Swoole)' },
+                  { id: 'python', label: 'Python (FastAPI / Django)' },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -265,17 +248,11 @@ export default function ProjectEstimator() {
                     style={{
                       padding: '10px 14px',
                       borderRadius: '10px',
-                      fontSize: '0.84rem',
+                      fontSize: '0.82rem',
                       fontWeight: 600,
-                      background:
-                        backend === item.id
-                          ? 'rgba(37, 99, 235, 0.08)'
-                          : 'rgba(255, 255, 255, 0.7)',
-                      color: backend === item.id ? '#2563eb' : '#475569',
-                      border:
-                        backend === item.id
-                          ? '2px solid #2563eb'
-                          : '1px solid rgba(226, 232, 240, 0.9)',
+                      background: backend === item.id ? '#090d16' : '#ffffff',
+                      color: backend === item.id ? '#ffffff' : '#475569',
+                      border: '1px solid rgba(15, 23, 42, 0.08)',
                     }}
                   >
                     {item.label}
@@ -284,28 +261,13 @@ export default function ProjectEstimator() {
               </div>
             </div>
 
-            {/* Step 4: Scale & Urgency */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '20px',
-              }}
-            >
+            {/* Step 4: Scale & Cadence */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
               <div>
-                <label
-                  style={{
-                    display: 'block',
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    color: '#0f172a',
-                    marginBottom: '10px',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Scale
+                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 800, color: '#090d16', marginBottom: '8px', textTransform: 'uppercase' }}>
+                  Project Scale
                 </label>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   {[
                     { id: 'mvp', label: 'Startup MVP' },
                     { id: 'growth', label: 'Growth Scale' },
@@ -319,12 +281,11 @@ export default function ProjectEstimator() {
                         padding: '8px 12px',
                         borderRadius: '8px',
                         textAlign: 'left',
-                        fontSize: '0.82rem',
+                        fontSize: '0.8rem',
                         fontWeight: 600,
-                        background:
-                          scale === item.id ? '#0f172a' : 'rgba(255, 255, 255, 0.7)',
+                        background: scale === item.id ? '#059669' : '#ffffff',
                         color: scale === item.id ? '#ffffff' : '#475569',
-                        border: '1px solid rgba(226, 232, 240, 0.9)',
+                        border: '1px solid rgba(15, 23, 42, 0.08)',
                       }}
                     >
                       {item.label}
@@ -334,19 +295,10 @@ export default function ProjectEstimator() {
               </div>
 
               <div>
-                <label
-                  style={{
-                    display: 'block',
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    color: '#0f172a',
-                    marginBottom: '10px',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Delivery Speed
+                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 800, color: '#090d16', marginBottom: '8px', textTransform: 'uppercase' }}>
+                  Sprint Speed
                 </label>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   {[
                     { id: 'standard', label: 'Standard Cadence' },
                     { id: 'accelerated', label: '⚡ Rapid Sprint (+20% priority)' },
@@ -359,12 +311,11 @@ export default function ProjectEstimator() {
                         padding: '8px 12px',
                         borderRadius: '8px',
                         textAlign: 'left',
-                        fontSize: '0.82rem',
+                        fontSize: '0.8rem',
                         fontWeight: 600,
-                        background:
-                          timeline === item.id ? '#0f172a' : 'rgba(255, 255, 255, 0.7)',
+                        background: timeline === item.id ? '#059669' : '#ffffff',
                         color: timeline === item.id ? '#ffffff' : '#475569',
-                        border: '1px solid rgba(226, 232, 240, 0.9)',
+                        border: '1px solid rgba(15, 23, 42, 0.08)',
                       }}
                     >
                       {item.label}
@@ -375,17 +326,17 @@ export default function ProjectEstimator() {
             </div>
           </div>
 
-          {/* Right Column: Live Estimate Output Card */}
+          {/* Right Column: Live Calibrated Output Card */}
           <div
             className="glass-panel"
             style={{
               padding: '36px',
               borderRadius: '24px',
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.8) 100%)',
-              border: '2px solid rgba(37, 99, 235, 0.25)',
-              boxShadow: '0 20px 50px -10px rgba(37, 99, 235, 0.12)',
+              background: '#ffffff',
+              border: '2px solid rgba(16, 185, 129, 0.35)',
+              boxShadow: '0 20px 45px -10px rgba(16, 185, 129, 0.15)',
               position: 'sticky',
-              top: '100px',
+              top: '110px',
             }}
           >
             <div
@@ -393,143 +344,95 @@ export default function ProjectEstimator() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                fontSize: '0.78rem',
+                fontSize: '0.76rem',
                 fontWeight: 700,
-                color: '#2563eb',
-                background: 'rgba(37, 99, 235, 0.1)',
+                color: '#059669',
+                background: 'rgba(16, 185, 129, 0.12)',
                 padding: '4px 12px',
                 borderRadius: '9999px',
                 marginBottom: '16px',
               }}
             >
               <Sparkles size={14} />
-              <span>Instant AI-Calibrated Scope</span>
+              <span>Calibrated Engineering Estimate</span>
             </div>
 
-            <h3
-              style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#0f172a',
-                marginBottom: '8px',
-              }}
-            >
-              Estimated Investment
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', marginBottom: '8px' }}>
+              Project Investment
             </h3>
 
-            {/* Price Display */}
+            {/* Price Range */}
             <div
               style={{
-                fontSize: 'clamp(2.2rem, 4vw, 3rem)',
+                fontSize: 'clamp(2rem, 3.2vw, 2.6rem)',
                 fontWeight: 800,
-                color: '#0f172a',
+                color: '#090d16',
                 lineHeight: 1.1,
                 marginBottom: '8px',
                 display: 'flex',
                 alignItems: 'baseline',
-                gap: '4px',
+                gap: '6px',
               }}
             >
-              <span className="text-gradient">
+              <span className="text-gradient-emerald">
                 ${estimate.min.toLocaleString()} – ${estimate.max.toLocaleString()}
               </span>
-              <span style={{ fontSize: '0.9rem', color: '#64748b', fontWeight: 600 }}>USD</span>
+              <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600 }}>USD</span>
             </div>
 
-            {/* Timeline */}
+            {/* Duration */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '10px',
-                fontSize: '0.95rem',
+                gap: '8px',
+                fontSize: '0.92rem',
                 fontWeight: 700,
                 color: '#334155',
-                marginBottom: '24px',
+                marginBottom: '20px',
               }}
             >
-              <Clock size={18} color="#2563eb" />
-              <span>Target Delivery: ~{estimate.duration} Weeks</span>
+              <Clock size={16} color="#059669" />
+              <span>Estimated Delivery: {estimate.duration} Weeks</span>
             </div>
 
-            {/* Included Value Additions */}
-            <div
-              style={{
-                padding: '20px 0',
-                borderTop: '1px solid rgba(226, 232, 240, 0.9)',
-                borderBottom: '1px solid rgba(226, 232, 240, 0.9)',
-                marginBottom: '28px',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  color: '#64748b',
-                  marginBottom: '12px',
-                }}
-              >
-                Included With Every Engagement:
+            {/* What is included */}
+            <div style={{ marginBottom: '24px', paddingTop: '16px', borderTop: '1px solid rgba(15, 23, 42, 0.08)' }}>
+              <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', marginBottom: '10px' }}>
+                Included with every delivery
               </div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {[
-                  '100% Intellectual Property & Source Code Ownership',
-                  'Core Web Vitals & 90+ PageSpeed Benchmark',
-                  'Dedicated Lead Architect & Weekly Sprint Demos',
-                  '30-Day Post-Launch Hypercare & SLA Support',
-                  'Zero Hidden Costs or Surprises Policy',
-                ].map((item, idx) => (
-                  <li
-                    key={idx}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      fontSize: '0.85rem',
-                      color: '#1e293b',
-                      fontWeight: 500,
-                    }}
-                  >
-                    <Check size={14} color="#10b981" strokeWidth={3} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.82rem', color: '#475569' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={14} color="#10b981" />
+                  <span>100/100 Core Web Vitals audit &amp; guarantee</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={14} color="#10b981" />
+                  <span>Full source code ownership &amp; Git repository</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={14} color="#10b981" />
+                  <span>30-day post-launch warranty &amp; direct Slack channel</span>
+                </div>
+              </div>
             </div>
 
-            {/* Apply Action */}
             <button
               onClick={handleApplyToForm}
               className="btn-primary"
-              style={{
-                width: '100%',
-                padding: '14px 20px',
-                fontSize: '0.95rem',
-              }}
+              style={{ width: '100%', justifyContent: 'center', padding: '14px' }}
             >
-              <span>Lock This Scope & Book Strategy Call</span>
-              <ArrowRight size={18} />
+              <span>Lock in This Scope &amp; Book RFP</span>
+              <ArrowRight size={16} />
             </button>
-
-            <div
-              style={{
-                fontSize: '0.75rem',
-                textAlign: 'center',
-                color: '#64748b',
-                marginTop: '12px',
-              }}
-            >
-              No obligation • Includes Free Architecture Consultation
-            </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @media (min-width: 1024px) {
-          .estimator-grid {
-            grid-template-columns: 1.2fr 0.8fr !important;
+        @media (max-width: 900px) {
+          .estimator-layout {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

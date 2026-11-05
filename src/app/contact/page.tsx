@@ -26,12 +26,12 @@ export default function ContactPage() {
         }}
       >
         <div className="container" style={{ textAlign: 'center' }}>
-          <div className="section-tag">
+          <div className="section-tag section-tag-emerald">
             <Sparkles size={14} />
             <span>Direct Lead Architect Access</span>
           </div>
           <h1 className="section-title">
-            Start Your <span className="text-gradient">Project Consultation</span>
+            Start Your <span className="text-gradient-emerald">Project Consultation</span>
           </h1>
           <p className="section-subtitle">
             Skip the generic sales presentations. Meet directly with our principal engineers to evaluate your technical scope, review architecture blueprints, and obtain a firm fixed-price roadmap.

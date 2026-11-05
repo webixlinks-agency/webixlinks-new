@@ -7,178 +7,125 @@ import {
   ShieldCheck,
   Rocket,
   Sparkles,
+  ArrowRight,
+  CheckCircle2,
 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProcessSection() {
   const steps = [
     {
       step: '01',
-      title: 'Discovery & Architecture Blueprint',
+      title: 'Discovery & Topology Blueprint',
       icon: Compass,
-      color: '#2563eb',
       description:
-        'We dissect your business goals, target audience, and system integrations. We produce a technical blueprint covering database schemas, API contracts, and optimal framework selection (Next.js vs Angular, WordPress vs Headless, Laravel vs Node/Python).',
-      deliverable: 'Architecture Spec & Clickable Milestone Roadmap',
+        'We deconstruct your business goals, target user personas, and legacy systems. We produce a comprehensive architecture specification covering database schemas, API contracts, and optimal framework choices (Next.js vs Angular, WordPress vs Headless, Laravel vs Node/Python).',
+      deliverable: 'Complete Architecture Spec & Milestone Roadmap',
     },
     {
       step: '02',
-      title: '3D Prototyping & Agile Sprints',
+      title: 'Sprint Prototyping & Live Staging',
       icon: Code2,
-      color: '#7c3aed',
       description:
-        'Bi-weekly agile sprints with interactive staging environments. You test functional code early and often. We build 3D components, responsive frontend views, and resilient backend microservices with real-time feedback loops.',
-      deliverable: 'Live Staging Demos & Code Checkpoints',
+        'Rapid bi-weekly agile sprints with interactive staging environments. You test functional code early and often. We build interactive frontend views, resilient backend microservices, and CRM webhooks with continuous feedback loops.',
+      deliverable: 'Live Staging Demos & Verified Checkpoints',
     },
     {
       step: '03',
-      title: 'Security, QA & Core Web Vitals Audit',
+      title: 'Hardening, QA & Lighthouse 100 Audit',
       icon: ShieldCheck,
-      color: '#06b6d4',
       description:
-        'Rigorous automated and human QA. We test cross-browser compatibility, run OWASP security penetration checks, and optimize Core Web Vitals to guarantee sub-second page loads and 95+ PageSpeed scores.',
-      deliverable: 'Lighthouse 95+ Benchmark & QA Sign-Off',
+        'Rigorous automated and human verification. We run cross-browser accessibility checks, perform OWASP security penetration reviews, and calibrate Core Web Vitals to guarantee sub-second page loads and 100/100 Lighthouse audits.',
+      deliverable: '100/100 Lighthouse Benchmark & QA Sign-Off',
     },
     {
       step: '04',
-      title: 'CI/CD Deployment & 30-Day Hypercare',
+      title: 'Zero-Downtime Launch & Hypercare',
       icon: Rocket,
-      color: '#10b981',
       description:
-        'Zero-downtime deployment through automated CI/CD pipelines to AWS, Vercel, or your private cloud. We monitor telemetry, configure Google Search Console SEO indexing, and provide 30 days of complimentary hypercare support.',
-      deliverable: 'Full IP Ownership & 24/7 Post-Launch Warranty',
+        'Automated CI/CD deployment to AWS, Vercel, or your private cloud with zero downtime. We monitor real-time telemetry, configure Google Search Console SEO indexing, and provide 30 days of high-priority post-launch hypercare support.',
+      deliverable: 'Full Source Code IP & 30-Day Engineering Warranty',
     },
   ];
 
   return (
-    <section id="process" style={{ padding: '90px 0', position: 'relative' }}>
+    <section id="process" style={{ paddingTop: '80px', paddingBottom: '90px', position: 'relative' }}>
       <div className="container">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
-          <div className="section-tag">
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div className="section-tag section-tag-emerald">
             <Sparkles size={14} />
-            <span>Battle-Tested Delivery Workflow</span>
+            <span>Methodical Delivery Workflow</span>
           </div>
           <h2 className="section-title">
-            From Conceptual Blueprint To <span className="text-gradient">Production Launch</span>
+            From technical blueprint to{' '}
+            <span className="text-gradient-emerald">production supremacy</span>.
           </h2>
           <p className="section-subtitle">
-            Our systematic 4-phase agile engineering framework guarantees predictable delivery, clean code, and zero unexpected surprises.
+            Our 4-phase agile engineering framework guarantees predictable delivery cadence, high code craftsmanship, and zero deployment surprises.
           </p>
         </div>
 
-        {/* Steps Grid */}
+        {/* 4-Step Cards */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '24px',
-            position: 'relative',
+            marginBottom: '40px',
           }}
         >
           {steps.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
-                key={item.step}
+                key={idx}
                 className="glass-panel"
                 style={{
-                  padding: '32px 28px',
+                  padding: '32px',
                   borderRadius: '24px',
+                  background: 'rgba(255, 255, 255, 0.94)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  position: 'relative',
-                  overflow: 'hidden',
+                  border: '1px solid rgba(15, 23, 42, 0.08)',
                 }}
               >
-                {/* Step Number in Watermark */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '12px',
-                    right: '18px',
-                    fontSize: '3rem',
-                    fontWeight: 900,
-                    color: 'rgba(15, 23, 42, 0.04)',
-                    pointerEvents: 'none',
-                    lineHeight: 1,
-                  }}
-                >
-                  {item.step}
-                </div>
-
                 <div>
-                  {/* Step Header */}
-                  <div
-                    style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '14px',
-                      background: `${item.color}15`,
-                      color: item.color,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px',
-                    }}
-                  >
-                    <Icon size={24} />
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+                    <span className="pill-number">{item.step}</span>
+                    <div
+                      style={{
+                        width: '42px',
+                        height: '42px',
+                        borderRadius: '12px',
+                        background: 'rgba(16, 185, 129, 0.1)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#059669',
+                      }}
+                    >
+                      <Icon size={20} />
+                    </div>
                   </div>
 
-                  <div
-                    style={{
-                      fontSize: '0.8rem',
-                      fontWeight: 800,
-                      color: item.color,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.06em',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    Phase {item.step}
-                  </div>
-
-                  <h3
-                    style={{
-                      fontSize: '1.25rem',
-                      fontWeight: 800,
-                      color: '#0f172a',
-                      marginBottom: '14px',
-                      lineHeight: 1.3,
-                    }}
-                  >
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#090d16', marginBottom: '12px', lineHeight: 1.3 }}>
                     {item.title}
                   </h3>
 
-                  <p
-                    style={{
-                      fontSize: '0.88rem',
-                      color: '#475569',
-                      lineHeight: 1.6,
-                      marginBottom: '24px',
-                    }}
-                  >
+                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
                     {item.description}
                   </p>
                 </div>
 
-                {/* Deliverable Badge */}
-                <div
-                  style={{
-                    padding: '10px 14px',
-                    borderRadius: '10px',
-                    background: 'rgba(241, 245, 249, 0.8)',
-                    border: '1px solid rgba(226, 232, 240, 0.9)',
-                    fontSize: '0.78rem',
-                    fontWeight: 600,
-                    color: '#1e293b',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}
-                >
-                  <span style={{ color: item.color, fontWeight: 700 }}>Milestone:</span>
-                  <span>{item.deliverable}</span>
+                <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+                    Milestone Deliverable
+                  </div>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#090d16' }}>
+                    {item.deliverable}
+                  </div>
                 </div>
               </div>
             );

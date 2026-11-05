@@ -27,12 +27,12 @@ export default function CaseStudiesPage() {
         }}
       >
         <div className="container" style={{ textAlign: 'center' }}>
-          <div className="section-tag">
+          <div className="section-tag section-tag-emerald">
             <Award size={14} />
             <span>Proven Engineering Outcomes</span>
           </div>
           <h1 className="section-title">
-            Case Studies In <span className="text-gradient">Measurable Growth</span>
+            Case Studies In <span className="text-gradient-emerald">Measurable Growth</span>
           </h1>
           <p className="section-subtitle">
             We measure our code by business metrics: revenue generated, load times slashed, and operational bottlenecks automated. Explore how we transform systems for our global partners.

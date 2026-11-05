@@ -11,15 +11,22 @@ import {
   Check,
   ArrowRight,
   Sparkles,
+  Server,
+  Zap,
+  CheckCircle2,
+  ShieldCheck,
 } from 'lucide-react';
+import Link from 'next/link';
 
 interface ServiceItem {
   id: string;
+  number: string;
   category: 'all' | 'cms' | 'crm' | 'frontend' | 'backend' | 'seo';
   title: string;
   subtitle: string;
   icon: any;
   accentColor: string;
+  metricBadge: string;
   description: string;
   deliverables: string[];
   techTags: string[];
@@ -28,225 +35,228 @@ interface ServiceItem {
 const servicesData: ServiceItem[] = [
   {
     id: 'wp-cms',
+    number: '01',
     category: 'cms',
-    title: 'WordPress & CMS Engineering',
-    subtitle: 'High-Performance Content Ecosystems',
+    title: 'WordPress & Headless CMS Engineering',
+    subtitle: 'Blisteringly Fast Content Engines',
     icon: Globe,
-    accentColor: '#2563eb',
+    accentColor: '#10b981',
+    metricBadge: '<0.3s PageSpeed LCP',
     description:
-      'From custom enterprise WordPress themes and high-scale WooCommerce architectures to modern Headless WordPress paired with Next.js, we build blisteringly fast, ultra-secure CMS platforms that marketing teams love.',
+      'We elevate WordPress from traditional blogging to enterprise headless performance. Custom Gutenberg blocks, high-converting WooCommerce systems, and decoupled Next.js/React frontends powered by WPGraphQL.',
     deliverables: [
-      'Custom Theme & Plugin Development',
-      'Headless WordPress + Next.js / React Frontend',
-      'High-Conversion WooCommerce E-Commerce',
+      'Headless WordPress + Next.js 16 Edge Rendering',
+      'Custom Gutenberg Block Suites & Full-Site Editing',
+      'High-Scale WooCommerce & Custom Checkout Funnels',
       'Headless CMS: Strapi, Sanity, Contentful & Ghost',
-      'Core Web Vitals 95+ Speed & Security Hardening',
+      'Database Caching & High-Concurrency Hardening',
     ],
-    techTags: ['WordPress', 'Headless WP', 'WooCommerce', 'PHP', 'Strapi', 'Sanity', 'GraphQL'],
+    techTags: ['WordPress', 'Headless WP', 'Next.js', 'WooCommerce', 'WPGraphQL', 'PHP', 'Sanity'],
   },
   {
     id: 'crm-specialist',
+    number: '02',
     category: 'crm',
-    title: 'CRM Specialist Services',
-    subtitle: 'Salesforce, HubSpot & Zoho Automation',
+    title: 'CRM Specialist & Automation Services',
+    subtitle: 'Salesforce, HubSpot & Zoho Integrations',
     icon: Cpu,
-    accentColor: '#f97316',
+    accentColor: '#059669',
+    metricBadge: 'Zero Lead Drop-off',
     description:
-      'We turn fragmented sales data into automated revenue engines. Our certified CRM engineers design, configure, and deeply integrate Salesforce, HubSpot, and Zoho into your web applications, ERPs, and marketing stacks.',
+      'Transform fragmented data into automated revenue engines. Our CRM architects configure custom objects, bi-directional web application syncs, lead routing, and marketing automation for Salesforce, HubSpot, and Zoho.',
     deliverables: [
-      'HubSpot Setup, Custom Pipelines & CMS Hub',
-      'Salesforce Custom Objects, Lightning & Apex APIs',
-      'Zoho CRM, Zoho Creator & Deluge Scripting',
-      'Two-Way Website & Lead Sync via Webhooks & REST',
-      'Automated Lead Routing, Scoring & Drip Funnels',
+      'Salesforce Custom Objects, Lightning & Apex REST APIs',
+      'HubSpot CMS Hub, Operations Hub & Custom Pipelines',
+      'Zoho CRM, Zoho Creator & Deluge Scripting Automation',
+      'Bi-Directional Web Application & Webhook Lead Sync',
+      'Automated Lead Scoring, Drip Campaigns & Slack Alerts',
     ],
-    techTags: ['Salesforce', 'HubSpot', 'Zoho CRM', 'Zapier', 'Webhooks', 'REST APIs'],
+    techTags: ['Salesforce', 'HubSpot', 'Zoho CRM', 'Zapier', 'Webhooks', 'REST APIs', 'Apex'],
+  },
+  {
+    id: 'frontend-modern',
+    number: '03',
+    category: 'frontend',
+    title: 'Modern Frontend & 3D Web Apps',
+    subtitle: 'React.js, Next.js 16 & Angular v18+',
+    icon: Code2,
+    accentColor: '#06b6d4',
+    metricBadge: 'Fluid 60FPS Micro-Interactions',
+    description:
+      'Building memorable, high-converting user interfaces with cutting-edge engineering. We leverage Next.js App Router for server-rendered speed, Angular signals for complex enterprise portals, and GSAP for micro-interactions.',
+    deliverables: [
+      'Next.js 16 (Turbopack, Server Actions, Edge SSR/SSG)',
+      'Enterprise React.js Single-Page Applications',
+      'Angular v18+ (Signals, Standalone Components, RxJS)',
+      'Fluid GSAP & CSS 3D Interactive UI Micro-Interactions',
+      'Strict WCAG 2.1 AA Accessibility & Cross-Browser Speed',
+    ],
+    techTags: ['Next.js 16', 'React.js', 'Angular', 'GSAP', 'TypeScript', 'Tailwind CSS'],
   },
   {
     id: 'fullstack-stacks',
+    number: '04',
     category: 'frontend',
     title: 'MERN & MEAN Stack Development',
-    subtitle: 'End-to-End Modern Web Applications',
+    subtitle: 'End-to-End Scalable Architectures',
     icon: Layers,
-    accentColor: '#8b5cf6',
+    accentColor: '#6366f1',
+    metricBadge: '100% Type-Safe Full-Stack',
     description:
-      'Battle-tested full-stack architecture built for scale. Whether your enterprise standardizes on Angular for rigid typing or React for dynamic agility, our engineers architect robust MongoDB, Express, and Node foundations.',
+      'Turnkey web applications built from ground zero. Whether your enterprise relies on React for rapid agility or Angular for strict type safety, our team builds robust MongoDB, Express, and Node foundations.',
     deliverables: [
       'MERN Stack (MongoDB, Express, React, Node.js)',
       'MEAN Stack (MongoDB, Express, Angular, Node.js)',
       'Real-Time WebSockets & Event-Driven Architecture',
-      'Secure Auth (JWT, OAuth2, RBAC Multi-Tenancy)',
-      'Microservices & Containerized Docker Deployments',
+      'JWT, OAuth2, RBAC Multi-Tenancy Authentication',
+      'Containerized Docker & Kubernetes Deployment Pipelines',
     ],
-    techTags: ['React.js', 'Angular', 'Node.js', 'Express', 'MongoDB', 'TypeScript', 'Docker'],
+    techTags: ['MongoDB', 'Express', 'React', 'Angular', 'Node.js', 'TypeScript', 'Docker'],
   },
   {
-    id: 'frontend-modern',
-    category: 'frontend',
-    title: 'Modern Frontend & 3D Web Apps',
-    subtitle: 'React.js, Next.js & Angular v17+',
-    icon: Code2,
-    accentColor: '#0ea5e9',
-    description:
-      'Crafting mesmerizing user interfaces that wow clients and drive conversions. We leverage Next.js App Router for server-rendered speed, Angular signals for high-performance dashboards, and WebGL Three.js for interactive 3D.',
-    deliverables: [
-      'Next.js (App Router, Server Actions, SSR/SSG)',
-      'React.js Enterprise Single-Page Applications',
-      'Angular v17+ (Signals, Standalone Components, RxJS)',
-      'Interactive 3D WebGL (Three.js, Shaders, Canvas)',
-      'Rigorous Accessibility (WCAG 2.1 AA) & Responsive Design',
-    ],
-    techTags: ['Next.js', 'React.js', 'Angular', 'Three.js', 'TypeScript', 'Tailwind/CSS'],
-  },
-  {
-    id: 'backend-cloud',
+    id: 'backend-enterprise',
+    number: '05',
     category: 'backend',
-    title: 'Enterprise Backend & API Architecture',
-    subtitle: 'Laravel, Node.js & Python Services',
-    icon: Database,
-    accentColor: '#ef4444',
+    title: 'Enterprise Backends: Laravel, Node & Python',
+    subtitle: 'High-Concurrency Distributed Systems',
+    icon: Server,
+    accentColor: '#059669',
+    metricBadge: '40K+ Req/Sec Throughput',
     description:
-      'Rock-solid backend engineering that handles millions of requests without breaking a sweat. We develop high-concurrency microservices, data pipelines, and REST/GraphQL APIs across Laravel, Node.js, and Python.',
+      'Bulletproof server architectures engineered for extreme throughput. We construct distributed APIs using Laravel Octane, Node.js microservices, and Python FastAPI/Django with asynchronous task queues and Redis.',
     deliverables: [
-      'Laravel (PHP 8.3+, Livewire, Eloquent, Queues)',
-      'Node.js (NestJS, Express, Fastify, Microservices)',
-      'Python (FastAPI, Django, Async Data Pipelines)',
-      'Database Modeling (PostgreSQL, MySQL, Redis, MongoDB)',
-      'Cloud Deployment & Serverless Infrastructure (AWS, GCP)',
+      'Laravel (Octane, Horizon, Eloquent ORM, Livewire)',
+      'Node.js (Fastify, NestJS, Express, Microservices)',
+      'Python (FastAPI, Django, Celery, AI/ML Pipelines)',
+      'High-Performance PostgreSQL & Redis Distributed Caches',
+      'GraphQL & RESTful API Gateways with Zero-Downtime CI/CD',
     ],
-    techTags: ['Laravel', 'Node.js', 'Python', 'FastAPI', 'PostgreSQL', 'Redis', 'NestJS'],
+    techTags: ['Laravel', 'Node.js', 'Python FastAPI', 'Django', 'PostgreSQL', 'Redis', 'Docker'],
   },
   {
-    id: 'seo-growth',
+    id: 'technical-seo',
+    number: '06',
     category: 'seo',
-    title: 'Technical SEO & Search Dominance',
-    subtitle: 'Data-Driven Search Engine Optimization',
+    title: 'Technical SEO & Core Web Vitals',
+    subtitle: 'Search Dominance & Lighthouse 100/100',
     icon: TrendingUp,
     accentColor: '#10b981',
+    metricBadge: '100/100 Lighthouse Guarantee',
     description:
-      'Beautiful code is useless if your customers cannot find it. We combine deep technical web engineering with high-impact SEO to achieve top search rankings, instant indexation, and dominant organic revenue growth.',
+      'Code-level search optimization that algorithms reward. We engineer programmatic SEO architectures, complete JSON-LD schema networks, automated sitemaps, and guarantee sub-second mobile rendering.',
     deliverables: [
-      'Deep Technical SEO & Site Architecture Audits',
-      'Core Web Vitals Optimization (Sub-second LCP)',
-      'Semantic Schema.org & Rich Snippets Implementation',
-      'Programmatic SEO Engines for Scalable Keyword Capture',
-      'International & Multi-Regional Hreflang SEO',
+      'Core Web Vitals Optimization (LCP < 0.3s, FID < 2ms, CLS 0)',
+      'Schema.org Graph Generation (Organization, Article, FAQ)',
+      'Server-Side Rendering & Edge Dynamic Pre-Rendering',
+      'Crawl Budget Management & XML Sitemap Automation',
+      'Internationalization & Multi-Regional Hreflang SEO',
     ],
-    techTags: ['Technical SEO', 'Core Web Vitals', 'Schema.org', 'PageSpeed', 'GSC', 'Sitemaps'],
+    techTags: ['Lighthouse 100', 'Schema.org', 'JSON-LD', 'Core Web Vitals', 'SSR', 'Edge SEO'],
   },
 ];
 
 export default function ServicesSection() {
-  const [filter, setFilter] = useState<'all' | 'cms' | 'crm' | 'frontend' | 'backend' | 'seo'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'cms' | 'crm' | 'frontend' | 'backend' | 'seo'>('all');
 
   const filteredServices =
-    filter === 'all'
+    activeCategory === 'all'
       ? servicesData
-      : servicesData.filter((item) => item.category === filter);
+      : servicesData.filter((service) => service.category === activeCategory);
 
   return (
-    <section id="services" style={{ padding: '90px 0', position: 'relative' }}>
+    <section
+      id="services"
+      style={{
+        paddingTop: '80px',
+        paddingBottom: '90px',
+        position: 'relative',
+      }}
+    >
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <div className="section-tag">
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div className="section-tag section-tag-emerald">
             <Sparkles size={14} />
-            <span>Comprehensive Agency Capabilities</span>
+            <span>Full-Spectrum Capabilities</span>
           </div>
           <h2 className="section-title">
-            Specialized Engineering For <span className="text-gradient">Every Layer</span> Of Your Stack
+            Engineering services built for{' '}
+            <span className="text-gradient-emerald">market leaders</span>.
           </h2>
           <p className="section-subtitle">
-            Whether you need custom WordPress and Headless CMS, CRM pipeline automation, full-stack React/Angular apps, or rock-solid Laravel/Python backends, our dedicated specialists deliver enterprise-grade execution.
+            From modern headless CMS and automated CRM pipelines to full-stack architectures and technical SEO, we execute with obsessive precision.
           </p>
+        </div>
 
-          {/* Filter Tabs */}
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: '10px',
-              marginTop: '32px',
-            }}
-          >
-            {[
-              { label: 'All Services', value: 'all' },
-              { label: 'WordPress & CMS', value: 'cms' },
-              { label: 'CRM Specialists', value: 'crm' },
-              { label: 'Frontend & Stacks (MERN/MEAN)', value: 'frontend' },
-              { label: 'Backend (Laravel/Node/Python)', value: 'backend' },
-              { label: 'Technical SEO', value: 'seo' },
-            ].map((tab) => (
+        {/* Filter Category Tabs (Averi.ai style pill selector) */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '8px',
+            marginBottom: '48px',
+          }}
+        >
+          {[
+            { id: 'all', label: 'All Disciplines' },
+            { id: 'cms', label: 'WordPress & CMS' },
+            { id: 'crm', label: 'CRM Specialist' },
+            { id: 'frontend', label: 'Frontend & 3D' },
+            { id: 'backend', label: 'Enterprise Backend' },
+            { id: 'seo', label: 'Technical SEO' },
+          ].map((tab) => {
+            const isActive = activeCategory === tab.id;
+            return (
               <button
-                key={tab.value}
-                onClick={() => setFilter(tab.value as any)}
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id as any)}
                 style={{
-                  padding: '9px 20px',
+                  padding: '8px 18px',
                   borderRadius: '9999px',
-                  fontSize: '0.88rem',
-                  fontWeight: 600,
+                  fontSize: '0.84rem',
+                  fontWeight: isActive ? 700 : 600,
+                  color: isActive ? '#ffffff' : '#334155',
+                  background: isActive ? '#090d16' : '#ffffff',
+                  border: isActive ? '1px solid #090d16' : '1px solid rgba(15, 23, 42, 0.08)',
+                  boxShadow: isActive ? '0 4px 14px rgba(9, 13, 22, 0.25)' : 'var(--shadow-sm)',
                   transition: 'all 0.2s ease',
-                  background:
-                    filter === tab.value
-                      ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)'
-                      : 'rgba(255, 255, 255, 0.85)',
-                  color: filter === tab.value ? '#ffffff' : '#475569',
-                  border:
-                    filter === tab.value
-                      ? '1px solid transparent'
-                      : '1px solid rgba(226, 232, 240, 0.9)',
-                  boxShadow:
-                    filter === tab.value
-                      ? '0 8px 20px -4px rgba(37, 99, 235, 0.35)'
-                      : '0 1px 3px rgba(15, 23, 42, 0.05)',
+                  cursor: 'pointer',
                 }}
               >
                 {tab.label}
               </button>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        {/* Services Cards Grid */}
+        {/* Services Bento Grid (Inspired by Image 3 "Design Futures" & Image 2 "Code Craft") */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-            gap: '28px',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
+            gap: '24px',
           }}
           className="services-grid"
         >
           {filteredServices.map((service) => {
-            const Icon = service.icon;
+            const IconComponent = service.icon;
             return (
               <div
                 key={service.id}
                 className="glass-panel"
                 style={{
-                  padding: '36px',
+                  padding: '32px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  position: 'relative',
-                  overflow: 'hidden',
                   borderRadius: '24px',
+                  background: 'rgba(255, 255, 255, 0.92)',
+                  border: '1px solid rgba(15, 23, 42, 0.08)',
                 }}
               >
-                {/* Subtle top accent bar */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '4px',
-                    background: service.accentColor,
-                  }}
-                />
-
                 <div>
-                  {/* Card Header with Icon */}
+                  {/* Top Header: Number Pill & Metric Badge */}
                   <div
                     style={{
                       display: 'flex',
@@ -255,142 +265,87 @@ export default function ServicesSection() {
                       marginBottom: '20px',
                     }}
                   >
-                    <div
-                      style={{
-                        width: '54px',
-                        height: '54px',
-                        borderRadius: '16px',
-                        background: `${service.accentColor}15`,
-                        color: service.accentColor,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <Icon size={28} />
-                    </div>
-
+                    <span className="pill-number">{service.number}</span>
                     <span
                       style={{
-                        fontSize: '0.75rem',
+                        fontSize: '0.72rem',
                         fontWeight: 700,
-                        color: service.accentColor,
-                        background: `${service.accentColor}12`,
-                        padding: '4px 12px',
+                        color: '#059669',
+                        background: 'rgba(16, 185, 129, 0.1)',
+                        padding: '3px 10px',
                         borderRadius: '9999px',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.05em',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
                       }}
                     >
-                      {service.category}
+                      <Zap size={11} color="#10b981" />
+                      <span>{service.metricBadge}</span>
                     </span>
                   </div>
 
-                  <h3
-                    style={{
-                      fontSize: '1.45rem',
-                      fontWeight: 800,
-                      color: '#0f172a',
-                      marginBottom: '6px',
-                      letterSpacing: '-0.02em',
-                    }}
-                  >
-                    {service.title}
-                  </h3>
-
-                  <div
-                    style={{
-                      fontSize: '0.88rem',
-                      fontWeight: 600,
-                      color: service.accentColor,
-                      marginBottom: '16px',
-                    }}
-                  >
-                    {service.subtitle}
+                  {/* Icon & Title */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
+                    <div
+                      style={{
+                        width: '46px',
+                        height: '46px',
+                        borderRadius: '12px',
+                        background: 'rgba(16, 185, 129, 0.1)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#059669',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <IconComponent size={24} />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#090d16', lineHeight: 1.25 }}>
+                        {service.title}
+                      </h3>
+                      <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 700 }}>
+                        {service.subtitle}
+                      </div>
+                    </div>
                   </div>
 
-                  <p
-                    style={{
-                      fontSize: '0.94rem',
-                      color: '#475569',
-                      lineHeight: 1.65,
-                      marginBottom: '24px',
-                    }}
-                  >
+                  {/* Description */}
+                  <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
                     {service.description}
                   </p>
 
-                  {/* Key Deliverables */}
+                  {/* Deliverables Checklist */}
                   <div style={{ marginBottom: '24px' }}>
-                    <div
-                      style={{
-                        fontSize: '0.8rem',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.06em',
-                        color: '#64748b',
-                        marginBottom: '12px',
-                      }}
-                    >
-                      Key Deliverables & Specs:
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
+                      Key Deliverables
                     </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       {service.deliverables.map((item, idx) => (
-                        <li
-                          key={idx}
-                          style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '10px',
-                            fontSize: '0.88rem',
-                            color: '#334155',
-                            lineHeight: 1.45,
-                          }}
-                        >
-                          <div
-                            style={{
-                              width: '18px',
-                              height: '18px',
-                              borderRadius: '50%',
-                              background: '#10b98120',
-                              color: '#10b981',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              flexShrink: 0,
-                              marginTop: '2px',
-                            }}
-                          >
-                            <Check size={12} strokeWidth={3} />
-                          </div>
+                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
+                          <CheckCircle2 size={15} color="#10b981" style={{ flexShrink: 0, marginTop: '3px' }} />
                           <span>{item}</span>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
 
-                {/* Tech tags and CTA */}
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '6px',
-                      marginBottom: '24px',
-                    }}
-                  >
+                {/* Footer: Tech Stack Pills & Action Link */}
+                <div style={{ paddingTop: '20px', borderTop: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
                     {service.techTags.map((tag) => (
                       <span
                         key={tag}
                         style={{
-                          fontSize: '0.75rem',
-                          fontWeight: 600,
-                          padding: '3px 10px',
+                          fontSize: '0.72rem',
+                          fontFamily: 'var(--font-mono)',
+                          padding: '3px 9px',
                           borderRadius: '6px',
-                          background: 'rgba(241, 245, 249, 0.9)',
-                          color: '#475569',
-                          border: '1px solid rgba(226, 232, 240, 0.8)',
+                          background: '#f1f5f9',
+                          color: '#334155',
+                          fontWeight: 600,
                         }}
                       >
                         {tag}
@@ -398,35 +353,20 @@ export default function ServicesSection() {
                     ))}
                   </div>
 
-                  <a
-                    href="#estimator"
+                  <Link
+                    href="/estimator"
                     style={{
-                      display: 'flex',
+                      display: 'inline-flex',
                       alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '12px 18px',
-                      background: 'rgba(248, 250, 252, 0.8)',
-                      borderRadius: '12px',
-                      border: '1px solid rgba(226, 232, 240, 0.8)',
-                      color: '#0f172a',
-                      fontWeight: 600,
-                      fontSize: '0.9rem',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#ffffff';
-                      e.currentTarget.style.borderColor = service.accentColor;
-                      e.currentTarget.style.color = service.accentColor;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'rgba(248, 250, 252, 0.8)';
-                      e.currentTarget.style.borderColor = 'rgba(226, 232, 240, 0.8)';
-                      e.currentTarget.style.color = '#0f172a';
+                      gap: '6px',
+                      fontSize: '0.84rem',
+                      fontWeight: 700,
+                      color: '#059669',
                     }}
                   >
-                    <span>Configure {service.title.split(' ')[0]} Scope</span>
-                    <ArrowRight size={16} />
-                  </a>
+                    <span>Request Engineering Scope</span>
+                    <ArrowRight size={14} />
+                  </Link>
                 </div>
               </div>
             );
@@ -435,7 +375,7 @@ export default function ServicesSection() {
       </div>
 
       <style jsx>{`
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .services-grid {
             grid-template-columns: 1fr !important;
           }

@@ -27,12 +27,12 @@ export default function TechStackPage() {
         }}
       >
         <div className="container" style={{ textAlign: 'center' }}>
-          <div className="section-tag">
+          <div className="section-tag section-tag-emerald">
             <Sparkles size={14} />
             <span>Modern Production Frameworks</span>
           </div>
           <h1 className="section-title">
-            Enterprise <span className="text-gradient">Technology Matrix</span>
+            Enterprise <span className="text-gradient-emerald">Technology Matrix</span>
           </h1>
           <p className="section-subtitle">
             We don’t compromise on architectural integrity. Explore our mastered frameworks, libraries, cloud databases, and CRM automation engines engineered for maximum speed and longevity.

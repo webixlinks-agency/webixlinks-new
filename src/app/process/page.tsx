@@ -27,12 +27,12 @@ export default function ProcessPage() {
         }}
       >
         <div className="container" style={{ textAlign: 'center' }}>
-          <div className="section-tag">
+          <div className="section-tag section-tag-emerald">
             <Sparkles size={14} />
             <span>Methodical Delivery Workflow</span>
           </div>
           <h1 className="section-title">
-            Our 4-Phase <span className="text-gradient">Agile Engineering</span> Framework
+            Our 4-Phase <span className="text-gradient-emerald">Agile Engineering</span> Framework
           </h1>
           <p className="section-subtitle">
             Great software requires disciplined execution. We operate with radical transparency, continuous testing, bi-weekly staging releases, and ironclad delivery commitments.

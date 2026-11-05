@@ -27,15 +27,15 @@ export default function ServicesPage() {
         }}
       >
         <div className="container" style={{ textAlign: 'center' }}>
-          <div className="section-tag">
+          <div className="section-tag section-tag-emerald">
             <Sparkles size={14} />
             <span>Full-Spectrum Digital Capabilities</span>
           </div>
           <h1 className="section-title">
-            Enterprise Engineering & <span className="text-gradient">Growth Services</span>
+            Enterprise Engineering &amp; <span className="text-gradient-emerald">Growth Services</span>
           </h1>
           <p className="section-subtitle">
-            From custom WordPress & Headless CMS to CRM pipeline automation, React/Next.js/Angular frontends, robust Laravel & Python backends, and data-driven SEO. We architect for scale, speed, and business ROI.
+            From custom WordPress &amp; Headless CMS to CRM pipeline automation, React/Next.js/Angular frontends, robust Laravel &amp; Python backends, and data-driven SEO. We architect for scale, speed, and business ROI.
           </p>
 
           <div

@@ -2,14 +2,14 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, Shield, ArrowRight } from 'lucide-react';
+import { Sparkles, Shield, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer
       style={{
         background: '#ffffff',
-        borderTop: '1px solid rgba(226, 232, 240, 0.9)',
+        borderTop: '1px solid rgba(15, 23, 42, 0.08)',
         padding: '70px 0 36px',
         position: 'relative',
         zIndex: 1,
@@ -35,7 +35,7 @@ export default function Footer() {
                 gap: '10px',
                 fontWeight: 800,
                 fontSize: '1.25rem',
-                color: '#0f172a',
+                color: '#090d16',
                 marginBottom: '14px',
               }}
             >
@@ -44,169 +44,129 @@ export default function Footer() {
                   width: '34px',
                   height: '34px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+                  background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
+                  boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
                 }}
               >
                 <Sparkles size={18} />
               </div>
               <span>
-                Aura<span className="text-gradient">Stack</span>
+                Aura<strong style={{ color: '#059669' }}>Stack</strong>
               </span>
             </Link>
 
-            <p
-              style={{
-                fontSize: '0.88rem',
-                color: '#64748b',
-                lineHeight: 1.6,
-                marginBottom: '20px',
-              }}
-            >
-              Next-generation digital engineering agency specializing in WordPress & Headless CMS, CRM pipeline automation (Salesforce, HubSpot, Zoho), MERN/MEAN stacks, enterprise Laravel/Node/Python backends, and Technical SEO.
+            <p style={{ fontSize: '0.86rem', color: '#64748b', lineHeight: 1.6, marginBottom: '20px' }}>
+              Premier digital engineering studio specializing in Headless WordPress, CRM automation (Salesforce, HubSpot, Zoho), full-stack MERN/MEAN architectures, enterprise backends, and 100/100 Technical SEO.
             </p>
 
-            {/* Live Operational Status */}
+            {/* Live Operational Status Pill */}
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '6px 12px',
+                padding: '6px 14px',
+                background: 'rgba(16, 185, 129, 0.1)',
                 borderRadius: '9999px',
-                background: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid rgba(16, 185, 129, 0.2)',
-                fontSize: '0.78rem',
-                fontWeight: 600,
+                border: '1px solid rgba(16, 185, 129, 0.25)',
+                fontSize: '0.74rem',
+                fontWeight: 700,
                 color: '#059669',
               }}
             >
-              <span
-                style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  backgroundColor: '#10b981',
-                }}
-              />
-              All Systems Operational • Engineering Sprints Open
+              <span className="pulse-dot" style={{ width: '6px', height: '6px' }} />
+              <span>All Systems Operational (Edge 14ms)</span>
             </div>
           </div>
 
-          {/* Dedicated Pages Navigation */}
+          {/* Column 1: Services */}
           <div>
-            <div
-              style={{
-                fontSize: '0.82rem',
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                color: '#0f172a',
-                marginBottom: '16px',
-              }}
-            >
-              Explore Pages
-            </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {[
-                { name: 'Home Landing Page', href: '/' },
-                { name: 'All Services & Disciplines', href: '/services' },
-                { name: 'Full Technology Matrix', href: '/tech-stack' },
-                { name: 'Project Cost Estimator', href: '/estimator' },
-                { name: 'Verified Case Studies', href: '/case-studies' },
-                { name: 'Engineering Process', href: '/process' },
-                { name: 'Request Consultation', href: '/contact' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    style={{ fontSize: '0.86rem', color: '#64748b', transition: 'color 0.2s ease' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#2563eb')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+            <h4 style={{ fontSize: '0.84rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
+              Engineering
+            </h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem', color: '#475569' }}>
+              <li>
+                <Link href="/services#wp-cms" style={{ transition: 'color 0.15s ease' }} className="hover:text-emerald-600">
+                  Headless WordPress &amp; CMS
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#crm-specialist" style={{ transition: 'color 0.15s ease' }} className="hover:text-emerald-600">
+                  CRM Specialists (Salesforce/HubSpot)
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#frontend-modern" style={{ transition: 'color 0.15s ease' }} className="hover:text-emerald-600">
+                  React 19 &amp; Next.js 16 Web Apps
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#fullstack-stacks" style={{ transition: 'color 0.15s ease' }} className="hover:text-emerald-600">
+                  MERN &amp; MEAN Full-Stack Portals
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#backend-enterprise" style={{ transition: 'color 0.15s ease' }} className="hover:text-emerald-600">
+                  Laravel, Node.js &amp; Python APIs
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#technical-seo" style={{ transition: 'color 0.15s ease' }} className="hover:text-emerald-600">
+                  Technical SEO &amp; Lighthouse 100
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* CMS & CRM Column */}
+          {/* Column 2: Architecture & Stacks */}
           <div>
-            <div
-              style={{
-                fontSize: '0.82rem',
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                color: '#0f172a',
-                marginBottom: '16px',
-              }}
-            >
-              CMS & CRM Services
-            </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {[
-                'Custom WordPress Themes',
-                'Headless WordPress + Next.js',
-                'WooCommerce E-Commerce',
-                'Strapi & Sanity Modeling',
-                'Salesforce Apex & Lightning',
-                'HubSpot CMS & Automation',
-                'Zoho CRM & Creator Deluge',
-              ].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="/services"
-                    style={{ fontSize: '0.86rem', color: '#64748b', transition: 'color 0.2s ease' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#2563eb')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+            <h4 style={{ fontSize: '0.84rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
+              Technologies
+            </h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem', color: '#475569' }}>
+              <li>
+                <Link href="/tech-stack">Next.js 16 &amp; React.js</Link>
+              </li>
+              <li>
+                <Link href="/tech-stack">Angular v18+ &amp; RxJS</Link>
+              </li>
+              <li>
+                <Link href="/tech-stack">Salesforce Lightning &amp; Apex</Link>
+              </li>
+              <li>
+                <Link href="/tech-stack">HubSpot API v3 &amp; HubDB</Link>
+              </li>
+              <li>
+                <Link href="/tech-stack">Laravel Octane &amp; Swoole</Link>
+              </li>
+              <li>
+                <Link href="/tech-stack">Python FastAPI &amp; Celery</Link>
+              </li>
             </ul>
           </div>
 
-          {/* Web & Backend Stacks */}
+          {/* Column 3: Platform & Trust */}
           <div>
-            <div
-              style={{
-                fontSize: '0.82rem',
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                color: '#0f172a',
-                marginBottom: '16px',
-              }}
-            >
-              Web & Backend Stacks
-            </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {[
-                'React.js & Next.js 15 Apps',
-                'Angular v17+ (MEAN Stack)',
-                'MERN Stack Architecture',
-                'Laravel (PHP 8.3+) APIs',
-                'Node.js & NestJS Services',
-                'Python FastAPI / Django',
-                'Technical SEO 95+ Score',
-              ].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="/tech-stack"
-                    style={{ fontSize: '0.86rem', color: '#64748b', transition: 'color 0.2s ease' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#2563eb')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#64748b')}
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+            <h4 style={{ fontSize: '0.84rem', fontWeight: 800, color: '#090d16', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '18px' }}>
+              Platform
+            </h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem', color: '#475569' }}>
+              <li>
+                <Link href="/estimator">Cost &amp; Timeline Estimator</Link>
+              </li>
+              <li>
+                <Link href="/case-studies">Verified Case Studies</Link>
+              </li>
+              <li>
+                <Link href="/process">4-Phase Agile Process</Link>
+              </li>
+              <li>
+                <Link href="/contact">Book Architecture Discovery</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -214,24 +174,22 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div
           style={{
-            paddingTop: '24px',
-            borderTop: '1px solid rgba(226, 232, 240, 0.8)',
             display: 'flex',
-            flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '16px',
+            paddingTop: '28px',
+            borderTop: '1px solid rgba(15, 23, 42, 0.06)',
+            fontSize: '0.8rem',
+            color: '#64748b',
+            flexWrap: 'wrap',
+            gap: '12px',
           }}
         >
-          <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>
-            © 2026 AuraStack Studios Inc. All rights reserved. High-Velocity Multi-Page Engineering.
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <span style={{ fontSize: '0.82rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <Shield size={14} color="#10b981" />
-              SOC2 & GDPR Compliant Workflows
-            </span>
+          <div>© 2026 AuraStack Studios. Engineered for performance &amp; scale.</div>
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <span>SOC2 Type II Compliant</span>
+            <span>WCAG 2.1 AA Accessible</span>
+            <span>99.99% Uptime Guarantee</span>
           </div>
         </div>
       </div>

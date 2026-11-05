@@ -11,15 +11,19 @@ import {
   ArrowRight,
   Shield,
   Zap,
+  Server,
+  Code2,
+  TrendingUp,
 } from 'lucide-react';
+import Link from 'next/link';
 
 interface TechDetail {
   name: string;
-  category: string;
+  category: 'CMS' | 'CRM' | 'Frontend' | 'Backend' | 'Database' | 'SEO';
   level: string;
   highlight: string;
   useCase: string;
-  color: string;
+  badge: string;
 }
 
 const detailedTechList: TechDetail[] = [
@@ -30,7 +34,7 @@ const detailedTechList: TechDetail[] = [
     level: '99% Senior Mastery',
     highlight: 'Custom Plugins, Gutenberg Blocks & High-Conversion E-Commerce',
     useCase: 'Enterprise publishing, multisite networks, and scalable merchant platforms.',
-    color: '#21759b',
+    badge: 'Enterprise Core',
   },
   {
     name: 'Headless WordPress',
@@ -38,7 +42,7 @@ const detailedTechList: TechDetail[] = [
     level: '98% Senior Mastery',
     highlight: 'Decoupled WP REST API & WPGraphQL with Next.js App Router',
     useCase: 'Sub-second page speeds with familiar content editor workflows.',
-    color: '#0073aa',
+    badge: 'Flagship Architecture',
   },
   {
     name: 'Strapi & Sanity CMS',
@@ -46,7 +50,7 @@ const detailedTechList: TechDetail[] = [
     level: '95% Expert',
     highlight: 'Structured Content Modeling, Realtime Drafts & Webhooks',
     useCase: 'Omnichannel content delivery across web, mobile apps, and smart displays.',
-    color: '#4945ff',
+    badge: 'Modern Headless',
   },
 
   // CRM
@@ -56,7 +60,7 @@ const detailedTechList: TechDetail[] = [
     level: '96% Certified Specialist',
     highlight: 'Custom Apex Triggers, Lightning Web Components & REST Sync',
     useCase: 'Complex enterprise sales operations, bi-directional lead pipelines.',
-    color: '#00a1e0',
+    badge: 'Enterprise CRM',
   },
   {
     name: 'HubSpot Ecosystem',
@@ -64,7 +68,7 @@ const detailedTechList: TechDetail[] = [
     level: '97% Certified Partner',
     highlight: 'Custom Properties, Automated Workflows & CMS Hub Portals',
     useCase: 'Full-funnel inbound marketing, lead scoring, and automated sales outreach.',
-    color: '#ff7a59',
+    badge: 'Inbound Growth',
   },
   {
     name: 'Zoho CRM & Creator',
@@ -72,511 +76,372 @@ const detailedTechList: TechDetail[] = [
     level: '94% Expert',
     highlight: 'Deluge Scripting, Custom Blueprints & Multi-App Integrations',
     useCase: 'Cost-effective end-to-end ERP/CRM custom process automation.',
-    color: '#d32f2f',
+    badge: 'Custom Workflows',
   },
 
   // Frontend
   {
-    name: 'Next.js 15 & 16',
+    name: 'Next.js 16 (App Router)',
     category: 'Frontend',
     level: '99% Architect Level',
-    highlight: 'App Router, Server Actions, Partial Prerendering & Edge Runtime',
+    highlight: 'Turbopack, Server Actions, Partial Prerendering & Edge Runtime',
     useCase: 'SEO-critical platforms, high-velocity consumer applications.',
-    color: '#0f172a',
+    badge: 'Production Edge',
   },
   {
-    name: 'React.js',
+    name: 'React.js 19',
     category: 'Frontend',
     level: '99% Senior Mastery',
-    highlight: 'Concurrent Rendering, Custom Hooks, Zustand & Context Architecture',
-    useCase: 'Dynamic interactive SPAs, SaaS dashboards, and WebGL widgets.',
-    color: '#0ea5e9',
+    highlight: 'Concurrent Rendering, Custom Hooks & Component Design Systems',
+    useCase: 'Complex dynamic SaaS applications, interactive portals, and SPAs.',
+    badge: 'Component Core',
   },
   {
-    name: 'Angular (v17+)',
+    name: 'Angular (v18+)',
     category: 'Frontend',
-    level: '96% Senior Mastery',
-    highlight: 'Signals Reactivity, Standalone Components, Strict TypeScript & RxJS',
-    useCase: 'Mission-critical enterprise software, banking portals, and telemetry suites.',
-    color: '#dd0031',
-  },
-
-  // Stacks
-  {
-    name: 'MERN Stack',
-    category: 'Stacks',
-    level: '98% Full-Stack Mastery',
-    highlight: 'MongoDB + Express.js + React.js + Node.js End-to-End',
-    useCase: 'Rapidly scaling startups, dynamic content feeds, and social web apps.',
-    color: '#8b5cf6',
-  },
-  {
-    name: 'MEAN Stack',
-    category: 'Stacks',
-    level: '97% Full-Stack Mastery',
-    highlight: 'MongoDB + Express.js + Angular + Node.js Enterprise Stacks',
-    useCase: 'Corporate workflow systems with rigorous type-safe component contracts.',
-    color: '#ec4899',
+    level: '96% Expert',
+    highlight: 'Signals, Standalone Components, RxJS & Enterprise Typing',
+    useCase: 'Rigid enterprise banking, health systems, and high-scale internal portals.',
+    badge: 'Enterprise Grade',
   },
 
   // Backend
   {
-    name: 'Laravel (PHP 8.3+)',
+    name: 'Laravel (Octane / Swoole)',
     category: 'Backend',
     level: '98% Senior Mastery',
-    highlight: 'Eloquent ORM, Horizon Queues, Livewire & Inertia.js API Gateways',
-    useCase: 'Robust business logic, subscription engines, and automated reports.',
-    color: '#ff2d20',
+    highlight: 'High-Throughput APIs, Horizon Queue Workers & Eloquent ORM',
+    useCase: 'Rapid enterprise SaaS backends, financial integrations, and subscription billing.',
+    badge: 'Extreme Throughput',
   },
   {
-    name: 'Node.js & NestJS',
+    name: 'Node.js & Fastify',
     category: 'Backend',
     level: '99% Senior Mastery',
-    highlight: 'Asynchronous Event Loop, Fastify, Microservices & WebSockets',
-    useCase: 'Real-time collaborative tools, streaming endpoints, and high-throughput APIs.',
-    color: '#22c55e',
+    highlight: 'Asynchronous Event Loop, Microservices & WebSocket Clusters',
+    useCase: 'Real-time collaborative tools, streaming APIs, and GraphQL gateways.',
+    badge: 'Real-Time Edge',
   },
   {
     name: 'Python (FastAPI & Django)',
     category: 'Backend',
     level: '97% Senior Mastery',
-    highlight: 'Async Pydantic Validation, Django ORM, Celery & AI/LLM Pipelines',
-    useCase: 'Machine learning model serving, scientific data processing, backend automation.',
-    color: '#3776ab',
+    highlight: 'Async REST Endpoints, Celery Distributed Tasks & AI/ML Integrations',
+    useCase: 'Data-intensive platforms, machine learning pipelines, and secure enterprise APIs.',
+    badge: 'AI & Data Ready',
   },
 
-  // Databases & SEO
+  // Database
   {
-    name: 'PostgreSQL & MongoDB',
+    name: 'PostgreSQL & Redis',
     category: 'Database',
-    level: '98% Data Architects',
-    highlight: 'ACID Relational Schemas, JSONB Indexes, Sharding & Repl-Sets',
-    useCase: 'Zero-downtime persistence, analytical aggregates, and document storage.',
-    color: '#0284c7',
+    level: '98% Expert',
+    highlight: 'Complex Relational Schema, ACID Compliance & In-Memory Caching',
+    useCase: 'High-concurrency transactional databases with sub-millisecond cache hits.',
+    badge: 'Core Persistence',
   },
   {
-    name: 'Technical SEO Engine',
+    name: 'MongoDB (MERN/MEAN)',
+    category: 'Database',
+    level: '96% Senior Mastery',
+    highlight: 'Document Aggregations, Flexible Schemas & Atlas Sharding',
+    useCase: 'High-velocity document storage, mobile sync, and unstructured analytics.',
+    badge: 'Document Scale',
+  },
+
+  // SEO
+  {
+    name: 'Technical SEO & Core Web Vitals',
     category: 'SEO',
-    level: '99% Search Experts',
-    highlight: 'Lighthouse 100s, JSON-LD Schema, Server-Side Rendering & Core Web Vitals',
-    useCase: 'First-page Google rankings, organic buyer acquisition at zero ad cost.',
-    color: '#10b981',
+    level: '100% Certified',
+    highlight: '100/100 Lighthouse Performance, JSON-LD Schema & Indexing Automation',
+    useCase: 'Organic search domination, international hreflang tags, and crawl budget control.',
+    badge: '100/100 Guarantee',
   },
 ];
 
 export default function TechStackSection() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [selectedArchPattern, setSelectedArchPattern] = useState<'headless' | 'crm-pipeline' | 'fullstack'>('headless');
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [blueprintTab, setBlueprintTab] = useState<'headless' | 'crm' | 'fullstack'>('headless');
+
+  const categories = ['All', 'CMS', 'CRM', 'Frontend', 'Backend', 'Database', 'SEO'];
 
   const filteredTech =
-    selectedCategory === 'All'
+    activeCategory === 'All'
       ? detailedTechList
-      : detailedTechList.filter((item) => item.category === selectedCategory);
-
-  const categories = ['All', 'CMS', 'CRM', 'Frontend', 'Stacks', 'Backend', 'Database', 'SEO'];
+      : detailedTechList.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="tech-stack" style={{ padding: '90px 0', position: 'relative' }}>
+    <section
+      id="tech-stack"
+      style={{
+        paddingTop: '80px',
+        paddingBottom: '90px',
+        position: 'relative',
+      }}
+    >
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <div className="section-tag">
-            <Sparkles size={14} />
-            <span>Modern Technology Matrix</span>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div className="section-tag section-tag-emerald">
+            <Cpu size={14} />
+            <span>Architecture &amp; Stacks</span>
           </div>
           <h2 className="section-title">
-            Engineered With <span className="text-gradient">Industry-Standard</span> Frameworks
+            Engineered with modern, battle-tested{' '}
+            <span className="text-gradient-emerald">technologies</span>.
           </h2>
           <p className="section-subtitle">
-            We don’t believe in one-size-fits-all. We select and master the exact technology stack that delivers the highest speed, lowest latency, and easiest long-term maintainability for your project.
+            We avoid fragile templates and rigid vendor lock-in. Every stack we deploy is curated for speed, maintainability, and enterprise durability.
           </p>
-
-          {/* Category Filter Pills */}
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: '8px',
-              marginTop: '32px',
-            }}
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                style={{
-                  padding: '8px 18px',
-                  borderRadius: '9999px',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  transition: 'all 0.2s ease',
-                  background:
-                    selectedCategory === cat
-                      ? '#0f172a'
-                      : 'rgba(255, 255, 255, 0.85)',
-                  color: selectedCategory === cat ? '#ffffff' : '#475569',
-                  border:
-                    selectedCategory === cat
-                      ? '1px solid #0f172a'
-                      : '1px solid rgba(226, 232, 240, 0.85)',
-                  boxShadow:
-                    selectedCategory === cat
-                      ? '0 6px 16px rgba(15, 23, 42, 0.2)'
-                      : '0 1px 3px rgba(15, 23, 42, 0.04)',
-                }}
-              >
-                {cat === 'All' ? '⚡ Complete Tech Stack' : cat}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* Professional Architecture Blueprint & Matrix Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '32px',
-            marginBottom: '40px',
-          }}
-          className="tech-matrix-layout"
-        >
-          {/* Left Column: Interactive Enterprise Blueprint Card */}
-          <div
-            className="glass-panel"
-            style={{
-              padding: '36px',
-              borderRadius: '24px',
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.85) 100%)',
-              border: '1px solid rgba(226, 232, 240, 0.9)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  marginBottom: '20px',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Cpu size={20} color="#2563eb" />
-                  <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>
-                    Production Architecture Blueprints
-                  </span>
-                </div>
-                <span
-                  style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    color: '#10b981',
-                    background: 'rgba(16, 185, 129, 0.1)',
-                    padding: '3px 10px',
-                    borderRadius: '9999px',
-                  }}
-                >
-                  99.99% Uptime
-                </span>
-              </div>
-
-              {/* Architecture Selector Tabs */}
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr 1fr',
-                  gap: '6px',
-                  background: 'rgba(241, 245, 249, 0.8)',
-                  padding: '4px',
-                  borderRadius: '12px',
-                  marginBottom: '24px',
-                }}
-              >
-                {[
-                  { id: 'headless', label: 'Headless WP' },
-                  { id: 'crm-pipeline', label: 'CRM Sync Hub' },
-                  { id: 'fullstack', label: 'MERN / MEAN' },
-                ].map((pattern) => (
-                  <button
-                    key={pattern.id}
-                    onClick={() => setSelectedArchPattern(pattern.id as any)}
-                    style={{
-                      padding: '8px 10px',
-                      borderRadius: '8px',
-                      fontSize: '0.8rem',
-                      fontWeight: 700,
-                      textAlign: 'center',
-                      background:
-                        selectedArchPattern === pattern.id ? '#ffffff' : 'transparent',
-                      color: selectedArchPattern === pattern.id ? '#2563eb' : '#64748b',
-                      boxShadow:
-                        selectedArchPattern === pattern.id
-                          ? '0 2px 8px rgba(15, 23, 42, 0.08)'
-                          : 'none',
-                    }}
-                  >
-                    {pattern.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Dynamic Architecture Diagram Details */}
-              {selectedArchPattern === 'headless' && (
-                <div>
-                  <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
-                    Headless WordPress + Next.js App Router
-                  </h4>
-                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
-                    Decoupled architecture combining familiar WordPress content authoring with the blazing speed and security of Next.js static prerendering and edge caching.
-                  </p>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Globe size={18} color="#2563eb" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        Frontend: Next.js 15 (Edge SSR + Incremental Static Regeneration)
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Layers size={18} color="#06b6d4" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        API Layer: WPGraphQL & Instant Invalidation Webhooks
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Database size={18} color="#7c3aed" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        CMS: Hardened WordPress Custom Post Types & Gutenberg Fields
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {selectedArchPattern === 'crm-pipeline' && (
-                <div>
-                  <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
-                    Salesforce, HubSpot & Zoho Two-Way Automation
-                  </h4>
-                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
-                    Zero-leakage lead ingestion pipeline that validates web inquiries, enriches customer records, and synchronizes real-time status across ERP and CRM endpoints.
-                  </p>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Globe size={18} color="#f97316" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        HubSpot Workflows & Automated Lead Nurturing Triggers
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Layers size={18} color="#00a1e0" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        Salesforce Apex REST Controllers & Custom Object Mapping
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Database size={18} color="#22c55e" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        Node.js & Redis Queue for Guaranteed 100% Delivery Sync
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {selectedArchPattern === 'fullstack' && (
-                <div>
-                  <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
-                    Enterprise Full-Stack (MERN & MEAN Stacks)
-                  </h4>
-                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.6, marginBottom: '20px' }}>
-                    Scalable multi-tenant architecture featuring real-time WebSockets, microservices in Node.js / Laravel / Python, and strict TypeScript contracts.
-                  </p>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Globe size={18} color="#8b5cf6" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        Frontend: React.js or Angular v17+ with Signals State
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Layers size={18} color="#ef4444" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        Backend: Laravel 11 Microservices or Node.js NestJS WebSockets
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderRadius: '10px', background: '#ffffff', border: '1px solid rgba(226, 232, 240, 0.8)' }}>
-                      <Database size={18} color="#0284c7" />
-                      <div style={{ fontSize: '0.84rem', color: '#1e293b', fontWeight: 600 }}>
-                        Persistence: MongoDB Sharded Cluster + PostgreSQL ACID
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Performance telemetry pill */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '12px',
-                paddingTop: '20px',
-                borderTop: '1px solid rgba(226, 232, 240, 0.9)',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Zap size={16} color="#2563eb" />
-                <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#334155' }}>
-                  Sub-50ms TTFB
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Shield size={16} color="#10b981" />
-                <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#334155' }}>
-                  Zero-Vulnerability QA
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Technology Cards Grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '18px',
-            }}
-          >
-            {filteredTech.slice(0, 6).map((tech) => (
-              <div
-                key={tech.name}
-                className="glass-panel"
-                style={{
-                  padding: '24px',
-                  borderRadius: '18px',
-                  borderLeft: `4px solid ${tech.color}`,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  background: 'rgba(255, 255, 255, 0.9)',
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '8px',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        color: tech.color,
-                        background: `${tech.color}15`,
-                        padding: '2px 8px',
-                        borderRadius: '6px',
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      {tech.category}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        color: '#10b981',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '4px',
-                      }}
-                    >
-                      <CheckCircle size={12} />
-                      {tech.level}
-                    </span>
-                  </div>
-
-                  <h4
-                    style={{
-                      fontSize: '1.15rem',
-                      fontWeight: 800,
-                      color: '#0f172a',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    {tech.name}
-                  </h4>
-
-                  <p
-                    style={{
-                      fontSize: '0.85rem',
-                      fontWeight: 600,
-                      color: '#475569',
-                      marginBottom: '10px',
-                      lineHeight: 1.45,
-                    }}
-                  >
-                    {tech.highlight}
-                  </p>
-
-                  <p
-                    style={{
-                      fontSize: '0.8rem',
-                      color: '#64748b',
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {tech.useCase}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* View full matrix bar */}
+        {/* Interactive Architecture Flow Diagram (Inspired by Image 2 Code Craft) */}
         <div
           className="glass-panel"
           style={{
-            padding: '20px 30px',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '16px',
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.8) 100%)',
+            padding: '28px',
+            borderRadius: '24px',
+            marginBottom: '48px',
+            background: 'rgba(255, 255, 255, 0.94)',
           }}
         >
-          <div>
-            <div style={{ fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>
-              Need a bespoke tech stack combination or custom legacy migration?
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
+            <div>
+              <span className="pill-number">SYSTEM BLUEPRINT</span>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#090d16', marginTop: '6px' }}>
+                Enterprise Data &amp; Application Topology
+              </h3>
             </div>
-            <div style={{ fontSize: '0.86rem', color: '#64748b' }}>
-              We architect custom hybrid solutions (e.g. Next.js + WordPress REST + Laravel Microservices + HubSpot Webhooks).
+
+            {/* Architecture Selector Tabs */}
+            <div style={{ display: 'flex', gap: '6px', background: '#f1f5f9', padding: '4px', borderRadius: '9999px' }}>
+              <button
+                onClick={() => setBlueprintTab('headless')}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: '9999px',
+                  fontSize: '0.78rem',
+                  fontWeight: blueprintTab === 'headless' ? 700 : 500,
+                  color: blueprintTab === 'headless' ? '#ffffff' : '#475569',
+                  background: blueprintTab === 'headless' ? '#090d16' : 'transparent',
+                }}
+              >
+                Headless WordPress / CMS
+              </button>
+              <button
+                onClick={() => setBlueprintTab('crm')}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: '9999px',
+                  fontSize: '0.78rem',
+                  fontWeight: blueprintTab === 'crm' ? 700 : 500,
+                  color: blueprintTab === 'crm' ? '#ffffff' : '#475569',
+                  background: blueprintTab === 'crm' ? '#090d16' : 'transparent',
+                }}
+              >
+                CRM Automation Hub
+              </button>
+              <button
+                onClick={() => setBlueprintTab('fullstack')}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: '9999px',
+                  fontSize: '0.78rem',
+                  fontWeight: blueprintTab === 'fullstack' ? 700 : 500,
+                  color: blueprintTab === 'fullstack' ? '#ffffff' : '#475569',
+                  background: blueprintTab === 'fullstack' ? '#090d16' : 'transparent',
+                }}
+              >
+                Full-Stack Microservices
+              </button>
             </div>
           </div>
 
-          <a href="#contact" className="btn-secondary" style={{ padding: '10px 22px', fontSize: '0.88rem' }}>
-            <span>Consult An Enterprise Architect</span>
-            <ArrowRight size={16} />
-          </a>
+          {/* Visual Architecture Steps */}
+          {blueprintTab === 'headless' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }} className="blueprint-grid">
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase' }}>01 Content Source</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>WordPress &amp; Headless CMS</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Custom Gutenberg blocks, ACF Pro, GraphQL API endpoints.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase' }}>02 Edge Webhooks</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Instant On-Demand ISR</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Edge revalidation in &lt;200ms when editors hit publish.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase' }}>03 Presentation</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Next.js 16 Edge Rendering</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Server components, fluid GSAP micro-interactions, zero layout shifts.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#8b5cf6', textTransform: 'uppercase' }}>04 Global CDN &amp; SEO</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>100/100 Core Web Vitals</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Cloudflare edge caching, JSON-LD Schema, sub-second LCP globally.</div>
+              </div>
+            </div>
+          )}
+
+          {blueprintTab === 'crm' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }} className="blueprint-grid">
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase' }}>01 Lead Intake</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Web Applications</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Next.js / React forms with instant client-side validation &amp; honeypots.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase' }}>02 Smart Routing</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Automated Scoring</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Enrichment via ZoomInfo/Clearbit APIs and automatic ICP tiering.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase' }}>03 CRM Sync</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Salesforce / HubSpot / Zoho</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Bi-directional object mapping, pipeline creation, and ownership alerts.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase' }}>04 Sales Velocity</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Zero Drop-Off SLA</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Slack notifications, instant calendar dispatch, +340% velocity.</div>
+              </div>
+            </div>
+          )}
+
+          {blueprintTab === 'fullstack' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }} className="blueprint-grid">
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase' }}>01 Frontend Client</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>React 19 / Angular 18</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Type-safe state machines, reactive signals, 60fps micro-animations.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#059669', textTransform: 'uppercase' }}>02 API Gateways</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Node / Laravel / Python</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>40K+ req/s with Octane, Fastify &amp; FastAPI async concurrency.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase' }}>03 Data Tier</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>PostgreSQL &amp; Redis</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>ACID relational models with sub-millisecond memory caching.</div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase' }}>04 DevOps Delivery</span>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Docker &amp; AWS/GCP</div>
+                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Zero-downtime rolling updates, automated testing, 99.99% uptime.</div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Category Filter Pills */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', marginBottom: '36px' }}>
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                style={{
+                  padding: '7px 16px',
+                  borderRadius: '9999px',
+                  fontSize: '0.82rem',
+                  fontWeight: isActive ? 700 : 500,
+                  color: isActive ? '#059669' : '#475569',
+                  background: isActive ? 'rgba(16, 185, 129, 0.12)' : '#ffffff',
+                  border: isActive ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(15, 23, 42, 0.08)',
+                  transition: 'all 0.15s ease',
+                  cursor: 'pointer',
+                }}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Tech Grid */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '18px',
+          }}
+          className="tech-grid"
+        >
+          {filteredTech.map((item, index) => (
+            <div
+              key={index}
+              className="glass-panel"
+              style={{
+                padding: '24px',
+                borderRadius: '18px',
+                background: 'rgba(255, 255, 255, 0.9)',
+                border: '1px solid rgba(15, 23, 42, 0.08)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <span
+                    style={{
+                      fontSize: '0.68rem',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 700,
+                      color: '#059669',
+                      background: 'rgba(16, 185, 129, 0.1)',
+                      padding: '2px 8px',
+                      borderRadius: '4px',
+                    }}
+                  >
+                    {item.badge}
+                  </span>
+                  <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>
+                    {item.level}
+                  </span>
+                </div>
+
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#090d16', marginBottom: '6px' }}>
+                  {item.name}
+                </h4>
+
+                <p style={{ fontSize: '0.84rem', fontWeight: 600, color: '#059669', marginBottom: '8px' }}>
+                  {item.highlight}
+                </p>
+
+                <p style={{ fontSize: '0.8rem', color: '#475569', lineHeight: 1.55 }}>
+                  {item.useCase}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
       <style jsx>{`
-        @media (min-width: 1024px) {
-          .tech-matrix-layout {
-            grid-template-columns: 0.95fr 1.05fr !important;
+        @media (max-width: 900px) {
+          .blueprint-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .blueprint-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .tech-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

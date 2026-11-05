@@ -9,6 +9,7 @@ import CaseStudiesSection from '@/components/CaseStudiesSection';
 import ProcessSection from '@/components/ProcessSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import InteractiveAdvisor from '@/components/InteractiveAdvisor';
 import { ArrowRight, Sparkles, Layers, Cpu, Award, Compass, Calculator } from 'lucide-react';
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
     <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
 
-      {/* Main Hero with GSAP 3D Interactive Workstation */}
+      {/* Main Hero with GSAP 3D Interactive Console */}
       <HeroSection />
 
       {/* Services Section + Subpage Link */}
@@ -27,8 +28,8 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Layers size={16} color="#2563eb" />
-          <span>View Detailed Services Hub & Deliverables</span>
+          <Layers size={16} color="#059669" />
+          <span>View Detailed Services Hub &amp; Deliverables</span>
           <ArrowRight size={16} />
         </Link>
       </div>
@@ -41,8 +42,8 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Cpu size={16} color="#2563eb" />
-          <span>Explore Complete Technology Matrix & Architecture Guide</span>
+          <Cpu size={16} color="#059669" />
+          <span>Explore Complete Technology Matrix &amp; Architecture Guide</span>
           <ArrowRight size={16} />
         </Link>
       </div>
@@ -55,8 +56,8 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Calculator size={16} color="#2563eb" />
-          <span>Open Full-Screen Cost Estimator & Pricing FAQ</span>
+          <Calculator size={16} color="#059669" />
+          <span>Open Full-Screen Cost Estimator &amp; Pricing FAQ</span>
           <ArrowRight size={16} />
         </Link>
       </div>
@@ -69,8 +70,8 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Award size={16} color="#2563eb" />
-          <span>View All Client Case Studies & Verified Results</span>
+          <Award size={16} color="#059669" />
+          <span>View All Client Case Studies &amp; Verified Results</span>
           <ArrowRight size={16} />
         </Link>
       </div>
@@ -83,7 +84,7 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Compass size={16} color="#2563eb" />
+          <Compass size={16} color="#059669" />
           <span>Read Our 4-Phase Engineering Framework</span>
           <ArrowRight size={16} />
         </Link>
@@ -91,6 +92,9 @@ export default function Home() {
 
       {/* Consultation & RFP Submission */}
       <ContactSection />
+
+      {/* ChatSpark-inspired Floating Interactive Scope Advisor */}
+      <InteractiveAdvisor />
 
       <Footer />
     </main>

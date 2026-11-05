@@ -3,11 +3,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import {
-  Code2,
+  Globe,
+  Database,
   Cpu,
   Layers,
-  Database,
-  Globe,
   Zap,
   CheckCircle2,
   Sparkles,
@@ -15,105 +14,141 @@ import {
   ShieldCheck,
   Activity,
   Terminal,
+  RefreshCw,
+  ExternalLink,
+  Lock,
+  Play,
+  Share2,
+  Check,
+  TrendingUp,
+  Server,
+  Code2,
 } from 'lucide-react';
 
 export default function HeroScene3D() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardStageRef = useRef<HTMLDivElement>(null);
-  const floatingLayer1Ref = useRef<HTMLDivElement>(null);
-  const floatingLayer2Ref = useRef<HTMLDivElement>(null);
-  const floatingLayer3Ref = useRef<HTMLDivElement>(null);
-  const floatingLayer4Ref = useRef<HTMLDivElement>(null);
+  const floatPill1Ref = useRef<HTMLDivElement>(null);
+  const floatPill2Ref = useRef<HTMLDivElement>(null);
+  const floatPill3Ref = useRef<HTMLDivElement>(null);
 
-  const [activeTab, setActiveTab] = useState<'next-wp' | 'crm' | 'mern' | 'laravel'>('next-wp');
-  const [copied, setCopied] = useState(false);
+  const [activeTab, setActiveTab] = useState<'headless-wp' | 'crm-flow' | 'fullstack-api' | 'seo-radar'>('headless-wp');
+  
+  // Interactive Simulator States
+  const [wpSyncing, setWpSyncing] = useState(false);
+  const [wpSyncSuccess, setWpSyncSuccess] = useState(false);
+  const [crmStep, setCrmStep] = useState<number>(3);
+  const [crmRunning, setCrmRunning] = useState(false);
+  const [selectedBackend, setSelectedBackend] = useState<'node' | 'laravel' | 'python'>('node');
+  const [benchmarkRunning, setBenchmarkRunning] = useState(false);
+  const [benchmarkScore, setBenchmarkScore] = useState(48200);
 
-  // GSAP 3D Parallax & Continuous Harmonic Float
+  // Trigger WP Sync Simulation
+  const handleTriggerWpSync = () => {
+    if (wpSyncing) return;
+    setWpSyncing(true);
+    setWpSyncSuccess(false);
+    setTimeout(() => {
+      setWpSyncing(false);
+      setWpSyncSuccess(true);
+      setTimeout(() => setWpSyncSuccess(false), 3500);
+    }, 900);
+  };
+
+  // Trigger CRM Flow Simulation
+  const handleTriggerCrmFlow = () => {
+    if (crmRunning) return;
+    setCrmRunning(true);
+    setCrmStep(0);
+    const intervals = [
+      setTimeout(() => setCrmStep(1), 500),
+      setTimeout(() => setCrmStep(2), 1100),
+      setTimeout(() => setCrmStep(3), 1700),
+      setTimeout(() => setCrmRunning(false), 2200),
+    ];
+  };
+
+  // Trigger Backend Benchmark Simulation
+  const handleRunBenchmark = () => {
+    if (benchmarkRunning) return;
+    setBenchmarkRunning(true);
+    let count = 0;
+    const interval = setInterval(() => {
+      setBenchmarkScore(prev => prev + Math.floor(Math.random() * 800 - 350));
+      count++;
+      if (count > 6) {
+        clearInterval(interval);
+        setBenchmarkRunning(false);
+      }
+    }, 120);
+  };
+
+  // GSAP 3D Interactive Perspective Tilt & Organic Float
   useEffect(() => {
     const container = containerRef.current;
     const cardStage = cardStageRef.current;
     if (!container || !cardStage) return;
 
-    // 1. Continuous Floating Animations via GSAP
-    const floatTween1 = gsap.to(floatingLayer1Ref.current, {
-      y: -14,
-      rotationZ: 1.2,
+    // Harmonic floating tweens for auxiliary cards
+    const float1 = gsap.to(floatPill1Ref.current, {
+      y: -10,
       duration: 3.2,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
     });
 
-    const floatTween2 = gsap.to(floatingLayer2Ref.current, {
+    const float2 = gsap.to(floatPill2Ref.current, {
       y: 12,
-      rotationZ: -1.5,
       duration: 3.8,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
-      delay: 0.4,
+      delay: 0.5,
     });
 
-    const floatTween3 = gsap.to(floatingLayer3Ref.current, {
-      y: -10,
-      duration: 3.5,
+    const float3 = gsap.to(floatPill3Ref.current, {
+      y: -8,
+      duration: 4.2,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
-      delay: 0.8,
+      delay: 1.0,
     });
 
-    const floatTween4 = gsap.to(floatingLayer4Ref.current, {
-      y: 10,
-      duration: 4.0,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 1.2,
-    });
-
-    // 2. Mouse-Driven 3D Perspective Tilt with Smooth Damping
+    // Mouse movement 3D perspective handler
     const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-      // Stage tilt
       gsap.to(cardStage, {
-        rotationY: x * 22,
-        rotationX: -y * 20,
+        rotationY: x * 16,
+        rotationX: -y * 14,
         transformPerspective: 1200,
         ease: 'power2.out',
         duration: 0.6,
       });
 
-      // Layer parallax offsets for depth
-      gsap.to(floatingLayer1Ref.current, {
-        x: x * 35,
-        y: y * 30,
-        ease: 'power2.out',
+      gsap.to(floatPill1Ref.current, {
+        x: x * 26,
+        y: y * 22,
         duration: 0.7,
+        ease: 'power2.out',
       });
 
-      gsap.to(floatingLayer2Ref.current, {
-        x: -x * 30,
-        y: -y * 25,
-        ease: 'power2.out',
-        duration: 0.7,
-      });
-
-      gsap.to(floatingLayer3Ref.current, {
-        x: x * 25,
+      gsap.to(floatPill2Ref.current, {
+        x: -x * 24,
         y: -y * 20,
-        ease: 'power2.out',
         duration: 0.7,
+        ease: 'power2.out',
       });
 
-      gsap.to(floatingLayer4Ref.current, {
-        x: -x * 20,
-        y: y * 25,
-        ease: 'power2.out',
+      gsap.to(floatPill3Ref.current, {
+        x: x * 18,
+        y: -y * 18,
         duration: 0.7,
+        ease: 'power2.out',
       });
     };
 
@@ -122,13 +157,13 @@ export default function HeroScene3D() {
         rotationY: 0,
         rotationX: 0,
         ease: 'power3.out',
-        duration: 1.2,
+        duration: 0.9,
       });
-      gsap.to([floatingLayer1Ref.current, floatingLayer2Ref.current, floatingLayer3Ref.current, floatingLayer4Ref.current], {
+      gsap.to([floatPill1Ref.current, floatPill2Ref.current, floatPill3Ref.current], {
         x: 0,
         y: 0,
+        duration: 0.9,
         ease: 'power3.out',
-        duration: 1.2,
       });
     };
 
@@ -136,396 +171,739 @@ export default function HeroScene3D() {
     container.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      floatTween1.kill();
-      floatTween2.kill();
-      floatTween3.kill();
-      floatTween4.kill();
+      float1.kill();
+      float2.kill();
+      float3.kill();
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
-  const tabContent = {
-    'next-wp': {
-      title: 'Headless WordPress + Next.js App Router',
-      category: 'CMS & Frontend',
-      status: 'Active • 99+ Core Web Vitals',
-      codeSnippet: `// Next.js Server Action + WPGraphQL\nexport async function getCaseStudies() {\n  const res = await fetch(WP_GRAPHQL_ENDPOINT, {\n    headers: { 'Cache-Control': 's-maxage=3600' },\n    body: JSON.stringify({ query: WP_PAGE_QUERY })\n  });\n  return res.json(); // Rendered in 0.42s\n}`,
-      metric1: { label: 'Page Load (LCP)', val: '0.48s' },
-      metric2: { label: 'Cache Hit Rate', val: '99.4%' },
-      metric3: { label: 'Lighthouse Score', val: '100/100' },
-      accentColor: '#2563eb',
-    },
-    'crm': {
-      title: 'Salesforce & HubSpot Bi-Directional Sync',
-      category: 'CRM Automation',
-      status: 'Live Sync • 25,000+ Leads Processed',
-      codeSnippet: `// CRM Event Bus & Webhook Dispatcher\nexport async function syncLeadToSalesforce(lead) {\n  await hubspot.contacts.createOrUpdate(lead);\n  await salesforce.sobject('Lead').upsert({\n    Email: lead.email,\n    PipelineStage: 'Marketing_Qualified_3D'\n  });\n}`,
-      metric1: { label: 'Sync Latency', val: '32ms' },
-      metric2: { label: 'Zero Lead Leakage', val: '100%' },
-      metric3: { label: 'Ops Hours Saved', val: '35h/wk' },
-      accentColor: '#f97316',
-    },
-    'mern': {
-      title: 'MERN & MEAN Stack Enterprise Portal',
-      category: 'Full-Stack Architecture',
-      status: 'Clustered • Microservices Active',
-      codeSnippet: `// Real-Time WebSocket Telemetry Gateway\nio.on('connection', (socket) => {\n  socket.join('tenant:' + user.organizationId);\n  socket.emit('telemetry:stream', {\n    database: 'MongoDB Sharded Cluster',\n    throughput: '42,000 req/sec'\n  });\n});`,
-      metric1: { label: 'Active Sessions', val: '120k+' },
-      metric2: { label: 'Socket Latency', val: '18ms' },
-      metric3: { label: 'Uptime SLA', val: '99.99%' },
-      accentColor: '#8b5cf6',
-    },
-    'laravel': {
-      title: 'Laravel 11 + Python Async API Gateway',
-      category: 'Enterprise Backend',
-      status: 'Deployed • Queued Workers Running',
-      codeSnippet: `// Laravel Horizon + Python FastAPI\nRoute::post('/api/v2/analyze', function (Request $req) {\n  DispatchAIJob::dispatch($req->payload)\n    ->onQueue('high-throughput-workers');\n  return response()->json(['status' => 'queued']);\n});`,
-      metric1: { label: 'Queue Jobs/Min', val: '85,000' },
-      metric2: { label: 'P99 Latency', val: '45ms' },
-      metric3: { label: 'Fault Tolerance', val: 'Zero Downtime' },
-      accentColor: '#ef4444',
-    },
-  };
-
-  const current = tabContent[activeTab];
-
   return (
     <div
       ref={containerRef}
       style={{
-        width: '100%',
-        height: '100%',
-        minHeight: '520px',
         position: 'relative',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        width: '100%',
         perspective: '1200px',
+        padding: '16px 0',
       }}
     >
-      {/* 3D Stage Card Container (Rotates with Mouse) */}
+      {/* 3D Interactive Stage */}
       <div
         ref={cardStageRef}
         style={{
-          width: '100%',
-          maxWidth: '560px',
-          position: 'relative',
           transformStyle: 'preserve-3d',
           transition: 'transform 0.1s ease-out',
+          position: 'relative',
+          width: '100%',
         }}
       >
-        {/* ======================================================== */}
-        {/* MAIN BASE TERMINAL: High-Tech Enterprise Workstation */}
-        {/* ======================================================== */}
+        {/* Main Workstation Browser Glass Console */}
         <div
           style={{
-            background: 'rgba(255, 255, 255, 0.94)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
+            background: 'rgba(255, 255, 255, 0.92)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
             borderRadius: '24px',
-            border: '1px solid rgba(226, 232, 240, 0.95)',
-            boxShadow:
-              '0 30px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.9) inset',
+            border: '1px solid rgba(15, 23, 42, 0.09)',
+            boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 35px rgba(16, 185, 129, 0.1)',
             overflow: 'hidden',
-            transform: 'translateZ(0px)',
           }}
         >
-          {/* Terminal Window Header Bar */}
+          {/* Top Browser Chrome Bar */}
           <div
             style={{
-              padding: '14px 20px',
-              background: 'linear-gradient(to right, #f8fafc, #ffffff)',
-              borderBottom: '1px solid rgba(226, 232, 240, 0.85)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
+              padding: '12px 18px',
+              borderBottom: '1px solid rgba(15, 23, 42, 0.07)',
+              background: 'rgba(248, 250, 252, 0.95)',
             }}
           >
-            {/* macOS Window Controls */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span
-                style={{
-                  width: '11px',
-                  height: '11px',
-                  borderRadius: '50%',
-                  background: '#ff5f56',
-                  display: 'inline-block',
-                }}
-              />
-              <span
-                style={{
-                  width: '11px',
-                  height: '11px',
-                  borderRadius: '50%',
-                  background: '#ffbd2e',
-                  display: 'inline-block',
-                }}
-              />
-              <span
-                style={{
-                  width: '11px',
-                  height: '11px',
-                  borderRadius: '50%',
-                  background: '#27c93f',
-                  display: 'inline-block',
-                }}
-              />
-              <span
-                style={{
-                  marginLeft: '8px',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  color: '#64748b',
-                  fontFamily: 'var(--font-mono, monospace)',
-                }}
-              >
-                aurastack-engine.ts
-              </span>
+            {/* Traffic Light Dots */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#ef4444' }} />
+              <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#f59e0b' }} />
+              <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#10b981' }} />
             </div>
 
-            {/* Live Status Indicator */}
+            {/* URL Pill Indicator */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '4px 14px',
+                borderRadius: '9999px',
+                background: '#ffffff',
+                border: '1px solid rgba(15, 23, 42, 0.06)',
+                fontSize: '0.78rem',
+                color: '#475569',
+                fontFamily: 'var(--font-mono)',
+              }}
+            >
+              <Lock size={12} color="#10b981" />
+              <span>preview.webixlinks.agency/live-engine</span>
+            </div>
+
+            {/* Live Edge Latency Pill */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                fontSize: '0.72rem',
+                fontSize: '0.74rem',
                 fontWeight: 700,
-                color: '#10b981',
+                color: '#059669',
                 background: 'rgba(16, 185, 129, 0.1)',
                 padding: '3px 10px',
                 borderRadius: '9999px',
               }}
             >
-              <span
-                style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  background: '#10b981',
-                  boxShadow: '0 0 6px #10b981',
-                }}
-              />
-              Live Pipeline
+              <span className="pulse-dot" style={{ width: '6px', height: '6px' }} />
+              <span>Edge 14ms</span>
             </div>
           </div>
 
-          {/* Interactive Discipline Selector Tabs */}
+          {/* Interactive Mode Tabs */}
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '4px',
-              padding: '8px 14px',
-              background: '#f1f5f9',
-              borderBottom: '1px solid rgba(226, 232, 240, 0.85)',
+              borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
+              background: 'rgba(241, 245, 249, 0.65)',
+              padding: '6px',
+              gap: '6px',
             }}
           >
-            {[
-              { id: 'next-wp', label: 'WordPress / Next' },
-              { id: 'crm', label: 'CRM Automation' },
-              { id: 'mern', label: 'MERN / MEAN' },
-              { id: 'laravel', label: 'Laravel / Python' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                style={{
-                  padding: '7px 4px',
-                  borderRadius: '8px',
-                  fontSize: '0.74rem',
-                  fontWeight: activeTab === tab.id ? 700 : 600,
-                  textAlign: 'center',
-                  background: activeTab === tab.id ? '#ffffff' : 'transparent',
-                  color: activeTab === tab.id ? '#0f172a' : '#64748b',
-                  boxShadow:
-                    activeTab === tab.id
-                      ? '0 2px 6px rgba(15, 23, 42, 0.06)'
-                      : 'none',
-                  transition: 'all 0.15s ease',
-                  border: 'none',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Terminal Code Body */}
-          <div style={{ padding: '20px 24px' }}>
-            <div
+            <button
+              onClick={() => setActiveTab('headless-wp')}
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                marginBottom: '12px',
+                justifyContent: 'center',
+                gap: '6px',
+                padding: '8px 10px',
+                borderRadius: '10px',
+                fontSize: '0.8rem',
+                fontWeight: activeTab === 'headless-wp' ? 700 : 500,
+                color: activeTab === 'headless-wp' ? '#090d16' : '#64748b',
+                background: activeTab === 'headless-wp' ? '#ffffff' : 'transparent',
+                boxShadow: activeTab === 'headless-wp' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
+                transition: 'all 0.2s ease',
               }}
             >
+              <Globe size={14} color={activeTab === 'headless-wp' ? '#10b981' : '#64748b'} />
+              <span>Headless WP</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('crm-flow')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                padding: '8px 10px',
+                borderRadius: '10px',
+                fontSize: '0.8rem',
+                fontWeight: activeTab === 'crm-flow' ? 700 : 500,
+                color: activeTab === 'crm-flow' ? '#090d16' : '#64748b',
+                background: activeTab === 'crm-flow' ? '#ffffff' : 'transparent',
+                boxShadow: activeTab === 'crm-flow' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <Cpu size={14} color={activeTab === 'crm-flow' ? '#f59e0b' : '#64748b'} />
+              <span>CRM Engine</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('fullstack-api')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                padding: '8px 10px',
+                borderRadius: '10px',
+                fontSize: '0.8rem',
+                fontWeight: activeTab === 'fullstack-api' ? 700 : 500,
+                color: activeTab === 'fullstack-api' ? '#090d16' : '#64748b',
+                background: activeTab === 'fullstack-api' ? '#ffffff' : 'transparent',
+                boxShadow: activeTab === 'fullstack-api' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <Server size={14} color={activeTab === 'fullstack-api' ? '#06b6d4' : '#64748b'} />
+              <span>Full-Stack API</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('seo-radar')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                padding: '8px 10px',
+                borderRadius: '10px',
+                fontSize: '0.8rem',
+                fontWeight: activeTab === 'seo-radar' ? 700 : 500,
+                color: activeTab === 'seo-radar' ? '#090d16' : '#64748b',
+                background: activeTab === 'seo-radar' ? '#ffffff' : 'transparent',
+                boxShadow: activeTab === 'seo-radar' ? '0 2px 8px rgba(15, 23, 42, 0.06)' : 'none',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <Activity size={14} color={activeTab === 'seo-radar' ? '#10b981' : '#64748b'} />
+              <span>100/100 SEO</span>
+            </button>
+          </div>
+
+          {/* Interactive Screen Content Area */}
+          <div style={{ padding: '20px', minHeight: '340px' }}>
+            {/* TAB 1: Headless WordPress + Next.js 16 Sync */}
+            {activeTab === 'headless-wp' && (
               <div>
-                <h4
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <div>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                      Headless WordPress ↔ Next.js 16 Edge Sync
+                    </h3>
+                    <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
+                      Gutenberg content edits instantly revalidated at Vercel/Cloudflare Edge via ISR.
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleTriggerWpSync}
+                    className="btn-primary"
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: '0.8rem',
+                      borderRadius: '9999px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                    }}
+                  >
+                    <RefreshCw size={13} className={wpSyncing ? 'animate-spin' : ''} />
+                    <span>{wpSyncing ? 'Syncing...' : 'Simulate Publish'}</span>
+                  </button>
+                </div>
+
+                {/* 2-Column Visual Architecture Demo */}
+                <div
                   style={{
-                    fontSize: '1rem',
-                    fontWeight: 800,
-                    color: '#0f172a',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '14px',
+                    background: '#f8fafc',
+                    padding: '16px',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(15, 23, 42, 0.06)',
                   }}
                 >
-                  <Sparkles size={16} color={current.accentColor} />
-                  {current.title}
-                </h4>
-                <div style={{ fontSize: '0.76rem', color: '#64748b', fontWeight: 600 }}>
-                  {current.status}
+                  {/* Left: CMS Layer */}
+                  <div
+                    style={{
+                      background: '#ffffff',
+                      borderRadius: '12px',
+                      padding: '12px',
+                      border: '1px solid rgba(15, 23, 42, 0.06)',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                        WordPress Admin / WPGraphQL
+                      </span>
+                      <span style={{ fontSize: '0.7rem', color: '#10b981', background: 'rgba(16,185,129,0.1)', padding: '2px 6px', borderRadius: '4px' }}>
+                        Connected
+                      </span>
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: '#334155', lineHeight: 1.5 }}>
+                      <div style={{ color: '#059669', fontWeight: 600 }}>mutation PublishPost &#123;</div>
+                      <div style={{ paddingLeft: '12px' }}>post(id: &quot;enterprise-rev&quot;) &#123;</div>
+                      <div style={{ paddingLeft: '24px', color: '#64748b' }}>status: &quot;publish&quot;</div>
+                      <div style={{ paddingLeft: '24px', color: '#64748b' }}>blocks: GutenbergTree</div>
+                      <div style={{ paddingLeft: '24px', color: '#64748b' }}>isrSecret: &quot;v16_ok&quot;</div>
+                      <div style={{ paddingLeft: '12px' }}>&#125;</div>
+                      <div style={{ color: '#059669', fontWeight: 600 }}>&#125;</div>
+                    </div>
+                  </div>
+
+                  {/* Right: Edge Next.js Frontend */}
+                  <div
+                    style={{
+                      background: '#ffffff',
+                      borderRadius: '12px',
+                      padding: '12px',
+                      border: wpSyncSuccess ? '1px solid #10b981' : '1px solid rgba(15, 23, 42, 0.06)',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#2563eb', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                        Next.js 16 Edge Render
+                      </span>
+                      <span
+                        style={{
+                          fontSize: '0.7rem',
+                          color: wpSyncSuccess ? '#10b981' : '#2563eb',
+                          background: wpSyncSuccess ? 'rgba(16,185,129,0.15)' : 'rgba(37,99,235,0.1)',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          fontWeight: 700,
+                        }}
+                      >
+                        {wpSyncSuccess ? '✓ ISR Updated: 142ms' : 'Static Cache: Fresh'}
+                      </span>
+                    </div>
+                    <div style={{ fontSize: '0.78rem', color: '#1e293b' }}>
+                      <div style={{ fontWeight: 700, marginBottom: '4px', color: '#090d16' }}>
+                        AuraStack Studios Launches Scalable Engine
+                      </div>
+                      <p style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '8px' }}>
+                        Server Components hydrated. TTFB 18ms. Zero client hydration delays.
+                      </p>
+                      <div style={{ display: 'flex', gap: '6px' }}>
+                        <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '4px', background: '#f1f5f9', color: '#475569', fontWeight: 600 }}>
+                          Lighthouse 100
+                        </span>
+                        <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '4px', background: '#ecfdf5', color: '#059669', fontWeight: 600 }}>
+                          CDN Cached
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Performance Pill Strip */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '14px', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '14px', fontSize: '0.75rem', color: '#64748b' }}>
+                    <span>⚡ TTFB: <strong style={{ color: '#090d16' }}>18ms</strong></span>
+                    <span>📦 Page Weight: <strong style={{ color: '#090d16' }}>32 kB</strong></span>
+                    <span>🛡️ Security: <strong style={{ color: '#10b981' }}>Cloudflare WAF</strong></span>
+                  </div>
+                  <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 700 }}>
+                    ● 100% Core Web Vitals Pass
+                  </span>
                 </div>
               </div>
+            )}
 
-              <span
-                style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  color: current.accentColor,
-                  background: `${current.accentColor}12`,
-                  padding: '3px 10px',
-                  borderRadius: '6px',
-                }}
-              >
-                {current.category}
-              </span>
-            </div>
+            {/* TAB 2: Enterprise CRM Flow Simulator */}
+            {activeTab === 'crm-flow' && (
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <div>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                      Enterprise CRM & Automated Revenue Flow
+                    </h3>
+                    <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
+                      Bidirectional data sync across Salesforce, HubSpot, Zoho CRM & Custom Webhook Events.
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleTriggerCrmFlow}
+                    className="btn-primary"
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: '0.8rem',
+                      borderRadius: '9999px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                    }}
+                  >
+                    <Play size={13} />
+                    <span>{crmRunning ? 'Simulating...' : 'Simulate Inbound Deal'}</span>
+                  </button>
+                </div>
 
-            {/* Code Block with Syntax Highlights */}
-            <div
-              style={{
-                background: '#0f172a',
-                borderRadius: '12px',
-                padding: '14px 16px',
-                fontFamily: 'var(--font-mono, monospace)',
-                fontSize: '0.74rem',
-                color: '#e2e8f0',
-                lineHeight: 1.6,
-                boxShadow: '0 8px 24px rgba(15, 23, 42, 0.15) inset',
-                marginBottom: '18px',
-                overflowX: 'auto',
-              }}
-            >
-              <pre style={{ margin: 0 }}>
-                <code>{current.codeSnippet}</code>
-              </pre>
-            </div>
-
-            {/* Live Metric Badges */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '12px',
-              }}
-            >
-              {[current.metric1, current.metric2, current.metric3].map((m, i) => (
+                {/* 4-Step Interactive Automation Pipeline */}
                 <div
-                  key={i}
                   style={{
-                    padding: '10px 12px',
-                    borderRadius: '12px',
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: '10px',
                     background: '#f8fafc',
-                    border: '1px solid rgba(226, 232, 240, 0.9)',
-                    textAlign: 'center',
+                    padding: '16px',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(15, 23, 42, 0.06)',
                   }}
                 >
-                  <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600, marginBottom: '2px' }}>
-                    {m.label}
+                  {/* Step 1 */}
+                  <div
+                    style={{
+                      background: crmStep >= 0 ? '#ffffff' : 'rgba(255,255,255,0.5)',
+                      padding: '12px',
+                      borderRadius: '12px',
+                      border: crmStep >= 0 ? '1px solid #10b981' : '1px solid rgba(15,23,42,0.06)',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      01 Inbound RFP
+                    </div>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                      Form Capture
+                    </div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                      $85K Project Lead entered via web app
+                    </div>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div
+                    style={{
+                      background: crmStep >= 1 ? '#ffffff' : 'rgba(255,255,255,0.5)',
+                      padding: '12px',
+                      borderRadius: '12px',
+                      border: crmStep >= 1 ? '1px solid #f59e0b' : '1px solid rgba(15,23,42,0.06)',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#f59e0b', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      02 Enrichment
+                    </div>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                      Lead Scoring
+                    </div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                      AI Qualified Score: 94/100 (Tier 1 Enterprise)
+                    </div>
+                  </div>
+
+                  {/* Step 3 */}
+                  <div
+                    style={{
+                      background: crmStep >= 2 ? '#ffffff' : 'rgba(255,255,255,0.5)',
+                      padding: '12px',
+                      borderRadius: '12px',
+                      border: crmStep >= 2 ? '1px solid #0ea5e9' : '1px solid rgba(15,23,42,0.06)',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#0ea5e9', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      03 CRM Ingestion
+                    </div>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                      Salesforce &amp; HubSpot
+                    </div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                      Deal Object created. Owner assigned instantly.
+                    </div>
+                  </div>
+
+                  {/* Step 4 */}
+                  <div
+                    style={{
+                      background: crmStep >= 3 ? '#ffffff' : 'rgba(255,255,255,0.5)',
+                      padding: '12px',
+                      borderRadius: '12px',
+                      border: crmStep >= 3 ? '1px solid #10b981' : '1px solid rgba(15,23,42,0.06)',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    <div style={{ fontSize: '0.68rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      04 Action Fired
+                    </div>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#090d16', marginBottom: '4px' }}>
+                      Slack + Calendar
+                    </div>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+                      Director notified + Calendar invite dispatched.
+                    </div>
+                  </div>
+                </div>
+
+                {/* Integration Badges */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '14px', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <span style={{ fontSize: '0.72rem', background: '#eff6ff', color: '#1d4ed8', padding: '3px 8px', borderRadius: '6px', fontWeight: 600 }}>
+                      Salesforce Lightning
+                    </span>
+                    <span style={{ fontSize: '0.72rem', background: '#fff7ed', color: '#c2410c', padding: '3px 8px', borderRadius: '6px', fontWeight: 600 }}>
+                      HubSpot API v3
+                    </span>
+                    <span style={{ fontSize: '0.72rem', background: '#ecfdf5', color: '#047857', padding: '3px 8px', borderRadius: '6px', fontWeight: 600 }}>
+                      Zoho Deluge Scripts
+                    </span>
+                  </div>
+                  <span style={{ fontSize: '0.72rem', color: '#059669', fontWeight: 700 }}>
+                    ✓ 0.00% Lead Drop-off Rate
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 3: Full-Stack Microservices & Backend Runner */}
+            {activeTab === 'fullstack-api' && (
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <div>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                      Full-Stack &amp; Enterprise Backend Benchmark
+                    </h3>
+                    <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
+                      React/Angular frontends backed by Node.js, Laravel Octane &amp; Python FastAPI.
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleRunBenchmark}
+                    className="btn-primary"
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: '0.8rem',
+                      borderRadius: '9999px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                    }}
+                  >
+                    <Zap size={13} />
+                    <span>{benchmarkRunning ? 'Benchmarking...' : 'Run Load Benchmark'}</span>
+                  </button>
+                </div>
+
+                {/* Framework Selector Tabs */}
+                <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+                  <button
+                    onClick={() => setSelectedBackend('node')}
+                    style={{
+                      padding: '5px 12px',
+                      borderRadius: '8px',
+                      fontSize: '0.75rem',
+                      fontWeight: selectedBackend === 'node' ? 700 : 500,
+                      background: selectedBackend === 'node' ? '#090d16' : '#ffffff',
+                      color: selectedBackend === 'node' ? '#ffffff' : '#475569',
+                      border: '1px solid rgba(15,23,42,0.08)',
+                    }}
+                  >
+                    Node.js (Fastify / Express)
+                  </button>
+                  <button
+                    onClick={() => setSelectedBackend('laravel')}
+                    style={{
+                      padding: '5px 12px',
+                      borderRadius: '8px',
+                      fontSize: '0.75rem',
+                      fontWeight: selectedBackend === 'laravel' ? 700 : 500,
+                      background: selectedBackend === 'laravel' ? '#090d16' : '#ffffff',
+                      color: selectedBackend === 'laravel' ? '#ffffff' : '#475569',
+                      border: '1px solid rgba(15,23,42,0.08)',
+                    }}
+                  >
+                    Laravel (Octane / Swoole)
+                  </button>
+                  <button
+                    onClick={() => setSelectedBackend('python')}
+                    style={{
+                      padding: '5px 12px',
+                      borderRadius: '8px',
+                      fontSize: '0.75rem',
+                      fontWeight: selectedBackend === 'python' ? 700 : 500,
+                      background: selectedBackend === 'python' ? '#090d16' : '#ffffff',
+                      color: selectedBackend === 'python' ? '#ffffff' : '#475569',
+                      border: '1px solid rgba(15,23,42,0.08)',
+                    }}
+                  >
+                    Python (FastAPI / Django)
+                  </button>
+                </div>
+
+                {/* Live Benchmark Stats */}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '10px',
+                    background: '#f8fafc',
+                    padding: '14px',
+                    borderRadius: '14px',
+                    border: '1px solid rgba(15, 23, 42, 0.06)',
+                  }}
+                >
+                  <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600 }}>Throughput</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#090d16' }}>
+                      {benchmarkScore.toLocaleString()} <span style={{ fontSize: '0.75rem', fontWeight: 500, color: '#64748b' }}>req/s</span>
+                    </div>
+                    <div style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>↑ 4.2x Industry Avg</div>
+                  </div>
+
+                  <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600 }}>p99 Latency</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#059669' }}>
+                      {selectedBackend === 'node' ? '11ms' : selectedBackend === 'laravel' ? '15ms' : '13ms'}
+                    </div>
+                    <div style={{ fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>Sub-second guarantees</div>
+                  </div>
+
+                  <div style={{ background: '#ffffff', padding: '12px', borderRadius: '10px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#64748b', fontWeight: 600 }}>Database I/O</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#090d16' }}>
+                      PostgreSQL + Redis
+                    </div>
+                    <div style={{ fontSize: '0.68rem', color: '#0284c7', fontWeight: 600 }}>Pool: 120 concurrent</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB 4: 100/100 Core Web Vitals & SEO Health Radar */}
+            {activeTab === 'seo-radar' && (
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <div>
+                    <h3 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#090d16' }}>
+                      Google Lighthouse 100/100 &amp; Technical SEO Radar
+                    </h3>
+                    <p style={{ fontSize: '0.78rem', color: '#64748b' }}>
+                      Flawless accessibility, strict schema markups &amp; sub-second mobile rendering.
+                    </p>
                   </div>
                   <div
                     style={{
-                      fontSize: '1.05rem',
-                      fontWeight: 800,
-                      color: i === 2 ? '#10b981' : current.accentColor,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      background: 'rgba(16,185,129,0.12)',
+                      padding: '4px 12px',
+                      borderRadius: '9999px',
+                      color: '#059669',
+                      fontSize: '0.76rem',
+                      fontWeight: 700,
                     }}
                   >
-                    {m.val}
+                    <CheckCircle2 size={13} color="#10b981" />
+                    <span>Lighthouse Verified</span>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* 4 Score Dials */}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: '10px',
+                    background: '#f8fafc',
+                    padding: '16px',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(15, 23, 42, 0.06)',
+                    marginBottom: '12px',
+                  }}
+                >
+                  <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                      100
+                    </div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>Performance</div>
+                    <div style={{ fontSize: '0.65rem', color: '#64748b' }}>LCP: 0.28s</div>
+                  </div>
+
+                  <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                      100
+                    </div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>Accessibility</div>
+                    <div style={{ fontSize: '0.65rem', color: '#64748b' }}>WCAG 2.1 AA</div>
+                  </div>
+
+                  <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                      100
+                    </div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>Best Practices</div>
+                    <div style={{ fontSize: '0.65rem', color: '#64748b' }}>HTTPS &amp; CSP</div>
+                  </div>
+
+                  <div style={{ textAlign: 'center', background: '#ffffff', padding: '12px', borderRadius: '12px', border: '1px solid rgba(15,23,42,0.06)' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '3px solid #10b981', margin: '0 auto 6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#059669', fontSize: '1rem' }}>
+                      100
+                    </div>
+                    <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#090d16' }}>SEO Audit</div>
+                    <div style={{ fontSize: '0.65rem', color: '#64748b' }}>JSON-LD Schema</div>
+                  </div>
+                </div>
+
+                {/* Audit Checkpoints */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '0.72rem', color: '#334155' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Check size={13} color="#10b981" />
+                    <span>Schema.org Organization, FAQ &amp; Product graphs</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Check size={13} color="#10b981" />
+                    <span>Cumulative Layout Shift (CLS): 0.00</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* ======================================================== */}
-        {/* FLOATING 3D GLASS LAYER 1: Top-Left (Next.js & Frontend) */}
-        {/* ======================================================== */}
+        {/* Floating Auxiliary Card 1: Social Proof & Client Reviews (Inspired by Image 4 Optibiz) */}
         <div
-          ref={floatingLayer1Ref}
-          style={{
-            position: 'absolute',
-            top: '-24px',
-            left: '-28px',
-            background: 'rgba(255, 255, 255, 0.95)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderRadius: '18px',
-            padding: '12px 18px',
-            border: '1px solid rgba(226, 232, 240, 0.95)',
-            boxShadow: '0 16px 36px -8px rgba(37, 99, 235, 0.16)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            transform: 'translateZ(45px)',
-            pointerEvents: 'none',
-          }}
-        >
-          <div
-            style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #2563eb, #06b6d4)',
-              color: '#ffffff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)',
-            }}
-          >
-            <Globe size={18} />
-          </div>
-          <div>
-            <div style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0f172a' }}>
-              Next.js 15 & React
-            </div>
-            <div style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981' }} />
-              SSR & App Router
-            </div>
-          </div>
-        </div>
-
-        {/* ======================================================== */}
-        {/* FLOATING 3D GLASS LAYER 2: Top-Right (CRM Sync Engine)  */}
-        {/* ======================================================== */}
-        <div
-          ref={floatingLayer2Ref}
+          ref={floatPill1Ref}
           style={{
             position: 'absolute',
             top: '-20px',
-            right: '-24px',
+            right: '-18px',
             background: 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderRadius: '18px',
-            padding: '12px 18px',
-            border: '1px solid rgba(226, 232, 240, 0.95)',
-            boxShadow: '0 16px 36px -8px rgba(249, 115, 22, 0.16)',
+            border: '1px solid rgba(15, 23, 42, 0.08)',
+            borderRadius: '16px',
+            padding: '10px 16px',
+            boxShadow: '0 16px 32px -8px rgba(15, 23, 42, 0.12), 0 0 15px rgba(16, 185, 129, 0.1)',
             display: 'flex',
             alignItems: 'center',
             gap: '12px',
-            transform: 'translateZ(65px)',
-            pointerEvents: 'none',
+            zIndex: 10,
+          }}
+        >
+          {/* Overlapping Avatars */}
+          <div style={{ display: 'flex' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#10b981', color: '#fff', fontSize: '0.7rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff' }}>
+              W
+            </div>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#0284c7', color: '#fff', fontSize: '0.7rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-8px' }}>
+              A
+            </div>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#8b5cf6', color: '#fff', fontSize: '0.7rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-8px' }}>
+              S
+            </div>
+          </div>
+
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span style={{ color: '#f59e0b', fontSize: '0.8rem', fontWeight: 800 }}>★ 4.9/5</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#090d16' }}>(120+ Reviews)</span>
+            </div>
+            <div style={{ fontSize: '0.68rem', color: '#64748b' }}>Clutch &amp; Enterprise Verified</div>
+          </div>
+        </div>
+
+        {/* Floating Auxiliary Card 2: Live Speed Dial (Inspired by Image 1 SalesSync) */}
+        <div
+          ref={floatPill2Ref}
+          style={{
+            position: 'absolute',
+            bottom: '-22px',
+            left: '-16px',
+            background: 'rgba(255, 255, 255, 0.95)',
+            backdropFilter: 'blur(16px)',
+            border: '1px solid rgba(16, 185, 129, 0.25)',
+            borderRadius: '16px',
+            padding: '10px 16px',
+            boxShadow: '0 16px 32px -8px rgba(15, 23, 42, 0.12), 0 0 20px rgba(16, 185, 129, 0.12)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            zIndex: 10,
           }}
         >
           <div
@@ -533,114 +911,49 @@ export default function HeroScene3D() {
               width: '36px',
               height: '36px',
               borderRadius: '10px',
-              background: 'linear-gradient(135deg, #f97316, #ec4899)',
-              color: '#ffffff',
+              background: 'rgba(16, 185, 129, 0.12)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(249, 115, 22, 0.3)',
+              color: '#059669',
             }}
           >
-            <Cpu size={18} />
+            <TrendingUp size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0f172a' }}>
-              Salesforce & HubSpot
+            <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#090d16' }}>
+              +340% Pipeline Speed
             </div>
-            <div style={{ fontSize: '0.72rem', color: '#f97316', fontWeight: 700 }}>
-              Automated Lead Webhooks
+            <div style={{ fontSize: '0.68rem', color: '#059669', fontWeight: 600 }}>
+              Average client conversion gain
             </div>
           </div>
         </div>
 
-        {/* ======================================================== */}
-        {/* FLOATING 3D GLASS LAYER 3: Bottom-Right (Backend SLA)    */}
-        {/* ======================================================== */}
+        {/* Floating Auxiliary Card 3: SLA Guarantee */}
         <div
-          ref={floatingLayer3Ref}
+          ref={floatPill3Ref}
           style={{
             position: 'absolute',
             bottom: '-24px',
-            right: '-20px',
+            right: '24px',
             background: 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderRadius: '18px',
-            padding: '12px 18px',
-            border: '1px solid rgba(226, 232, 240, 0.95)',
-            boxShadow: '0 16px 36px -8px rgba(124, 58, 237, 0.16)',
+            border: '1px solid rgba(15, 23, 42, 0.08)',
+            borderRadius: '16px',
+            padding: '8px 14px',
+            boxShadow: '0 12px 24px -6px rgba(15, 23, 42, 0.1)',
             display: 'flex',
             alignItems: 'center',
-            gap: '12px',
-            transform: 'translateZ(55px)',
-            pointerEvents: 'none',
+            gap: '8px',
+            fontSize: '0.74rem',
+            fontWeight: 700,
+            color: '#334155',
+            zIndex: 10,
           }}
         >
-          <div
-            style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #7c3aed, #2563eb)',
-              color: '#ffffff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(124, 58, 237, 0.3)',
-            }}
-          >
-            <Database size={18} />
-          </div>
-          <div>
-            <div style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0f172a' }}>
-              Laravel & Node & Python
-            </div>
-            <div style={{ fontSize: '0.72rem', color: '#7c3aed', fontWeight: 700 }}>
-              High-Concurrency Microservices
-            </div>
-          </div>
-        </div>
-
-        {/* ======================================================== */}
-        {/* FLOATING 3D GLASS LAYER 4: Bottom-Left (SEO Score Pill) */}
-        {/* ======================================================== */}
-        <div
-          ref={floatingLayer4Ref}
-          style={{
-            position: 'absolute',
-            bottom: '-18px',
-            left: '-20px',
-            background: 'rgba(255, 255, 255, 0.96)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderRadius: '9999px',
-            padding: '10px 18px',
-            border: '1px solid rgba(226, 232, 240, 0.95)',
-            boxShadow: '0 12px 30px -6px rgba(16, 185, 129, 0.2)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            transform: 'translateZ(75px)',
-            pointerEvents: 'none',
-          }}
-        >
-          <div
-            style={{
-              width: '26px',
-              height: '26px',
-              borderRadius: '50%',
-              background: 'rgba(16, 185, 129, 0.15)',
-              color: '#10b981',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Zap size={14} />
-          </div>
-          <span style={{ fontSize: '0.8rem', fontWeight: 800, color: '#0f172a' }}>
-            100% Core Web Vitals SLA
-          </span>
+          <ShieldCheck size={16} color="#10b981" />
+          <span>99.99% Uptime Guarantee</span>
         </div>
       </div>
     </div>
