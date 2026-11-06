@@ -71,7 +71,7 @@ export default function TiltCard({
             position: 'absolute',
             inset: 0,
             borderRadius: 'inherit',
-            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.6) 0%, rgba(16, 185, 129, 0.08) 40%, transparent 70%)`,
+            background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.6) 0%, rgba(225, 29, 72, 0.09) 40%, transparent 70%)`,
             opacity: glarePos.opacity,
             pointerEvents: 'none',
             zIndex: 10,

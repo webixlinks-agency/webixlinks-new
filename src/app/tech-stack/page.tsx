@@ -86,7 +86,7 @@ export default function TechStackPage() {
               style={{
                 padding: '32px',
                 borderRadius: '20px',
-                borderTop: '4px solid #2563eb',
+                borderTop: '4px solid #e11d48',
               }}
             >
               <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#0f172a', marginBottom: '8px' }}>
@@ -106,7 +106,7 @@ export default function TechStackPage() {
               style={{
                 padding: '32px',
                 borderRadius: '20px',
-                borderTop: '4px solid #06b6d4',
+                borderTop: '4px solid #f97316',
               }}
             >
               <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#0f172a', marginBottom: '8px' }}>

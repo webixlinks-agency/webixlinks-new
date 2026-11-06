@@ -105,7 +105,7 @@ export default function ServicesPage() {
                 },
               ].map((item, idx) => (
                 <div key={idx} style={{ display: 'flex', gap: '12px' }}>
-                  <CheckCircle2 size={20} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <CheckCircle2 size={20} color="#e11d48" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', marginBottom: '4px' }}>
                       {item.title}

@@ -85,13 +85,13 @@ export default function ProcessPage() {
                 icon: Terminal,
                 title: 'Strict TypeScript & Linting',
                 desc: 'Type safety is enforced end-to-end between frontend contracts, CMS APIs, and database models to eliminate runtime crashes.',
-                color: '#2563eb',
+                color: '#e11d48',
               },
               {
                 icon: RefreshCw,
                 title: 'Bi-Weekly Staging Demos',
                 desc: 'No waiting months to see progress. You receive working staging preview URLs every two weeks with live progress reviews.',
-                color: '#06b6d4',
+                color: '#f97316',
               },
               {
                 icon: ShieldCheck,
@@ -103,7 +103,7 @@ export default function ProcessPage() {
                 icon: Cpu,
                 title: 'Automated CI/CD Pipelines',
                 desc: 'Zero-downtime deployment workflows with automated rollbacks, preview environments, and instant CDN invalidation.',
-                color: '#10b981',
+                color: '#e11d48',
               },
             ].map((item, idx) => {
               const Icon = item.icon;

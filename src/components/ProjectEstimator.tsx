@@ -164,14 +164,14 @@ export default function ProjectEstimator() {
                       transition: 'all 0.15s ease',
                       background:
                         service === item.id
-                          ? 'rgba(16, 185, 129, 0.12)'
+                          ? 'rgba(225, 29, 72, 0.08)'
                           : '#ffffff',
-                      color: service === item.id ? '#059669' : '#334155',
+                      color: service === item.id ? '#e11d48' : '#334155',
                       border:
                         service === item.id
-                          ? '2px solid #10b981'
+                          ? '2px solid #e11d48'
                           : '1px solid rgba(15, 23, 42, 0.08)',
-                      boxShadow: service === item.id ? '0 4px 14px rgba(16, 185, 129, 0.15)' : 'none',
+                      boxShadow: service === item.id ? '0 4px 14px rgba(225, 29, 72, 0.18)' : 'none',
                     }}
                   >
                     {item.label}
@@ -284,7 +284,7 @@ export default function ProjectEstimator() {
                         textAlign: 'left',
                         fontSize: '0.8rem',
                         fontWeight: 500,
-                        background: scale === item.id ? '#059669' : '#ffffff',
+                        background: scale === item.id ? '#e11d48' : '#ffffff',
                         color: scale === item.id ? '#ffffff' : '#475569',
                         border: '1px solid rgba(15, 23, 42, 0.08)',
                       }}
@@ -314,7 +314,7 @@ export default function ProjectEstimator() {
                         textAlign: 'left',
                         fontSize: '0.8rem',
                         fontWeight: 500,
-                        background: timeline === item.id ? '#059669' : '#ffffff',
+                        background: timeline === item.id ? '#e11d48' : '#ffffff',
                         color: timeline === item.id ? '#ffffff' : '#475569',
                         border: '1px solid rgba(15, 23, 42, 0.08)',
                       }}
@@ -335,8 +335,8 @@ export default function ProjectEstimator() {
                 padding: '36px',
                 borderRadius: '24px',
                 background: '#ffffff',
-                border: '2px solid rgba(16, 185, 129, 0.35)',
-                boxShadow: '0 25px 50px -10px rgba(16, 185, 129, 0.18)',
+                border: '2px solid rgba(225, 29, 72, 0.35)',
+                boxShadow: '0 25px 50px -10px rgba(225, 29, 72, 0.18)',
               }}
             >
               <div
@@ -346,8 +346,8 @@ export default function ProjectEstimator() {
                   gap: '8px',
                   fontSize: '0.76rem',
                   fontWeight: 500,
-                  color: '#059669',
-                  background: 'rgba(16, 185, 129, 0.12)',
+                  color: '#e11d48',
+                  background: 'rgba(225, 29, 72, 0.08)',
                   padding: '4px 12px',
                   borderRadius: '9999px',
                   marginBottom: '16px',
@@ -374,7 +374,7 @@ export default function ProjectEstimator() {
                   gap: '6px',
                 }}
               >
-                <span className="text-gradient-emerald">
+                <span className="text-gradient-red">
                   ${estimate.min.toLocaleString()} – ${estimate.max.toLocaleString()}
                 </span>
                 <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 500 }}>USD</span>
@@ -392,7 +392,7 @@ export default function ProjectEstimator() {
                   marginBottom: '20px',
                 }}
               >
-                <Clock size={16} color="#059669" />
+                <Clock size={16} color="#e11d48" />
                 <span>Estimated Delivery: {estimate.duration} Weeks</span>
               </div>
 
@@ -403,15 +403,15 @@ export default function ProjectEstimator() {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.82rem', color: '#475569' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Check size={14} color="#10b981" />
+                    <Check size={14} color="#e11d48" />
                     <span>100/100 Core Web Vitals audit &amp; guarantee</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Check size={14} color="#10b981" />
+                    <Check size={14} color="#e11d48" />
                     <span>Full source code ownership &amp; Git repository</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Check size={14} color="#10b981" />
+                    <Check size={14} color="#e11d48" />
                     <span>30-day post-launch warranty &amp; direct Slack channel</span>
                   </div>
                 </div>

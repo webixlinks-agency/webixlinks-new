@@ -96,12 +96,12 @@ export default function ContactPage() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-                  <MapPin size={18} color="#2563eb" />
+                  <MapPin size={18} color="#e11d48" />
                   <h4 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#0f172a' }}>
                     {hub.city}
                   </h4>
                 </div>
-                <div style={{ fontSize: '0.78rem', fontWeight: 500, color: '#2563eb', marginBottom: '8px', textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 500, color: '#e11d48', marginBottom: '8px', textTransform: 'uppercase' }}>
                   {hub.region}
                 </div>
                 <p style={{ fontSize: '0.86rem', color: '#64748b', marginBottom: '12px' }}>

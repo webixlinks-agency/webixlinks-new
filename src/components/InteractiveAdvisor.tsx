@@ -135,7 +135,7 @@ export default function InteractiveAdvisor() {
               background: '#090d16',
               color: '#ffffff',
               borderRadius: '9999px',
-              boxShadow: '0 12px 30px -4px rgba(9, 13, 22, 0.4), 0 0 20px rgba(16, 185, 129, 0.25)',
+              boxShadow: '0 12px 30px -4px rgba(9, 13, 22, 0.4), 0 0 20px rgba(225, 29, 72, 0.28)',
               border: '1px solid rgba(255, 255, 255, 0.15)',
               cursor: 'pointer',
               transition: 'all 0.2s ease',
@@ -147,7 +147,7 @@ export default function InteractiveAdvisor() {
                 width: '28px',
                 height: '28px',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+                background: 'linear-gradient(135deg, #e11d48 0%, #dc2626 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -160,7 +160,7 @@ export default function InteractiveAdvisor() {
               <div style={{ fontSize: '0.82rem', fontWeight: 600, lineHeight: 1.1 }}>
                 Interactive Scope Advisor
               </div>
-              <div style={{ fontSize: '0.68rem', color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div style={{ fontSize: '0.68rem', color: '#e11d48', display: 'flex', alignItems: 'center', gap: '4px' }}>
                 <span className="pulse-dot" style={{ width: '5px', height: '5px' }} />
                 <span>Simulate Architecture</span>
               </div>
@@ -181,7 +181,7 @@ export default function InteractiveAdvisor() {
             background: 'rgba(255, 255, 255, 0.98)',
             backdropFilter: 'blur(24px)',
             borderRadius: '24px',
-            boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.25), 0 0 30px rgba(16, 185, 129, 0.15)',
+            boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.25), 0 0 30px rgba(225, 29, 72, 0.16)',
             border: '1px solid rgba(15, 23, 42, 0.1)',
             zIndex: 100,
             display: 'flex',
@@ -206,7 +206,7 @@ export default function InteractiveAdvisor() {
                   width: '32px',
                   height: '32px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+                  background: 'linear-gradient(135deg, #e11d48 0%, #dc2626 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -217,7 +217,7 @@ export default function InteractiveAdvisor() {
               </div>
               <div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>AuraStack Scope Advisor</div>
-                <div style={{ fontSize: '0.7rem', color: '#10b981', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <div style={{ fontSize: '0.7rem', color: '#e11d48', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   <span className="pulse-dot" style={{ width: '5px', height: '5px' }} />
                   <span>Real-Time Architecture Engine</span>
                 </div>
@@ -275,7 +275,7 @@ export default function InteractiveAdvisor() {
                       transition: 'all 0.15s ease',
                     }}
                   >
-                    <Icon size={12} color="#059669" />
+                    <Icon size={12} color="#e11d48" />
                     <span>{preset.label}</span>
                   </button>
                 );
@@ -324,7 +324,7 @@ export default function InteractiveAdvisor() {
                         padding: '12px',
                         background: '#ffffff',
                         borderRadius: '12px',
-                        border: '1px solid rgba(16, 185, 129, 0.3)',
+                        border: '1px solid rgba(225, 29, 72, 0.3)',
                       }}
                     >
                       <div style={{ fontWeight: 600, color: '#090d16', fontSize: '0.88rem', marginBottom: '4px' }}>
@@ -343,7 +343,7 @@ export default function InteractiveAdvisor() {
                               fontSize: '0.68rem',
                               fontFamily: 'var(--font-mono)',
                               background: '#f1f5f9',
-                              color: '#059669',
+                              color: '#e11d48',
                               padding: '2px 6px',
                               borderRadius: '4px',
                               fontWeight: 500,
@@ -356,7 +356,7 @@ export default function InteractiveAdvisor() {
 
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.74rem', color: '#334155', fontWeight: 500, paddingTop: '6px', borderTop: '1px solid #f1f5f9' }}>
                         <span>⏱ Timeline: {msg.data.timeline}</span>
-                        <span style={{ color: '#059669' }}>✓ Verified Architecture</span>
+                        <span style={{ color: '#e11d48' }}>✓ Verified Architecture</span>
                       </div>
                     </div>
                   )}

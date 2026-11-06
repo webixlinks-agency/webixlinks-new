@@ -59,7 +59,7 @@ export default function Navbar() {
             borderRadius: '9999px',
             padding: '10px 24px',
             boxShadow: scrolled
-              ? '0 12px 36px -8px rgba(15, 23, 42, 0.08), 0 0 16px rgba(16, 185, 129, 0.06)'
+              ? '0 12px 36px -8px rgba(15, 23, 42, 0.08), 0 0 16px rgba(225, 29, 72, 0.08)'
               : '0 4px 20px rgba(15, 23, 42, 0.04)',
             transition: 'all 0.3s ease',
           }}
@@ -82,18 +82,18 @@ export default function Navbar() {
                 width: '36px',
                 height: '36px',
                 borderRadius: '10px',
-                background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+                background: 'linear-gradient(135deg, #e11d48 0%, #dc2626 50%, #f97316 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#ffffff',
-                boxShadow: '0 4px 14px rgba(16, 185, 129, 0.35)',
+                boxShadow: '0 4px 14px rgba(225, 29, 72, 0.35)',
               }}
             >
               <Sparkles size={18} />
             </div>
             <span>
-              Aura<strong style={{ color: '#059669', fontWeight: 600 }}>Stack</strong>
+              Aura<strong style={{ color: '#e11d48', fontWeight: 600 }}>Stack</strong>
             </span>
           </Link>
 
@@ -116,10 +116,10 @@ export default function Navbar() {
                     padding: '8px 14px',
                     fontSize: '0.88rem',
                     fontWeight: isActive ? 600 : 500,
-                    color: isActive ? '#059669' : '#334155',
+                    color: isActive ? '#e11d48' : '#334155',
                     borderRadius: '9999px',
-                    background: isActive ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
-                    border: isActive ? '1px solid rgba(16, 185, 129, 0.2)' : '1px solid transparent',
+                    background: isActive ? 'rgba(225, 29, 72, 0.08)' : 'transparent',
+                    border: isActive ? '1px solid rgba(225, 29, 72, 0.22)' : '1px solid transparent',
                     transition: 'all 0.15s ease',
                   }}
                 >
@@ -192,9 +192,9 @@ export default function Navbar() {
                     padding: '10px 16px',
                     fontSize: '0.92rem',
                     fontWeight: isActive ? 600 : 500,
-                    color: isActive ? '#059669' : '#090d16',
+                    color: isActive ? '#e11d48' : '#090d16',
                     borderRadius: '12px',
-                    background: isActive ? 'rgba(16, 185, 129, 0.08)' : 'transparent',
+                    background: isActive ? 'rgba(225, 29, 72, 0.08)' : 'transparent',
                   }}
                 >
                   {link.name}

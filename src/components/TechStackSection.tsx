@@ -262,25 +262,25 @@ export default function TechStackSection() {
           {blueprintTab === 'headless' && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }} className="blueprint-grid">
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#059669', textTransform: 'uppercase' }}>01 Content Source</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#e11d48', textTransform: 'uppercase' }}>01 Content Source</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>WordPress &amp; Headless CMS</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Custom Gutenberg blocks, ACF Pro, GraphQL API endpoints.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase' }}>02 Edge Webhooks</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#f97316', textTransform: 'uppercase' }}>02 Edge Webhooks</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Instant On-Demand ISR</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Edge revalidation in &lt;200ms when editors hit publish.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#10b981', textTransform: 'uppercase' }}>03 Presentation</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#e11d48', textTransform: 'uppercase' }}>03 Presentation</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Next.js 16 Edge Rendering</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Server components, fluid GSAP micro-interactions, zero layout shifts.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#8b5cf6', textTransform: 'uppercase' }}>04 Global CDN &amp; SEO</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#dc2626', textTransform: 'uppercase' }}>04 Global CDN &amp; SEO</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>100/100 Core Web Vitals</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Cloudflare edge caching, JSON-LD Schema, sub-second LCP globally.</div>
               </div>
@@ -290,25 +290,25 @@ export default function TechStackSection() {
           {blueprintTab === 'crm' && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }} className="blueprint-grid">
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#f59e0b', textTransform: 'uppercase' }}>01 Lead Intake</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#f97316', textTransform: 'uppercase' }}>01 Lead Intake</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Web Applications</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Next.js / React forms with instant client-side validation &amp; honeypots.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#059669', textTransform: 'uppercase' }}>02 Smart Routing</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#e11d48', textTransform: 'uppercase' }}>02 Smart Routing</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Automated Scoring</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Enrichment via ZoomInfo/Clearbit APIs and automatic ICP tiering.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase' }}>03 CRM Sync</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#dc2626', textTransform: 'uppercase' }}>03 CRM Sync</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Salesforce / HubSpot / Zoho</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Bi-directional object mapping, pipeline creation, and ownership alerts.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#10b981', textTransform: 'uppercase' }}>04 Sales Velocity</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#e11d48', textTransform: 'uppercase' }}>04 Sales Velocity</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Zero Drop-Off SLA</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Slack notifications, instant calendar dispatch, +340% velocity.</div>
               </div>
@@ -318,25 +318,25 @@ export default function TechStackSection() {
           {blueprintTab === 'fullstack' && (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }} className="blueprint-grid">
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase' }}>01 Frontend Client</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#e11d48', textTransform: 'uppercase' }}>01 Frontend Client</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>React 19 / Angular 18</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Type-safe state machines, reactive signals, 60fps micro-animations.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#059669', textTransform: 'uppercase' }}>02 API Gateways</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#f97316', textTransform: 'uppercase' }}>02 API Gateways</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Node / Laravel / Python</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>40K+ req/s with Octane, Fastify &amp; FastAPI async concurrency.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#f59e0b', textTransform: 'uppercase' }}>03 Data Tier</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#dc2626', textTransform: 'uppercase' }}>03 Data Tier</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>PostgreSQL &amp; Redis</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>ACID relational models with sub-millisecond memory caching.</div>
               </div>
 
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '14px', border: '1px solid rgba(15,23,42,0.06)' }}>
-                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#10b981', textTransform: 'uppercase' }}>04 DevOps Delivery</span>
+                <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#e11d48', textTransform: 'uppercase' }}>04 DevOps Delivery</span>
                 <div style={{ fontWeight: 500, fontSize: '0.92rem', color: '#090d16', margin: '4px 0' }}>Docker &amp; AWS/GCP</div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Zero-downtime rolling updates, automated testing, 99.99% uptime.</div>
               </div>
@@ -357,9 +357,9 @@ export default function TechStackSection() {
                   borderRadius: '9999px',
                   fontSize: '0.82rem',
                   fontWeight: isActive ? 600 : 450,
-                  color: isActive ? '#059669' : '#475569',
-                  background: isActive ? 'rgba(16, 185, 129, 0.12)' : '#ffffff',
-                  border: isActive ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(15, 23, 42, 0.08)',
+                  color: isActive ? '#e11d48' : '#475569',
+                  background: isActive ? 'rgba(225, 29, 72, 0.1)' : '#ffffff',
+                  border: isActive ? '1px solid rgba(225, 29, 72, 0.3)' : '1px solid rgba(15, 23, 42, 0.08)',
                   transition: 'all 0.15s ease',
                   cursor: 'pointer',
                 }}
@@ -400,8 +400,8 @@ export default function TechStackSection() {
                       fontSize: '0.68rem',
                       fontFamily: 'var(--font-mono)',
                       fontWeight: 500,
-                      color: '#059669',
-                      background: 'rgba(16, 185, 129, 0.1)',
+                      color: '#e11d48',
+                      background: 'rgba(225, 29, 72, 0.08)',
                       padding: '2px 8px',
                       borderRadius: '4px',
                     }}
@@ -417,7 +417,7 @@ export default function TechStackSection() {
                   {item.name}
                 </h4>
 
-                <p style={{ fontSize: '0.84rem', fontWeight: 500, color: '#059669', marginBottom: '8px' }}>
+                <p style={{ fontSize: '0.84rem', fontWeight: 500, color: '#e11d48', marginBottom: '8px' }}>
                   {item.highlight}
                 </p>
 

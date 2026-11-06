@@ -62,7 +62,7 @@ export default function MarqueeTicker({ speed = 25, reverse = false }: MarqueeTi
             }}
           >
             <span>{item}</span>
-            <span style={{ color: '#10b981', fontSize: '1rem' }}>✦</span>
+            <span style={{ color: '#e11d48', fontSize: '1rem' }}>✦</span>
           </div>
         ))}
       </div>

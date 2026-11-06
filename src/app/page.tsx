@@ -29,7 +29,7 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Layers size={16} color="#059669" />
+          <Layers size={16} color="#e11d48" />
           <span>View Detailed Services Hub &amp; Deliverables</span>
           <ArrowRight size={16} />
         </Link>
@@ -43,7 +43,7 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Cpu size={16} color="#059669" />
+          <Cpu size={16} color="#e11d48" />
           <span>Explore Complete Technology Matrix &amp; Architecture Guide</span>
           <ArrowRight size={16} />
         </Link>
@@ -57,7 +57,7 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Calculator size={16} color="#059669" />
+          <Calculator size={16} color="#e11d48" />
           <span>Open Full-Screen Cost Estimator &amp; Pricing FAQ</span>
           <ArrowRight size={16} />
         </Link>
@@ -74,7 +74,7 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Award size={16} color="#059669" />
+          <Award size={16} color="#e11d48" />
           <span>View All Client Case Studies &amp; Verified Results</span>
           <ArrowRight size={16} />
         </Link>
@@ -88,7 +88,7 @@ export default function Home() {
           className="btn-secondary"
           style={{ padding: '12px 28px', fontSize: '0.92rem' }}
         >
-          <Compass size={16} color="#059669" />
+          <Compass size={16} color="#e11d48" />
           <span>Read Our 4-Phase Engineering Framework</span>
           <ArrowRight size={16} />
         </Link>

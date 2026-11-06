@@ -44,18 +44,18 @@ export default function Footer() {
                   width: '34px',
                   height: '34px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
+                  background: 'linear-gradient(135deg, #e11d48 0%, #dc2626 50%, #f97316 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+                  boxShadow: '0 4px 12px rgba(225, 29, 72, 0.3)',
                 }}
               >
                 <Sparkles size={18} />
               </div>
               <span>
-                Aura<strong style={{ color: '#059669', fontWeight: 600 }}>Stack</strong>
+                Aura<strong style={{ color: '#e11d48', fontWeight: 600 }}>Stack</strong>
               </span>
             </Link>
 
@@ -70,12 +70,12 @@ export default function Footer() {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '6px 14px',
-                background: 'rgba(16, 185, 129, 0.1)',
+                background: 'rgba(225, 29, 72, 0.08)',
                 borderRadius: '9999px',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
+                border: '1px solid rgba(225, 29, 72, 0.25)',
                 fontSize: '0.74rem',
                 fontWeight: 500,
-                color: '#059669',
+                color: '#e11d48',
               }}
             >
               <span className="pulse-dot" style={{ width: '6px', height: '6px' }} />

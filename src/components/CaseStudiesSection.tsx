@@ -161,10 +161,10 @@ export default function CaseStudiesSection() {
                       padding: '4px 12px',
                       borderRadius: '9999px',
                       fontSize: '0.74rem',
-                      fontWeight: selectedCase === idx ? 700 : 500,
-                      color: selectedCase === idx ? '#059669' : '#64748b',
-                      background: selectedCase === idx ? 'rgba(16, 185, 129, 0.12)' : 'transparent',
-                      border: selectedCase === idx ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid transparent',
+                      fontWeight: selectedCase === idx ? 600 : 450,
+                      color: selectedCase === idx ? '#e11d48' : '#64748b',
+                      background: selectedCase === idx ? 'rgba(225, 29, 72, 0.1)' : 'transparent',
+                      border: selectedCase === idx ? '1px solid rgba(225, 29, 72, 0.3)' : '1px solid transparent',
                     }}
                   >
                     {study.number} {study.client.split(' ')[0]}
@@ -187,7 +187,7 @@ export default function CaseStudiesSection() {
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                     <span className="pill-number">{active.number}</span>
-                    <span style={{ fontSize: '0.78rem', fontWeight: 500, color: '#059669' }}>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 500, color: '#e11d48' }}>
                       {active.industry}
                     </span>
                   </div>
@@ -263,7 +263,7 @@ export default function CaseStudiesSection() {
                           {m.label}
                         </div>
                       </div>
-                      <CheckCircle2 size={20} color="#10b981" />
+                      <CheckCircle2 size={20} color="#e11d48" />
                     </div>
                   ))}
                 </div>
@@ -279,7 +279,7 @@ export default function CaseStudiesSection() {
             padding: '30px 36px',
             borderRadius: '24px',
             background: 'rgba(255, 255, 255, 0.94)',
-            border: '1px solid rgba(16, 185, 129, 0.25)',
+            border: '1px solid rgba(225, 29, 72, 0.2)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -288,12 +288,12 @@ export default function CaseStudiesSection() {
           }}
         >
           <div style={{ maxWidth: '780px' }}>
-            <div style={{ color: '#10b981', fontSize: '1.5rem', fontWeight: 600, marginBottom: '6px' }}>“</div>
+            <div style={{ color: '#e11d48', fontSize: '1.5rem', fontWeight: 600, marginBottom: '6px' }}>“</div>
             <p style={{ fontSize: '1.02rem', fontStyle: 'italic', color: '#1e293b', lineHeight: 1.6, marginBottom: '14px' }}>
               AuraStack Studios migrated our entire enterprise WordPress infrastructure to Headless Next.js in 6 weeks without losing a single ranking. Our Core Web Vitals score hit 100/100, and checkout conversion improved by 74%.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#059669', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.85rem' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #e11d48, #dc2626)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.85rem' }}>
                 JP
               </div>
               <div>
@@ -305,7 +305,7 @@ export default function CaseStudiesSection() {
 
           <div style={{ textAlign: 'right' }}>
             <div style={{ color: '#f59e0b', fontSize: '1rem', fontWeight: 600, marginBottom: '4px' }}>★★★★★ (5.0/5.0)</div>
-            <div style={{ fontSize: '0.76rem', color: '#059669', fontWeight: 500 }}>✓ Verified Clutch Enterprise Review</div>
+            <div style={{ fontSize: '0.76rem', color: '#e11d48', fontWeight: 500 }}>✓ Verified Clutch Enterprise Review</div>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ const HeroScene3D = dynamic(() => import('./3d/HeroScene3D'), {
         border: '1px solid rgba(15, 23, 42, 0.08)',
       }}
     >
-      <div style={{ color: '#059669', fontSize: '0.88rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <div style={{ color: '#e11d48', fontSize: '0.88rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '8px' }}>
         <span className="pulse-dot" style={{ width: '8px', height: '8px' }} />
         <span>Initializing Spatial 3D Engine...</span>
       </div>
@@ -75,8 +75,8 @@ export default function HeroSection() {
                   style={{
                     fontSize: '0.72rem',
                     fontWeight: 500,
-                    color: '#059669',
-                    background: 'rgba(16, 185, 129, 0.12)',
+                    color: '#e11d48',
+                    background: 'rgba(225, 29, 72, 0.1)',
                     padding: '2px 8px',
                     borderRadius: '9999px',
                   }}
@@ -114,7 +114,7 @@ export default function HeroSection() {
                 <strong style={{ color: '#090d16', fontWeight: 500 }}>CRM pipelines (Salesforce, HubSpot, Zoho)</strong>, develop fluid{' '}
                 <strong style={{ color: '#090d16', fontWeight: 500 }}>React, Next.js &amp; Angular frontends</strong>, engineer robust backends in{' '}
                 <strong style={{ color: '#090d16', fontWeight: 500 }}>Laravel, Node.js &amp; Python</strong>, and deliver ironclad{' '}
-                <strong style={{ color: '#059669', fontWeight: 500 }}>100/100 Core Web Vitals SEO</strong>.
+                <strong style={{ color: '#e11d48', fontWeight: 500 }}>100/100 Core Web Vitals SEO</strong>.
               </p>
 
               {/* CTA Button Group */}
@@ -133,7 +133,7 @@ export default function HeroSection() {
                 </Link>
 
                 <Link href="/services" className="btn-secondary">
-                  <Sparkles size={16} color="#059669" />
+                  <Sparkles size={16} color="#e11d48" />
                   <span>Explore Capabilities</span>
                 </Link>
               </div>
@@ -149,10 +149,10 @@ export default function HeroSection() {
                 }}
               >
                 <div style={{ display: 'flex' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#059669', color: '#fff', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff' }}>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#e11d48', color: '#fff', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff' }}>
                     W
                   </div>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#0284c7', color: '#fff', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-10px' }}>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#f97316', color: '#fff', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-10px' }}>
                     A
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#8b5cf6', color: '#fff', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid #fff', marginLeft: '-10px' }}>
@@ -198,7 +198,7 @@ export default function HeroSection() {
           >
             <div>
               <div style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.4rem)', fontWeight: 600, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
-                150<span style={{ color: '#10b981' }}>+</span>
+                150<span style={{ color: '#e11d48' }}>+</span>
               </div>
               <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#090d16', marginTop: '6px' }}>
                 Enterprise Builds
@@ -210,7 +210,7 @@ export default function HeroSection() {
 
             <div>
               <div style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.4rem)', fontWeight: 600, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
-                99.8<span style={{ color: '#10b981' }}>%</span>
+                99.8<span style={{ color: '#e11d48' }}>%</span>
               </div>
               <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#090d16', marginTop: '6px' }}>
                 Client Satisfaction
@@ -222,7 +222,7 @@ export default function HeroSection() {
 
             <div>
               <div style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.4rem)', fontWeight: 600, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
-                &lt;0.3<span style={{ color: '#10b981' }}>s</span>
+                &lt;0.3<span style={{ color: '#e11d48' }}>s</span>
               </div>
               <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#090d16', marginTop: '6px' }}>
                 Core Web Vitals LCP
@@ -234,7 +234,7 @@ export default function HeroSection() {
 
             <div>
               <div style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.4rem)', fontWeight: 600, color: '#090d16', letterSpacing: '-0.02em', lineHeight: 1 }}>
-                $45M<span style={{ color: '#10b981' }}>+</span>
+                $45M<span style={{ color: '#e11d48' }}>+</span>
               </div>
               <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#090d16', marginTop: '6px' }}>
                 Client Revenue Powered

@@ -41,7 +41,7 @@ const servicesData: ServiceItem[] = [
     title: 'WordPress & Headless CMS Engineering',
     subtitle: 'Blisteringly Fast Content Engines',
     icon: Globe,
-    accentColor: '#10b981',
+    accentColor: '#e11d48',
     metricBadge: '<0.3s PageSpeed LCP',
     description:
       'We elevate WordPress from traditional blogging to enterprise headless performance. Custom Gutenberg blocks, high-converting WooCommerce systems, and decoupled Next.js/React frontends powered by WPGraphQL.',
@@ -61,7 +61,7 @@ const servicesData: ServiceItem[] = [
     title: 'CRM Specialist & Automation Services',
     subtitle: 'Salesforce, HubSpot & Zoho Integrations',
     icon: Cpu,
-    accentColor: '#059669',
+    accentColor: '#f97316',
     metricBadge: 'Zero Lead Drop-off',
     description:
       'Transform fragmented data into automated revenue engines. Our CRM architects configure custom objects, bi-directional web application syncs, lead routing, and marketing automation for Salesforce, HubSpot, and Zoho.',
@@ -81,7 +81,7 @@ const servicesData: ServiceItem[] = [
     title: 'Modern Frontend & 3D Web Apps',
     subtitle: 'React.js, Next.js 16 & Angular v18+',
     icon: Code2,
-    accentColor: '#06b6d4',
+    accentColor: '#e11d48',
     metricBadge: 'Fluid 60FPS Micro-Interactions',
     description:
       'Building memorable, high-converting user interfaces with cutting-edge engineering. We leverage Next.js App Router for server-rendered speed, Angular signals for complex enterprise portals, and GSAP for micro-interactions.',
@@ -101,7 +101,7 @@ const servicesData: ServiceItem[] = [
     title: 'MERN & MEAN Stack Development',
     subtitle: 'End-to-End Scalable Architectures',
     icon: Layers,
-    accentColor: '#6366f1',
+    accentColor: '#dc2626',
     metricBadge: '100% Type-Safe Full-Stack',
     description:
       'Turnkey web applications built from ground zero. Whether your enterprise relies on React for rapid agility or Angular for strict type safety, our team builds robust MongoDB, Express, and Node foundations.',
@@ -121,7 +121,7 @@ const servicesData: ServiceItem[] = [
     title: 'Enterprise Backends: Laravel, Node & Python',
     subtitle: 'High-Concurrency Distributed Systems',
     icon: Server,
-    accentColor: '#059669',
+    accentColor: '#f97316',
     metricBadge: '40K+ Req/Sec Throughput',
     description:
       'Bulletproof server architectures engineered for extreme throughput. We construct distributed APIs using Laravel Octane, Node.js microservices, and Python FastAPI/Django with asynchronous task queues and Redis.',
@@ -141,7 +141,7 @@ const servicesData: ServiceItem[] = [
     title: 'Technical SEO & Core Web Vitals',
     subtitle: 'Search Dominance & Lighthouse 100/100',
     icon: TrendingUp,
-    accentColor: '#10b981',
+    accentColor: '#e11d48',
     metricBadge: '100/100 Lighthouse Guarantee',
     description:
       'Code-level search optimization that algorithms reward. We engineer programmatic SEO architectures, complete JSON-LD schema networks, automated sitemaps, and guarantee sub-second mobile rendering.',
@@ -280,8 +280,8 @@ export default function ServicesSection() {
                         style={{
                           fontSize: '0.72rem',
                           fontWeight: 500,
-                          color: '#059669',
-                          background: 'rgba(16, 185, 129, 0.1)',
+                          color: '#e11d48',
+                          background: 'rgba(225, 29, 72, 0.08)',
                           padding: '3px 10px',
                           borderRadius: '9999px',
                           display: 'flex',
@@ -289,7 +289,7 @@ export default function ServicesSection() {
                           gap: '4px',
                         }}
                       >
-                        <Zap size={11} color="#10b981" />
+                        <Zap size={11} color="#e11d48" />
                         <span>{service.metricBadge}</span>
                       </span>
                     </div>
@@ -301,11 +301,11 @@ export default function ServicesSection() {
                           width: '46px',
                           height: '46px',
                           borderRadius: '12px',
-                          background: 'rgba(16, 185, 129, 0.1)',
+                          background: 'rgba(225, 29, 72, 0.08)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: '#059669',
+                          color: '#e11d48',
                           flexShrink: 0,
                         }}
                       >
@@ -315,7 +315,7 @@ export default function ServicesSection() {
                         <h3 style={{ fontSize: '1.25rem', fontWeight: 550, color: '#090d16', lineHeight: 1.25 }}>
                           {service.title}
                         </h3>
-                        <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 500 }}>
+                        <div style={{ fontSize: '0.8rem', color: '#e11d48', fontWeight: 500 }}>
                           {service.subtitle}
                         </div>
                       </div>
@@ -334,7 +334,7 @@ export default function ServicesSection() {
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         {service.deliverables.map((item, idx) => (
                           <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
-                            <CheckCircle2 size={15} color="#10b981" style={{ flexShrink: 0, marginTop: '3px' }} />
+                            <CheckCircle2 size={15} color="#e11d48" style={{ flexShrink: 0, marginTop: '3px' }} />
                             <span>{item}</span>
                           </div>
                         ))}
@@ -371,7 +371,7 @@ export default function ServicesSection() {
                         gap: '6px',
                         fontSize: '0.84rem',
                         fontWeight: 500,
-                        color: '#059669',
+                        color: '#e11d48',
                       }}
                     >
                       <span>Request Engineering Scope</span>

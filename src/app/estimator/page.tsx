@@ -89,7 +89,7 @@ export default function EstimatorPage() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-                  <HelpCircle size={18} color="#2563eb" />
+                  <HelpCircle size={18} color="#e11d48" />
                   <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a' }}>
                     {faq.q}
                   </h4>

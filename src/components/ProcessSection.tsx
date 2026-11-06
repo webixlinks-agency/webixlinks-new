@@ -99,11 +99,11 @@ export default function ProcessSection() {
                         width: '42px',
                         height: '42px',
                         borderRadius: '12px',
-                        background: 'rgba(16, 185, 129, 0.1)',
+                        background: 'rgba(225, 29, 72, 0.08)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#059669',
+                        color: '#e11d48',
                       }}
                     >
                       <Icon size={20} />
@@ -120,7 +120,7 @@ export default function ProcessSection() {
                 </div>
 
                 <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(15, 23, 42, 0.06)' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 600, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 600, color: '#e11d48', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
                     Milestone Deliverable
                   </div>
                   <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#090d16' }}>

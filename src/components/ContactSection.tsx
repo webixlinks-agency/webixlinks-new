@@ -61,7 +61,7 @@ export default function ContactSection() {
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#059669', '#10b981', '#06b6d4', '#4f46e5'],
+          colors: ['#e11d48', '#dc2626', '#f43f5e', '#f97316'],
         });
       } catch (err) {
         // Fallback gracefully
@@ -113,7 +113,7 @@ export default function ContactSection() {
                   gap: '8px',
                   fontSize: '0.82rem',
                   fontWeight: 500,
-                  color: '#10b981',
+                  color: '#e11d48',
                   marginBottom: '16px',
                 }}
               >
@@ -122,8 +122,8 @@ export default function ContactSection() {
                     width: '8px',
                     height: '8px',
                     borderRadius: '50%',
-                    backgroundColor: '#10b981',
-                    boxShadow: '0 0 8px #10b981',
+                    backgroundColor: '#e11d48',
+                    boxShadow: '0 0 8px #e11d48',
                   }}
                 />
                 Lead Architects On Duty • Average Response: &lt; 2 Hours
@@ -147,8 +147,8 @@ export default function ContactSection() {
                       width: '28px',
                       height: '28px',
                       borderRadius: '8px',
-                      background: 'rgba(37, 99, 235, 0.1)',
-                      color: '#2563eb',
+                      background: 'rgba(225, 29, 72, 0.08)',
+                      color: '#e11d48',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -175,8 +175,8 @@ export default function ContactSection() {
                       width: '28px',
                       height: '28px',
                       borderRadius: '8px',
-                      background: 'rgba(37, 99, 235, 0.1)',
-                      color: '#2563eb',
+                      background: 'rgba(225, 29, 72, 0.08)',
+                      color: '#e11d48',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -203,8 +203,8 @@ export default function ContactSection() {
                       width: '28px',
                       height: '28px',
                       borderRadius: '8px',
-                      background: 'rgba(37, 99, 235, 0.1)',
-                      color: '#2563eb',
+                      background: 'rgba(225, 29, 72, 0.08)',
+                      color: '#e11d48',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -236,13 +236,13 @@ export default function ContactSection() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                  <Mail size={18} color="#2563eb" />
+                  <Mail size={18} color="#e11d48" />
                   <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#1e293b' }}>
                     hello@aurastack.agency
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <PhoneCall size={18} color="#2563eb" />
+                  <PhoneCall size={18} color="#e11d48" />
                   <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#1e293b' }}>
                     +1 (800) 492-AURA
                   </span>
@@ -272,8 +272,8 @@ export default function ContactSection() {
                     width: '64px',
                     height: '64px',
                     borderRadius: '50%',
-                    background: 'rgba(16, 185, 129, 0.1)',
-                    color: '#10b981',
+                    background: 'rgba(225, 29, 72, 0.1)',
+                    color: '#e11d48',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -518,10 +518,10 @@ export default function ContactSection() {
                             alignItems: 'center',
                             gap: '8px',
                             transition: 'all 0.15s ease',
-                            background: isChecked ? 'rgba(37, 99, 235, 0.08)' : '#ffffff',
-                            color: isChecked ? '#2563eb' : '#475569',
+                            background: isChecked ? 'rgba(225, 29, 72, 0.08)' : '#ffffff',
+                            color: isChecked ? '#e11d48' : '#475569',
                             border: isChecked
-                              ? '1.5px solid #2563eb'
+                              ? '1.5px solid #e11d48'
                               : '1px solid rgba(226, 232, 240, 0.9)',
                           }}
                         >
