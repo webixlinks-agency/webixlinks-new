@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowUpRight, Sparkles, ShieldCheck } from 'lucide-react';
 
@@ -64,37 +65,29 @@ export default function Navbar() {
             transition: 'all 0.3s ease',
           }}
         >
-          {/* Brand Logo & Tag */}
+          {/* Brand Logo with Official Webixlinks Asset */}
           <Link
             href="/"
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
-              fontWeight: 600,
-              fontSize: '1.22rem',
-              letterSpacing: '-0.025em',
-              color: '#090d16',
+              textDecoration: 'none',
             }}
           >
-            <div
+            <Image
+              src="/logo/webixlinks.webp"
+              alt="Webixlinks"
+              width={170}
+              height={32}
+              priority
               style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '10px',
-                background: 'linear-gradient(135deg, #e11d48 0%, #dc2626 50%, #f97316 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                boxShadow: '0 4px 14px rgba(225, 29, 72, 0.35)',
+                height: '32px',
+                width: 'auto',
+                objectFit: 'contain',
+                display: 'block',
               }}
-            >
-              <Sparkles size={18} />
-            </div>
-            <span>
-              Aura<strong style={{ color: '#e11d48', fontWeight: 600 }}>Stack</strong>
-            </span>
+            />
           </Link>
 
           {/* Desktop Nav Links */}

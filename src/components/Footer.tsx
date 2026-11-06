@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Sparkles, Shield, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 
 export default function Footer() {
@@ -30,33 +31,25 @@ export default function Footer() {
             <Link
               href="/"
               style={{
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
                 gap: '10px',
-                fontWeight: 600,
-                fontSize: '1.25rem',
-                color: '#090d16',
                 marginBottom: '14px',
+                textDecoration: 'none',
               }}
             >
-              <div
+              <Image
+                src="/logo/webixlinks.webp"
+                alt="Webixlinks"
+                width={175}
+                height={34}
                 style={{
-                  width: '34px',
                   height: '34px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #e11d48 0%, #dc2626 50%, #f97316 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff',
-                  boxShadow: '0 4px 12px rgba(225, 29, 72, 0.3)',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'block',
                 }}
-              >
-                <Sparkles size={18} />
-              </div>
-              <span>
-                Aura<strong style={{ color: '#e11d48', fontWeight: 600 }}>Stack</strong>
-              </span>
+              />
             </Link>
 
             <p style={{ fontSize: '0.86rem', color: '#64748b', lineHeight: 1.6, marginBottom: '20px' }}>
@@ -185,7 +178,7 @@ export default function Footer() {
             gap: '12px',
           }}
         >
-          <div>© 2026 AuraStack Studios. Engineered for performance &amp; scale.</div>
+          <div>© 2026 Webixlinks. Engineered for performance &amp; scale.</div>
           <div style={{ display: 'flex', gap: '20px' }}>
             <span>SOC2 Type II Compliant</span>
             <span>WCAG 2.1 AA Accessible</span>

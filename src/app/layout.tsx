@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "AuraStack Studio | Premier 3D Web, CMS & CRM Engineering Agency",
+  title: "Webixlinks | Premier 3D Web, CMS & CRM Engineering Agency",
   description:
     "High-velocity digital engineering agency specializing in WordPress & Headless CMS, CRM solutions (Salesforce, HubSpot, Zoho), Full-Stack MERN/MEAN apps, enterprise backends (Laravel, Node.js, Python), and Technical SEO.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Python Django FastAPI",
     "Technical SEO",
   ],
-  authors: [{ name: "AuraStack Studios" }],
+  authors: [{ name: "Webixlinks" }],
 };
 
 export default function RootLayout({

@@ -290,7 +290,7 @@ export default function CaseStudiesSection() {
           <div style={{ maxWidth: '780px' }}>
             <div style={{ color: '#e11d48', fontSize: '1.5rem', fontWeight: 600, marginBottom: '6px' }}>“</div>
             <p style={{ fontSize: '1.02rem', fontStyle: 'italic', color: '#1e293b', lineHeight: 1.6, marginBottom: '14px' }}>
-              AuraStack Studios migrated our entire enterprise WordPress infrastructure to Headless Next.js in 6 weeks without losing a single ranking. Our Core Web Vitals score hit 100/100, and checkout conversion improved by 74%.
+              Webixlinks migrated our entire enterprise WordPress infrastructure to Headless Next.js in 6 weeks without losing a single ranking. Our Core Web Vitals score hit 100/100, and checkout conversion improved by 74%.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #e11d48, #dc2626)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '0.85rem' }}>

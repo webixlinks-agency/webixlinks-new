@@ -575,7 +575,7 @@ export default function HeroScene3D() {
                     </div>
                     <div style={{ fontSize: '0.78rem', color: '#1e293b' }}>
                       <div style={{ fontWeight: 550, marginBottom: '4px', color: '#090d16' }}>
-                        AuraStack Studios Launches Scalable Engine
+                        Webixlinks Launches Scalable Engine
                       </div>
                       <p style={{ fontSize: '0.72rem', color: '#64748b', marginBottom: '8px' }}>
                         Server Components hydrated. TTFB 18ms. Zero client hydration delays.
